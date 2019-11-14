@@ -36,7 +36,7 @@ public class Principal extends HttpServlet {
                             field.getIdpadre()==Integer.parseInt(op)).collect(Collectors.toList());
                     request.setAttribute("PermisosAsignados", PermisosAsignados);
                 }
-                request.getRequestDispatcher("Configuracion/consulta_usuarios.jsp").forward(request, response);
+                request.getRequestDispatcher("principal.jsp").forward(request, response);
             }
         }else if (accion.equals("logout")){
             logout(request, response);
