@@ -107,5 +107,6 @@ create table historialTicket(
 )
 go
 
+alter table  ticket  add Tipo varchar(30) ;
 
 
