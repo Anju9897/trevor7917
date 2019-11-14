@@ -21,11 +21,13 @@ public class Ticket {
     private int idestado;
     @NotNull
     private String prioridad;
+    @NotNull
+    private String Tipo ;
 
     public Ticket() {
     }
 
-    public Ticket(int idticket, String descripcion, String u_encargado, String u_reporta, String fecha_emision, int idestado, String prioridad) {
+    public Ticket(int idticket, String descripcion, String u_encargado, String u_reporta, String fecha_emision, int idestado, String prioridad, String Tipo) {
         this.idticket = idticket;
         this.descripcion = descripcion;
         this.u_encargado = u_encargado;
@@ -33,6 +35,7 @@ public class Ticket {
         this.fecha_emision = fecha_emision;
         this.idestado = idestado;
         this.prioridad = prioridad;
+        this.Tipo = Tipo;
     }
 
     public int getIdticket() {
@@ -90,5 +93,14 @@ public class Ticket {
     public void setPrioridad(String prioridad) {
         this.prioridad = prioridad;
     }
+
+    public String getTipo() {
+        return Tipo;
+    }
+
+    public void setTipo(String Tipo) {
+        this.Tipo = Tipo;
+    }
+
 
 }
