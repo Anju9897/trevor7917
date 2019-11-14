@@ -3,14 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/MG/Documents/GitHub/trevor7917/Trevor2.0/src/java/com/trevor/entidad/Ticket.java</file>
-            <file>file:/C:/Users/MG/Documents/GitHub/trevor7917/Trevor2.0/web/old/Vision_agente.jsp</file>
-            <file>file:/C:/Users/MG/Documents/GitHub/trevor7917/Trevor2.0/web/Configuracion/consulta_usuarios.jsp</file>
-            <file>file:/C:/Users/MG/Documents/GitHub/trevor7917/Trevor2.0/web/old/Bandeja_usuario.jsp</file>
-            <file>file:/C:/Users/MG/Documents/GitHub/trevor7917/Trevor2.0/web/old/bandeja.jsp</file>
-            <file>file:/C:/Users/MG/Documents/GitHub/trevor7917/Trevor2.0/web/Bandeja/Bandeja.jsp</file>
-            <file>file:/C:/Users/MG/Documents/GitHub/trevor7917/Trevor2.0/web/Notificaciones/Notificaciones.jsp</file>
-            <file>file:/C:/Users/MG/Documents/GitHub/trevor7917/Trevor2.0/web/Configuracion/newjsp.jsp</file>
+            <file>file:/C:/Users/Anju9/OneDrive/Documentos/GitHub/trevor7917/Trevor2.0/src/java/com/trevor/control/Login.java</file>
+            <file>file:/C:/Users/Anju9/OneDrive/Documentos/GitHub/trevor7917/Trevor2.0/src/java/com/trevor/control/Configuracion.java</file>
+            <file>file:/C:/Users/Anju9/OneDrive/Documentos/GitHub/trevor7917/Trevor2.0/src/java/com/trevor/control/Principal.java</file>
+            <file>file:/C:/Users/Anju9/OneDrive/Documentos/GitHub/trevor7917/Trevor2.0/src/java/com/trevor/entidad/permiso.java</file>
+            <file>file:/C:/Users/Anju9/OneDrive/Documentos/GitHub/trevor7917/Trevor2.0/web/principal.jsp</file>
+            <file>file:/C:/Users/Anju9/OneDrive/Documentos/GitHub/trevor7917/Trevor2.0/src/java/com/trevor/control/About.java</file>
+            <file>file:/C:/Users/Anju9/OneDrive/Documentos/GitHub/trevor7917/Trevor2.0/src/java/com/trevor/entidad/Ticket.java</file>
         </group>
     </open-files>
 </project-private>
