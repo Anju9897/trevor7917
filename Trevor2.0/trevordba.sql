@@ -109,5 +109,4 @@ go
 
 alter table  ticket  add Tipo varchar(30) ;
 
-
--- alter table  ticket  add Asunto varchar(50) ;
+alter table  ticket  add Asunto varchar(50) ;
