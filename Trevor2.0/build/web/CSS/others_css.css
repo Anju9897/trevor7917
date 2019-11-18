@@ -1,0 +1,68 @@
+
+/* para busqueda en consultar_usuarios*/
+.busqueda{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.busqueda h1{
+    color: #274b58;
+    font-size: 35px;
+}
+
+input[type="text"]{
+    padding: 7px;
+    border-radius: 15px;
+}
+
+input[type="submit"]{
+    background-color: transparent;
+}
+
+.buttons{
+    font-weight: bold;
+    font-size: 20px;
+    color: #bde5ce;
+    border: 3px solid #bde5ce;
+    border-radius: 15px;
+    padding: 7px;
+    text-decoration: none;
+    margin-left: 5px;
+}
+
+.buttons:hover{
+    cursor: pointer;
+    background-color: #bde5ce;
+    border-color: #6fb1b4;
+    color: #6fb1b4;
+    border: 3px solid;
+    transition: 0.5s;
+}
+
+/*para el boton de redactar mensaje en consultar_mensaje*/
+
+.stiki>a{ 
+    position: absolute;
+    border: 5px solid #bde5ce;
+    border-radius: 100%;
+    background-color: #bde5ce;
+    font-size: 40px;
+    list-style: none;
+    text-decoration: none;
+    padding: 10px;
+    right: 15px;
+    color: #274b58;
+    bottom: 20px;
+}
+
+.stiki>a:hover{
+    border: 5px solid #274b58;
+    color: #bde5ce;
+    background-color: #274b58;
+    transition: 0.5s;
+}
+
+
+
+
