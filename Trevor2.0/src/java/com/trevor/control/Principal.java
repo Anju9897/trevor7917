@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.servlet.jsp.PageContext;
 
 @WebServlet(name = "Principal", urlPatterns = {"/Principal"})
 public class Principal extends HttpServlet {
@@ -36,7 +37,11 @@ public class Principal extends HttpServlet {
                             field.getIdpadre()==Integer.parseInt(op)).collect(Collectors.toList());
                     request.setAttribute("PermisosAsignados", PermisosAsignados);
                 }
-                request.getRequestDispatcher("principal.jsp").forward(request, response);
+                if( (int) request.getSession().getAttribute("Rol") == 1){
+                    response.sendRedirect(request.getContextPath()+"/Configuracion");
+                }else{
+                    response.sendRedirect(request.getContextPath()+"/Bandeja");
+                }
             }
         }else if (accion.equals("logout")){
             logout(request, response);

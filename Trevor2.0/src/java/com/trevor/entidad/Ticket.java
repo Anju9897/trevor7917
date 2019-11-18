@@ -1,8 +1,9 @@
 package com.trevor.entidad;
 
 import com.trevor.anotaciones.*;
+import java.util.Date;
 
-@Entity(table = "ticket")
+@Entity(table = "Ticket")
 public class Ticket {
 
     @PrimaryKey
@@ -16,20 +17,18 @@ public class Ticket {
     @NotNull
     private String u_reporta;
     @NotNull
-    private String fecha_emision;
+    private Date fecha_emision;
     @NotNull
     private int idestado;
     @NotNull
     private String prioridad;
-    @NotNull
-    private String Tipo ;
-       @NotNull
-    private String Asunto ;
+    private String Tipo;
+    private String Asunto;
 
     public Ticket() {
     }
 
-    public Ticket(int idticket, String descripcion, String u_encargado, String u_reporta, String fecha_emision, int idestado, String prioridad, String Tipo, String Asunto) {
+    public Ticket(int idticket, String descripcion, String u_encargado, String u_reporta, Date fecha_emision, int idestado, String prioridad, String Tipo, String Asunto) {
         this.idticket = idticket;
         this.descripcion = descripcion;
         this.u_encargado = u_encargado;
@@ -73,11 +72,11 @@ public class Ticket {
         this.u_reporta = u_reporta;
     }
 
-    public String getFecha_emision() {
+    public Date getFecha_emision() {
         return fecha_emision;
     }
 
-    public void setFecha_emision(String fecha_emision) {
+    public void setFecha_emision(Date fecha_emision) {
         this.fecha_emision = fecha_emision;
     }
 
@@ -112,6 +111,5 @@ public class Ticket {
     public void setAsunto(String Asunto) {
         this.Asunto = Asunto;
     }
-       
-       
+
 }

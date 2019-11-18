@@ -1,8 +1,6 @@
 <%@include file="/_menu.jsp" %>
 
-                <div id="principal">
-                    
-                <%@include file="barra_lateral.jsp" %>
+<!--                <div id="principal">
                     <div class="col-12 opcion2" id="mc">
                         <p class="col-12" ><b>McLaren</b></p>
                         <br><br>
@@ -45,6 +43,8 @@
                         <a href="Principal?accion=Tickets"><button class="icon icon-ticket" title="Emitir Ticket"></button></a>
                     </div>
                 </div>
-            </div>
+            </div>-->
+
+${tabla}
 
 <%@include file="/_down.jsp" %>

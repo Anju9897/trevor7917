@@ -13,13 +13,10 @@
         <link href="CSS/menus.css" rel="stylesheet" type="text/css">
         <link href="CSS/cols.css" rel="stylesheet" type="text/css">
         <link href="CSS/tabla.css" rel="stylesheet" type="text/css">
+        <link href="CSS/others_css.css" rel="stylesheet" type="text/css">
     </head>
 
     <body>
-<!--        <div id="sesion">            
-            <h2>Usuario: <%= sesion.getAttribute("Nombre")%>
-            </h2>            
-        </div>        -->
         <div class="col-r nav">
             <ul>
                 <c:forEach var="menu" items="${MenuPrincipal}">

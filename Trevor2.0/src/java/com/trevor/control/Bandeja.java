@@ -3,6 +3,7 @@ package com.trevor.control;
 import com.trevor.conexion.Conexion;
 import com.trevor.conexion.ConexionPool;
 import com.trevor.entidad.Menu;
+import com.trevor.entidad.Ticket;
 import com.trevor.entidad.Usuario;
 import com.trevor.operaciones.Operaciones;
 import com.trevor.utilerias.Hash;
@@ -10,7 +11,11 @@ import com.trevor.utilerias.Tabla;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -21,9 +26,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.servlet.jsp.PageContext;
 
-@WebServlet(name = "Configuracion", urlPatterns = "{/Configuracion}")
-public class Configuracion extends HttpServlet {
+@WebServlet(name = "Bandeja", urlPatterns = "{/Bandeja}")
+public class Bandeja extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -37,6 +43,13 @@ public class Configuracion extends HttpServlet {
             request.setAttribute("PermisosAsignados", PermisosAsignados);
         }
         String accion = request.getParameter("accion");
+        List<String> problema = new ArrayList<>();
+        problema.add("Software");
+        problema.add("Hardware");
+        problema.add("Conexion");
+        problema.add("Accidente");
+        problema.add("Fallo Sistema");
+        s.setAttribute("problema", problema);
         if (accion == null) {
             if (request.getSession().getAttribute("resultado") != null) {
                 request.setAttribute("resultado", request.getSession().getAttribute("resultado"));
@@ -48,52 +61,52 @@ public class Configuracion extends HttpServlet {
                 Operaciones.abrirConexion(conn);
                 Operaciones.iniciarTransaccion();
                 String sql = "";
-                if (request.getParameter("txtBusqueda") != null) {
-                    sql = "select idUsuario,Nombres,Apellidos,email,telefono,idrol from Usuario where nombres like ?";
-                } else {
-                    sql = "select idUsuario,Nombres,Apellidos,email,telefono,idrol from Usuario order by idrol asc";
-                }
-                String[][] usuario = null;
-                if (request.getParameter("txtBusqueda") != null) {
+                int rol = (int) request.getSession().getAttribute("Rol");
+                String[][] mensaje = null;
+                String[] cabeceras = null;
+                if(rol == 1){
+                    sql = "select idticket,asunto,descripcion,u_reporta,fecha_emision from Ticket where idestado = ? and u_encargado like ?";
                     List<Object> params = new ArrayList<>();
-                    params.add("%" + request.getParameter("txtBusqueda").toString() + "%");
-                    usuario = Operaciones.consultar(sql, params);
-                } else {
-                    usuario = Operaciones.consultar(sql, null);
+                    params.add(1);
+                    params.add("%ninguno%");
+                    mensaje = Operaciones.consultar(sql, params);
+                    cabeceras = new String[]{"id Mensaje", "Asunto", "Descripcion","Usuario","Fecha Envio"};
                 }
-
-                //declaracion de cabeceras a usar en la tabla HTML     
-                String[] cabeceras = new String[]{"ID Usuario", "Nombre", "Apellido", "Email", "Telefono","idRol"};
+                else{
+                    sql = "select asunto,descripcion,fecha_emision from Ticket where u_reporta like ? and idestado = ?";
+                    List<Object> params = new ArrayList<>();
+                    params.add("%" + request.getSession().getAttribute("Usuario").toString()+ "%");
+                    params.add(1);
+                    mensaje = Operaciones.consultar(sql, params);
+                    //declaracion de cabeceras a usar en la tabla HTML   
+                    cabeceras = new String[]{"Asunto", "Descripcion", "Fecha Envio"};
+                }
                 //variable de tipo Tabla para generar la Tabla HTML        
-                Tabla tab = new Tabla(usuario, //array que contiene los datos     
+                Tabla tab = new Tabla(mensaje, //array que contiene los datos     
                         "75%", //ancho de la tabla px | %    
                         Tabla.STYLE.OTRO, //estilo de la tabla        
                         Tabla.ALIGN.CENTER, // alineacion de la tabla      
                         cabeceras); //array con las cabeceras de la tabla 
                 //boton eliminar          
-                tab.setEliminable(true);
+                tab.setEliminable(false);
                 //boton actualizar             
-                tab.setModificable(true);
+                tab.setModificable(false);
                 //url del proyecto          
                 tab.setPageContext(request.getContextPath());
                 //pagina encargada de eliminar          
-                tab.setPaginaEliminable("/Configuracion?accion=eliminar");
+                tab.setPaginaEliminable("/Bandeja?accion=eliminar");
                 //pagina encargada de actualizacion     
-                tab.setPaginaModificable("/Configuracion?accion=modificar");
+                tab.setPaginaModificable("/Bandeja?accion=modificar");
                 //pagina encargada de seleccion para operaciones       
-                tab.setPaginaSeleccionable("/Configuracion?accion=modificar");
-                //icono para modificar y eliminar    
-                tab.setIconoModificable("imagen/pencil2.png");
-                tab.setIconoEliminable("imagen/bin.png");
+                tab.setPaginaSeleccionable("/Bandeja?accion=modificar");
                 //columnas seleccionables        
                 tab.setColumnasSeleccionables(new int[]{1});
                 //pie de tabla           
-                tab.setPie("Resultados");
+                tab.setPie("Mensajes");
                 //imprime la tabla en pantalla    
                 String tabla01 = tab.getTabla();
                 request.setAttribute("tabla", tabla01);
-                request.setAttribute("valor", request.getParameter("txtBusqueda"));
-                request.getRequestDispatcher("Configuracion/consulta_usuarios.jsp").forward(request, response);
+                request.getRequestDispatcher("Bandeja/consultar_mensajes.jsp").forward(request, response);
             } catch (Exception ex) {
                 try {
                     Operaciones.rollback();
@@ -107,17 +120,17 @@ public class Configuracion extends HttpServlet {
                     Logger.getLogger(Configuracion.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-            //response.sendRedirect(request.getContextPath() + "/Paises");
-        } else if (accion.equals("insertar")) {
-            request.getRequestDispatcher("Configuracion/insertar_modificar.jsp").forward(request, response);
+            response.sendRedirect(request.getContextPath() + "/Bandeja");
+        } else if (accion.equals("nuevo")) {
+            request.getRequestDispatcher("Bandeja/nuevo_mensaje.jsp").forward(request, response);
         } else if (accion.equals("modificar")) {
             try {
                 Conexion conn = new ConexionPool();
                 conn.conectar();
                 Operaciones.abrirConexion(conn);
                 Operaciones.iniciarTransaccion();
-                Usuario p = Operaciones.get(request.getParameter("id"), new Usuario());
-                request.setAttribute("usuario", p);
+                Ticket p = Operaciones.get(request.getParameter("id"), new Ticket());
+                request.setAttribute("mensaje", p);
                 Operaciones.commit();
             } catch (Exception ex) {
                 try {
@@ -132,7 +145,7 @@ public class Configuracion extends HttpServlet {
                     Logger.getLogger(Configuracion.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-            request.getRequestDispatcher("Configuracion/insertar_modificar.jsp").forward(request, response);
+            request.getRequestDispatcher("Bandeja/insertar_modificar.jsp").forward(request, response);
         } else if (accion.equals("eliminar")) {
 
             try {
@@ -151,68 +164,54 @@ public class Configuracion extends HttpServlet {
                 try {
                     Operaciones.rollback();
                 } catch (SQLException ex1) {
-                    Logger.getLogger(Configuracion.class.getName()).log(Level.SEVERE, null, ex1);
+                    Logger.getLogger(Bandeja.class.getName()).log(Level.SEVERE, null, ex1);
                 }
                 request.getSession().setAttribute("resultado", 0);
             } finally {
                 try {
                     Operaciones.cerrarConexion();
                 } catch (SQLException ex) {
-                    Logger.getLogger(Configuracion.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(Bandeja.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-            response.sendRedirect(request.getContextPath() + "/Configuracion");
+            response.sendRedirect(request.getContextPath() + "/Bandeja");
         }
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String accion = request.getParameter("accion");
+        String usuario = request.getParameter("usuario");
+        String asunto = request.getParameter("asunto");
+        String tipo = request.getParameter("problema");
+        Date date = null;
+        try {
+            date = new SimpleDateFormat("yyyy-MM-dd").parse(new Date().toString());
+        } catch (ParseException ex) {
+            Logger.getLogger(Bandeja.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        String descripcion = request.getParameter("Descripcion");
         switch (accion) {
-            case "insertar_modificar": {
-                String idusuario = request.getParameter("txtidUsuario");
-                String Nombre = request.getParameter("txtnewname");
-                String Apellido = request.getParameter("txtnewLast");
-                String Telefono = request.getParameter("txtTelefono");
-                String email = request.getParameter("txtMail");
-                String pass = request.getParameter("txtPass");
-                String pass2 = request.getParameter("txtPass2");
+            case "Enviar": {
                 try {
                     Conexion conn = new ConexionPool();
                     conn.conectar();
                     Operaciones.abrirConexion(conn);
                     Operaciones.iniciarTransaccion();
-                    if (idusuario != null && !idusuario.equals("")) {
-                        Usuario p = new Usuario();
-                        p.setIdusuario(idusuario);
-                        p.setNombres(Nombre);
-                        p.setApellidos(Apellido);
-                        p.setEmail(email);
-                        p.setTelefono(Telefono);
-                        p = Operaciones.actualizar(p.getIdusuario(), p);
-                        if (p.getIdusuario() != null) {
+                    if (usuario != null && !usuario.equals("")) {
+                        Ticket t = new Ticket();
+                        t.setIdestado(1);
+                        t.setTipo(tipo);
+                        t.setAsunto(asunto);
+                        t.setDescripcion(descripcion);
+                        t.setFecha_emision(new Timestamp(date.getTime()));
+                        t.setU_reporta(usuario);
+                        t.setU_encargado("ninguno");
+                        t = Operaciones.insertar(t);
+                        if (t.getU_reporta() != null) {
                             request.getSession().setAttribute("resultado", 1);
                         } else {
                             request.getSession().setAttribute("resultado", 0);
-                        }
-                    } else {
-                        if (Hash.generarHash(pass, Hash.SHA256).equals(Hash.generarHash(pass2, Hash.SHA256))) {
-                            Usuario p = new Usuario();
-                            p.setIdusuario(idusuario);
-                            p.setNombres(Nombre);
-                            p.setApellidos(Apellido);
-                            p.setEmail(email);
-                            p.setTelefono(Telefono);
-                            p.setIdrol(2);
-                            p.setClave(Hash.generarHash(pass, Hash.SHA256));
-                            p.setIdarea(2);
-                            p.setIdcargo(4);
-                            p = Operaciones.insertar(p);
-                            if (p.getIdusuario() != null) {
-                                request.getSession().setAttribute("resultado", 1);
-                            } else {
-                                request.getSession().setAttribute("resultado", 0);
-                            }
                         }
                     }
                     Operaciones.commit();
@@ -220,14 +219,14 @@ public class Configuracion extends HttpServlet {
                     try {
                         Operaciones.rollback();
                     } catch (SQLException ex1) {
-                        Logger.getLogger(Configuracion.class.getName()).log(Level.SEVERE, null, ex1);
+                        Logger.getLogger(Bandeja.class.getName()).log(Level.SEVERE, null, ex1);
                     }
                     request.getSession().setAttribute("resultado", 2);
                 } finally {
                     try {
                         Operaciones.cerrarConexion();
                     } catch (SQLException ex) {
-                        Logger.getLogger(Configuracion.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(Bandeja.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
                 response.sendRedirect("Principal");

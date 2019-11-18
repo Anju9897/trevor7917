@@ -212,6 +212,7 @@ img{
         background-color: #bde5ce;
         color: #6fb1b4;
         border: 0;
+        display: stiky;
     }
 
     #sesion:hover{
