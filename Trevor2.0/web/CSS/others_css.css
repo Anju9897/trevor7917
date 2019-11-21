@@ -62,7 +62,10 @@ input[type="submit"]{
     background-color: #274b58;
     transition: 0.5s;
 }
-
+/* para la pagina de vision */
+.fondovision{
+    background-color:#3a727f;
+}
 
 
 
