@@ -1,0 +1,83 @@
+package com.trevor.entidad;
+
+import com.trevor.anotaciones.*;
+
+@Entity(table = "historialTicket")
+public class HistorialTicket {
+
+    @NotNull
+    @PrimaryKey
+    @AutoIncrement
+    private int idhistorial;
+    @NotNull
+    private int idticket;
+    @NotNull
+    private String u_reporta;
+    @NotNull
+    private String observaciones;
+    @NotNull
+    private String fecha_final;
+    @NotNull
+    private int idaccion;
+
+    public HistorialTicket() {
+    }
+
+    public HistorialTicket(int idhistorial, int idticket, String u_reporta, String observaciones, String fecha_final, int idaccion) {
+        this.idhistorial = idhistorial;
+        this.idticket = idticket;
+        this.u_reporta = u_reporta;
+        this.observaciones = observaciones;
+        this.fecha_final = fecha_final;
+        this.idaccion = idaccion;
+    }
+
+    public int getIdhistorial() {
+        return idhistorial;
+    }
+
+    public void setIdhistorial(int idhistorial) {
+        this.idhistorial = idhistorial;
+    }
+
+    public int getIdticket() {
+        return idticket;
+    }
+
+    public void setIdticket(int idticket) {
+        this.idticket = idticket;
+    }
+
+    public String getU_reporta() {
+        return u_reporta;
+    }
+
+    public void setU_reporta(String u_reporta) {
+        this.u_reporta = u_reporta;
+    }
+
+    public String getObservaciones() {
+        return observaciones;
+    }
+
+    public void setObservaciones(String observaciones) {
+        this.observaciones = observaciones;
+    }
+
+    public String getFecha_final() {
+        return fecha_final;
+    }
+
+    public void setFecha_final(String fecha_final) {
+        this.fecha_final = fecha_final;
+    }
+
+    public int getIdaccion() {
+        return idaccion;
+    }
+
+    public void setIdaccion(int idaccion) {
+        this.idaccion = idaccion;
+    }
+
+}
