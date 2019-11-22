@@ -63,6 +63,30 @@ input[type="submit"]{
     transition: 0.5s;
 }
 
+#nomessage{
+    text-align: center;
+    font-size: 50px;
+    color: #B6D59A;
+    position: relative;
+}
 
 
+/*  MENSAJE */ 
+
+.fondoK{
+    background-color: #bde5ce;
+    border-radius: 15px;
+    position: absolute; 
+   right: 10%; 
+   bottom: 60%;
+   font-size: 25px;
+   font-family: initial;
+
+}
+.mov{
+    position: absolute;
+    
+    bottom: 1px;
+    right: 90px !important;
+}
 
