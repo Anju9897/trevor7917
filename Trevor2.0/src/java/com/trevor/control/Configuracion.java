@@ -62,6 +62,8 @@ public class Configuracion extends HttpServlet {
                 } else {
                     usuario = Operaciones.consultar(sql, null);
                 }
+                List<rol> r = Operaciones.getTodos(new rol());
+                request.setAttribute("roles", r);
 
                 //declaracion de cabeceras a usar en la tabla HTML     
                 String[] cabeceras = new String[]{"ID Usuario", "Nombre", "Apellido", "Email", "Telefono","idRol"};
@@ -96,9 +98,7 @@ public class Configuracion extends HttpServlet {
                 request.setAttribute("valor", request.getParameter("txtBusqueda"));
                 request.getRequestDispatcher("Configuracion/consulta_usuarios.jsp").forward(request, response);
                 
-                List<rol> r = Operaciones.getTodos(new rol());
-                
-                request.setAttribute("roles", r);
+                Operaciones.commit();
                 
             } catch (Exception ex) {
                 try {

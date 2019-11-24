@@ -11,8 +11,8 @@
         <input type="text" placeholder="Telefono" name="txtTelefono" value="${usuario.telefono}"><br>
         
         <select name="sltrol" >
-            <c:forEach items="${rol}" var="r">
-                <option value="${r.idrol}">${r.nombre}</option>
+            <c:forEach items="${roles}" var="r">
+                <option value="${r.idrol}">${r.rol}</option>
             </c:forEach>
         </select>
         
