@@ -85,7 +85,6 @@ input[type="submit"]{
 }
 .mov{
     position: absolute;
-    
     bottom: 1px;
     right: 90px !important;
 }
