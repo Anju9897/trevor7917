@@ -11,7 +11,7 @@
     font-size: 35px;
 }
 
-input[type="text"]{
+input[type="text"],input[type="email"]{
     padding: 7px;
     border-radius: 15px;
 }
@@ -87,5 +87,21 @@ input[type="submit"]{
     position: absolute;
     bottom: 1px;
     right: 90px !important;
+}
+
+/* para ver datos del usuario*/
+
+#usuarioform>form{
+    width: 50%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #bde5ce;
+    padding: 35px;
+    border-radius: 15px;
+    color: #274b58;
+    left: 75%;
+    bottom: 50%;
 }
 
