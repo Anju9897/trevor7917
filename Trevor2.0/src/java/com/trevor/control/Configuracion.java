@@ -4,6 +4,7 @@ import com.trevor.conexion.Conexion;
 import com.trevor.conexion.ConexionPool;
 import com.trevor.entidad.Menu;
 import com.trevor.entidad.Usuario;
+import com.trevor.entidad.rol;
 import com.trevor.operaciones.Operaciones;
 import com.trevor.utilerias.Hash;
 import com.trevor.utilerias.Tabla;
@@ -94,6 +95,11 @@ public class Configuracion extends HttpServlet {
                 request.setAttribute("tabla", tabla01);
                 request.setAttribute("valor", request.getParameter("txtBusqueda"));
                 request.getRequestDispatcher("Configuracion/consulta_usuarios.jsp").forward(request, response);
+                
+                List<rol> r = Operaciones.getTodos(new rol());
+                
+                request.setAttribute("roles", r);
+                
             } catch (Exception ex) {
                 try {
                     Operaciones.rollback();
