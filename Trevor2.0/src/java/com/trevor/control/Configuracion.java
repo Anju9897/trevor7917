@@ -52,7 +52,7 @@ public class Configuracion extends HttpServlet {
                 if (request.getParameter("txtBusqueda") != null) {
                     sql = "select u.idUsuario,u.Nombres,u.Apellidos,u.email,u.telefono,r.rol from Usuario u inner join rol r on (u.idrol = r.idrol) where nombres like ?";
                 } else {
-                    sql = "select idUsuario,Nombres,Apellidos,email,telefono,idrol from Usuario order by idrol asc";
+                    sql = "select u.idUsuario,u.Nombres,u.Apellidos,u.email,u.telefono,r.rol from Usuario u inner join rol r on (u.idrol = r.idrol) order by r.rol asc";
                 }
                 String[][] usuario = null;
                 if (request.getParameter("txtBusqueda") != null) {
@@ -66,7 +66,7 @@ public class Configuracion extends HttpServlet {
                 request.getSession().setAttribute("roles", r);
 
                 //declaracion de cabeceras a usar en la tabla HTML     
-                String[] cabeceras = new String[]{"ID Usuario", "Nombre", "Apellido", "Email", "Telefono","idRol"};
+                String[] cabeceras = new String[]{"ID Usuario", "Nombre", "Apellido", "Email", "Telefono","Rol"};
                 //variable de tipo Tabla para generar la Tabla HTML        
                 Tabla tab = new Tabla(usuario, //array que contiene los datos     
                         "75%", //ancho de la tabla px | %    
