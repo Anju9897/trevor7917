@@ -1,6 +1,6 @@
 <%@include file="/_menu.jsp" %>
 
-<div class="col-6 col-t-12" id="registroDiv">
+<div class="col-6 col-t-12" id="usuarioform">
     <form action="${pageContext.servletContext.contextPath}/Configuracion?accion=insertar_modificar" method="Post" id="formsingup">
         <div class="col-12 names">
             <input type="text" placeholder="Nombre" required  name="txtnewname" value="${usuario.nombres}">
@@ -10,11 +10,11 @@
         <input type="email" placeholder="Correo Electronico" required  name="txtMail" value="${usuario.email}"><br>
         <input type="text" placeholder="Telefono" name="txtTelefono" value="${usuario.telefono}"><br>
         
-        <select name="sltrol" >
+        <select name="sltrol">
             <c:forEach items="${roles}" var="r">
-                <option value="${r.idrol}">${r.rol}</option>
+                <option value="${r.idRol}">${r.rol}</option>
             </c:forEach>
-        </select>
+        </select><br>
         
         <input type="submit" value="Aceptar" id="Actualizar">
         <p class="back" onclick="javascript: return window.history.back()">Regresar</p>
