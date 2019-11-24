@@ -105,3 +105,39 @@ input[type="submit"]{
     bottom: 50%;
 }
 
+.select{
+    width: 100%;
+    border-radius: 15px;
+}
+
+#Actualizar{
+    border-radius: 15px;
+    padding: 15px;
+    background-color: #274b58;
+    color: white;
+    border: 3px solid #bde5ce;
+    margin-right: 30px;
+    margin-top: 15px;
+    
+}
+
+#Actualizar:hover{
+    background-color: #6fb1b4;
+    cursor: pointer;
+    transition-duration: 0.5s;
+}
+
+.back{
+        cursor: pointer;
+        color: #274b58;
+        width: 50%;
+        font-size: 20px;
+        text-align: left;
+        margin-left: 15px;
+    }
+
+
+    .back:hover{
+        color: white;
+        transition: 0.5s;
+    }
