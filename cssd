@@ -1,0 +1,117 @@
+[33mcommit b89c6ddab0559b4d16274174479c50733621a99e[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: Juan Garcia <Anju9897@gmail.com>
+Date:   Fri Nov 22 17:01:07 2019 -0600
+
+    push all
+    
+    resubi todo el programa para volver a evisar cambios
+
+[33mcommit 840e6cf41697a7254e48ae05dc4f05796ff7b0d4[m
+Author: Juan Garcia <Anju9897@gmail.com>
+Date:   Fri Nov 22 16:58:17 2019 -0600
+
+    borrar todo de nuevo
+
+[33mcommit a061cf8c7e22b954d2e489dad84fca8e0856555c[m
+Author: Juan Garcia <Anju9897@gmail.com>
+Date:   Fri Nov 22 16:40:47 2019 -0600
+
+    cambios de css
+
+[33mcommit 4ae4f4bc1ad8c7a2704a7603a1403ff53736d1a1[m
+Author: Juan Garcia <Anju9897@gmail.com>
+Date:   Fri Nov 22 16:32:34 2019 -0600
+
+    cambio de archivo css
+
+[33mcommit 432fb860b5f76026ff7988ebf352f46960671b49[m
+Author: Anju <47426206+Anju9897@users.noreply.github.com>
+Date:   Mon Nov 18 15:59:25 2019 -0600
+
+    refresh
+
+[33mcommit 079e4e86524209ed69998a7be04b5d6c1a3fb1ac[m
+Author: Anju <47426206+Anju9897@users.noreply.github.com>
+Date:   Sun Nov 17 23:41:01 2019 -0600
+
+    sorry
+
+[33mcommit 5dd7320b8800ef9636532499f7fb06c92cdd380a[m
+Author: Anju <47426206+Anju9897@users.noreply.github.com>
+Date:   Thu Nov 14 16:07:09 2019 -0600
+
+    cambios
+
+[33mcommit d4e38fad1387143e699bd57e00d449ea5ee047b0[m
+Author: Anju <47426206+Anju9897@users.noreply.github.com>
+Date:   Thu Nov 14 16:05:30 2019 -0600
+
+    Update Login.class
+
+[33mcommit 1d41571c0f805b3689c8aa21f3e6addab41e69de[m
+Author: Anju <47426206+Anju9897@users.noreply.github.com>
+Date:   Thu Nov 14 15:47:37 2019 -0600
+
+    k
+
+[33mcommit 03f8d06fae090e5630ea9f9d0a7541f9850579be[m
+Author: Anju <47426206+Anju9897@users.noreply.github.com>
+Date:   Thu Nov 14 15:47:04 2019 -0600
+
+    Update private.properties
+
+[33mcommit 0b1c8e1f510314822136bf2e353f755df3ca9894[m
+Merge: 0db502d b6e6964
+Author: Anju <47426206+Anju9897@users.noreply.github.com>
+Date:   Thu Nov 14 14:54:46 2019 -0600
+
+    Merge branch 'master' of https://github.com/Anju9897/trevor7917
+
+[33mcommit 0db502da6ab53696d7b62b3b6227da23760df442[m
+Author: Anju <47426206+Anju9897@users.noreply.github.com>
+Date:   Thu Nov 14 14:54:24 2019 -0600
+
+    Update private.properties
+
+[33mcommit 0902b9a29fa53eb3b2172157596e5fe5f1698d71[m
+Merge: cd8d0f3 a2c022a
+Author: Anju <47426206+Anju9897@users.noreply.github.com>
+Date:   Thu Nov 14 14:50:02 2019 -0600
+
+    Merge branch 'Kla'
+
+[33mcommit b6e69643e86537198ce08fd46d4e31dc9db43fea[m
+Author: Georgina <57773093+issagranadosgarcia@users.noreply.github.com>
+Date:   Thu Nov 14 14:48:24 2019 -0600
+
+    comentario
+    
+    lo comente
+
+[33mcommit cd8d0f32474c17f17cd9764ec673ec760c1b3539[m
+Author: Anju <47426206+Anju9897@users.noreply.github.com>
+Date:   Thu Nov 14 14:37:10 2019 -0600
+
+    pequeño cambio
+    
+    cambie la redireccion de conf a principal como prueba
+
+[33mcommit e6263a05da8fc81846365ff0c18e0d665a3fda49[m
+Author: Anju <47426206+Anju9897@users.noreply.github.com>
+Date:   Thu Nov 14 14:30:23 2019 -0600
+
+    Update Ticket.java
+
+[33mcommit a2c022a0bb7a74f41f847469104fa7dcc33410c8[m
+Author: Klary1709 <57772891+Klary1709@users.noreply.github.com>
+Date:   Thu Nov 14 14:25:34 2019 -0600
+
+    entidades-tickets
+    
+    agrege la variable Tipo
+
+[33mcommit 6cfed63b8d78a602f77000f9c13523c4eb87caca[m
+Author: Anju <47426206+Anju9897@users.noreply.github.com>
+Date:   Thu Nov 14 14:11:57 2019 -0600
+
+    pruebas para proyecto
