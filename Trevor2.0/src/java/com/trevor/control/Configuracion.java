@@ -4,6 +4,7 @@ import com.trevor.conexion.Conexion;
 import com.trevor.conexion.ConexionPool;
 import com.trevor.entidad.Menu;
 import com.trevor.entidad.Usuario;
+import com.trevor.entidad.rol;
 import com.trevor.operaciones.Operaciones;
 import com.trevor.utilerias.Hash;
 import com.trevor.utilerias.Tabla;
@@ -49,9 +50,9 @@ public class Configuracion extends HttpServlet {
                 Operaciones.iniciarTransaccion();
                 String sql = "";
                 if (request.getParameter("txtBusqueda") != null) {
-                    sql = "select idUsuario,Nombres,Apellidos,email,telefono,idrol from Usuario where nombres like ?";
+                    sql = "select u.idUsuario,u.Nombres,u.Apellidos,u.email,u.telefono,r.rol from Usuario u inner join rol r on (u.idrol = r.idrol) where nombres like ?";
                 } else {
-                    sql = "select idUsuario,Nombres,Apellidos,email,telefono,idrol from Usuario order by idrol asc";
+                    sql = "select u.idUsuario,u.Nombres,u.Apellidos,u.email,u.telefono,r.rol from Usuario u inner join rol r on (u.idrol = r.idrol) order by r.rol asc";
                 }
                 String[][] usuario = null;
                 if (request.getParameter("txtBusqueda") != null) {
@@ -61,9 +62,11 @@ public class Configuracion extends HttpServlet {
                 } else {
                     usuario = Operaciones.consultar(sql, null);
                 }
+                List<rol> r = Operaciones.getTodos(new rol());
+                request.getSession().setAttribute("roles", r);
 
                 //declaracion de cabeceras a usar en la tabla HTML     
-                String[] cabeceras = new String[]{"ID Usuario", "Nombre", "Apellido", "Email", "Telefono","idRol"};
+                String[] cabeceras = new String[]{"ID Usuario", "Nombre", "Apellido", "Email", "Telefono","Rol"};
                 //variable de tipo Tabla para generar la Tabla HTML        
                 Tabla tab = new Tabla(usuario, //array que contiene los datos     
                         "75%", //ancho de la tabla px | %    
@@ -94,6 +97,9 @@ public class Configuracion extends HttpServlet {
                 request.setAttribute("tabla", tabla01);
                 request.setAttribute("valor", request.getParameter("txtBusqueda"));
                 request.getRequestDispatcher("Configuracion/consulta_usuarios.jsp").forward(request, response);
+                
+                Operaciones.commit();
+                
             } catch (Exception ex) {
                 try {
                     Operaciones.rollback();
@@ -118,6 +124,11 @@ public class Configuracion extends HttpServlet {
                 Operaciones.iniciarTransaccion();
                 Usuario p = Operaciones.get(request.getParameter("id"), new Usuario());
                 request.setAttribute("usuario", p);
+                if (p.getIdusuario() != null) {
+                    request.getSession().setAttribute("resultado", 1);
+                } else {
+                    request.getSession().setAttribute("resultado", 0);
+                }
                 Operaciones.commit();
             } catch (Exception ex) {
                 try {
@@ -177,12 +188,15 @@ public class Configuracion extends HttpServlet {
                 String email = request.getParameter("txtMail");
                 String pass = request.getParameter("txtPass");
                 String pass2 = request.getParameter("txtPass2");
+                String rol = request.getParameter("sltrol");
                 try {
                     Conexion conn = new ConexionPool();
                     conn.conectar();
                     Operaciones.abrirConexion(conn);
                     Operaciones.iniciarTransaccion();
+                    
                     Usuario u = Operaciones.get(idusuario,new Usuario());
+                    // actualizar datos del usuario
                     if ( u.getIdusuario()!= null) {
                         Usuario p = new Usuario();
                         p.setIdusuario(idusuario);
@@ -190,6 +204,7 @@ public class Configuracion extends HttpServlet {
                         p.setApellidos(Apellido);
                         p.setEmail(email);
                         p.setTelefono(Telefono);
+                        p.setIdrol(Integer.parseInt(rol));
                         p = Operaciones.actualizar(p.getIdusuario(), p);
                         if (p.getIdusuario() != null) {
                             request.getSession().setAttribute("resultado", 1);
@@ -197,6 +212,7 @@ public class Configuracion extends HttpServlet {
                             request.getSession().setAttribute("resultado", 0);
                         }
                     } else {
+                        // insertar usuario
                         if (pass.equals(pass2)) {
                             Usuario p = new Usuario();
                             p.setIdusuario(idusuario);
