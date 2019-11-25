@@ -62,7 +62,7 @@ public class Login extends HttpServlet {
                 p.setIdrol(2);
                 p.setClave(Hash.generarHash(pass, Hash.SHA256));
                 p.setIdarea(2);
-                p.setIdcargo(4);
+                p.setIdcargo(2);
                 p = Operaciones.insertar(p);
                 if (p.getIdusuario() != null) {
                     request.getSession().setAttribute("resultado", 1);

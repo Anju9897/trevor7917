@@ -149,7 +149,7 @@ public class Bandeja extends HttpServlet {
                 conn.conectar();
                 Operaciones.abrirConexion(conn);
                 Operaciones.iniciarTransaccion();
-                Usuario p = Operaciones.eliminar(request.getParameter("id"), new Usuario());
+                 Usuario p = Operaciones.eliminar(request.getParameter("id"), new Usuario());
                 if (p.getIdusuario() != null) {
                     request.getSession().setAttribute("resultado", 1);
                 } else {

@@ -60,10 +60,11 @@
                     <td><label for="txtTelefono">Telefono:</td>
                     <td><input type="text" placeholder="Telefono" name="txtTelefono" value="${usuario.telefono}"></td>
                 </tr>
-                <tr>
-                    <td><input type="submit" value="Aceptar" id="Actualizar"></td>
-                    <td><p class="back" onclick="javascript: return window.history.back()">Regresar</p></td>
-                </tr>
+                <tr><br></tr><tr><br></tr><tr><br></tr><tr><br></tr><tr><br></tr><tr><br></tr><tr><br></tr><tr><br></tr><tr><br></tr><tr><br></tr><tr><br></tr><tr><br></tr>
+             <tr>
+                 <td><input class="botA icon icon-undo2 " type="submit" value="Aceptar" id="Actualizar"></td>
+                <td><a class=" icon icon-undo2 botA"type="button" value="Regresar" onclick="javascript: window.history.back()" id="null"> </a> </td>
+            </tr>
 
             </table>
 
