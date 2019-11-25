@@ -117,12 +117,9 @@ public class Login extends HttpServlet {
                         sesion.setAttribute("Rol", u.getIdrol());
                         sesion.setAttribute("DatoUser", u);
                         List<Menu> permisos = getPermisos(u.getIdrol());
-
                         List<Menu> MenuPrincipal = permisos.stream().filter(field -> field.getIdpadre() == 0).collect(Collectors.toList());
                         sesion.setAttribute("MenuPrincipal", MenuPrincipal);
-
                         sesion.setAttribute("Permisos", permisos);
-
                         response.sendRedirect("Principal");
                     } else {
                         request.setAttribute("error", 2);

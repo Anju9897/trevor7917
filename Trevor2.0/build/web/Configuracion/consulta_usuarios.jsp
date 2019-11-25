@@ -41,24 +41,27 @@
         <form action="${pageContext.servletContext.contextPath}/Configuracion?accion=insertar_modificar" method="Post" id="formsingup">
             <table>
                 <tr>
+                    <td colspan="2"><h2>Informacion del Usuario</hd></td>
+                </tr>
+                <tr>
                     <td><label for="txtnewname">Nombre:</td>
-                    <td><input type="text" placeholder="Nombre" required  name="txtnewname" value="${usuario.nombres}"></td>
+                    <td><input type="text" placeholder="Nombre" required  name="txtnewname" value="${DatoUser.nombres}"></td>
                 </tr>
                 <tr>
                     <td><label for="txtnewLast">Apellido:</td>
-                    <td><input type="text" placeholder="Apellido" required  name="txtnewLast" value="${usuario.apellidos}"></td>
+                    <td><input type="text" placeholder="Apellido" required  name="txtnewLast" value="${DatoUser.apellidos}"></td>
                 </tr>
                 <tr>
                     <td><label for="txtidUsuario">Usuario:</td>
-                    <td><input type="text" placeholder="Nombre de Usuario" required readonly="readonly"  name="txtidUsuario" value="${usuario.idusuario}"></td>
+                    <td><input type="text" placeholder="Nombre de Usuario" required readonly="readonly"  name="txtidUsuario" value="${DatoUser.idusuario}"></td>
                 </tr>
                 <tr>
                     <td><label for="txtidUsuario">Correo:</td>
-                    <td><input type="email" placeholder="Correo Electronico" required  name="txtMail" value="${usuario.email}"></td>
+                    <td><input type="email" placeholder="Correo Electronico" required  name="txtMail" value="${DatoUser.email}"></td>
                 </tr>
                 <tr>
                     <td><label for="txtTelefono">Telefono:</td>
-                    <td><input type="text" placeholder="Telefono" name="txtTelefono" value="${usuario.telefono}"></td>
+                    <td><input type="text" placeholder="Telefono" name="txtTelefono" value="${DatoUser.telefono}"></td>
                 </tr>
                 <tr>
                     <td><input type="submit" value="Aceptar" id="Actualizar"></td>
@@ -66,9 +69,6 @@
                 </tr>
 
             </table>
-
-
-
         </form>
     </div>
 </c:if>

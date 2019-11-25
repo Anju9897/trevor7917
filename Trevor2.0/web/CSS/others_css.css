@@ -157,3 +157,7 @@ input[type="submit"]{
 textarea{
     resize: none;
 }
+
+h2{
+    text-align: center;
+}

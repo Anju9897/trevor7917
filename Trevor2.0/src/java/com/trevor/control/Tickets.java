@@ -52,7 +52,7 @@ public class Tickets extends HttpServlet {
                 String[][] mensaje = null;
                 String[] cabeceras = null;
                 if(rol == 1){
-                    sql = "select idticket,asunto,descripcion,u_reporta,fecha_emision from Ticket where idestado = ? and u_encargado like ?";
+                    sql = "select idticket,asunto,descripcion,u_reporta,fecha_emision from Ticket where idestado = ? and u_encargado like ? ";
                     List<Object> params = new ArrayList<>();
                     params.add(1);
                     params.add("%"+request.getSession().getAttribute("Usuario")+"%");

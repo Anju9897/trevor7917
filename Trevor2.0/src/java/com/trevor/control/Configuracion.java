@@ -205,6 +205,9 @@ public class Configuracion extends HttpServlet {
                         p.setEmail(email);
                         p.setTelefono(Telefono);
                         p.setIdrol(Integer.parseInt(rol));
+                        p.setClave(u.getClave());
+                        p.setIdarea(u.getIdarea());
+                        p.setIdcargo(u.getIdcargo());
                         p = Operaciones.actualizar(p.getIdusuario(), p);
                         if (p.getIdusuario() != null) {
                             request.getSession().setAttribute("resultado", 1);
