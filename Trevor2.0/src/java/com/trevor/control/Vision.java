@@ -5,6 +5,7 @@
  */
 package com.trevor.control;
 
+<<<<<<< HEAD
 import com.trevor.entidad.Menu;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -42,10 +43,34 @@ public class Vision extends HttpServlet {
             }
         }
     
+=======
+import java.io.IOException;
+import java.io.PrintWriter;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+
+public class Vision extends HttpServlet {
+
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+       
+    }
+
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+    }
+>>>>>>> 7e115a1027bf10552562cde371c28236d4129cc3
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+<<<<<<< HEAD
     }
 
     /**
@@ -53,9 +78,18 @@ public class Vision extends HttpServlet {
      *
      * @return a String containing servlet description
      */
+=======
+        processRequest(request, response);
+    }
+
+>>>>>>> 7e115a1027bf10552562cde371c28236d4129cc3
     @Override
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 7e115a1027bf10552562cde371c28236d4129cc3

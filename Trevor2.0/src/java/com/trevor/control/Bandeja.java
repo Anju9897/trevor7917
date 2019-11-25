@@ -6,6 +6,7 @@ import com.trevor.entidad.Menu;
 import com.trevor.entidad.Ticket;
 import com.trevor.entidad.Usuario;
 import com.trevor.operaciones.Operaciones;
+<<<<<<< HEAD
 import com.trevor.utilerias.Hash;
 import com.trevor.utilerias.Tabla;
 import java.io.IOException;
@@ -14,6 +15,12 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+=======
+import com.trevor.utilerias.Tabla;
+import java.io.IOException;
+import java.sql.SQLException;
+import java.sql.Timestamp;
+>>>>>>> 7e115a1027bf10552562cde371c28236d4129cc3
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -26,7 +33,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+<<<<<<< HEAD
 import javax.servlet.jsp.PageContext;
+=======
+>>>>>>> 7e115a1027bf10552562cde371c28236d4129cc3
 
 @WebServlet(name = "Bandeja", urlPatterns = "{/Bandeja}")
 public class Bandeja extends HttpServlet {
@@ -64,12 +74,18 @@ public class Bandeja extends HttpServlet {
                 int rol = (int) request.getSession().getAttribute("Rol");
                 String[][] mensaje = null;
                 String[] cabeceras = null;
+<<<<<<< HEAD
                 if(rol == 1){
                     sql = "select idticket,asunto,descripcion,u_reporta,fecha_emision from Ticket where idestado = ? and u_encargado like ?";
+=======
+                if (rol == 1) {
+                    sql = "select idticket,asunto,descripcion,u_reporta,Tipo,fecha_emision from Ticket where idestado = ? and u_encargado like ?";
+>>>>>>> 7e115a1027bf10552562cde371c28236d4129cc3
                     List<Object> params = new ArrayList<>();
                     params.add(1);
                     params.add("%ninguno%");
                     mensaje = Operaciones.consultar(sql, params);
+<<<<<<< HEAD
                     cabeceras = new String[]{"id Mensaje", "Asunto", "Descripcion","Usuario","Fecha Envio"};
                 }
                 else{
@@ -80,6 +96,17 @@ public class Bandeja extends HttpServlet {
                     mensaje = Operaciones.consultar(sql, params);
                     //declaracion de cabeceras a usar en la tabla HTML   
                     cabeceras = new String[]{"Asunto", "Descripcion", "Fecha Envio"};
+=======
+                    cabeceras = new String[]{"id Mensaje", "Asunto", "Descripcion", "Usuario","Tipo de Problema", "Fecha Envio"};
+                } else {
+                    sql = "select asunto,descripcion,Tipo,fecha_emision from Ticket where u_reporta like ? and idestado = ?";
+                    List<Object> params = new ArrayList<>();
+                    params.add("%" + request.getSession().getAttribute("Usuario").toString() + "%");
+                    params.add(1);
+                    mensaje = Operaciones.consultar(sql, params);
+                    //declaracion de cabeceras a usar en la tabla HTML   
+                    cabeceras = new String[]{"Asunto", "Descripcion","Tipo de Problema", "Fecha Envio"};
+>>>>>>> 7e115a1027bf10552562cde371c28236d4129cc3
                 }
                 //variable de tipo Tabla para generar la Tabla HTML        
                 Tabla tab = new Tabla(mensaje, //array que contiene los datos     
@@ -94,6 +121,7 @@ public class Bandeja extends HttpServlet {
                 //url del proyecto          
                 tab.setPageContext(request.getContextPath());
                 //pagina encargada de eliminar          
+<<<<<<< HEAD
                 tab.setPaginaEliminable("/Bandeja?accion=eliminar");
                 //pagina encargada de actualizacion     
                 tab.setPaginaModificable("/Bandeja?accion=modificar");
@@ -105,6 +133,21 @@ public class Bandeja extends HttpServlet {
                 tab.setPie("Mensajes");
                 //imprime la tabla en pantalla    
                 String tabla01 = tab.getTabla();
+=======
+                //pagina encargada de actualizacion     
+                //pagina encargada de seleccion para operaciones     
+                if ((int) request.getSession().getAttribute("Rol") == 1) {
+                    tab.setPaginaModificable("/Bandeja?accion=ver_mensaje");
+                    tab.setPaginaEliminable("/Bandeja?accion=eliminar");
+                    tab.setPaginaSeleccionable("/Bandeja?accion=ver_mensaje");
+                    tab.setColumnasSeleccionables(new int[]{1});
+                }
+                //columnas seleccionables 
+                //pie de tabla           
+                tab.setPie("Mensajes");
+                //imprime la tabla en pantalla    
+                String tabla01 = mensaje != null ? tab.getTabla() : "<center><Strong id='nomessage'>No Tienes Mensajes</Strong></center>" ;
+>>>>>>> 7e115a1027bf10552562cde371c28236d4129cc3
                 request.setAttribute("tabla", tabla01);
                 request.getRequestDispatcher("Bandeja/consultar_mensajes.jsp").forward(request, response);
             } catch (Exception ex) {
@@ -123,7 +166,11 @@ public class Bandeja extends HttpServlet {
             response.sendRedirect(request.getContextPath() + "/Bandeja");
         } else if (accion.equals("nuevo")) {
             request.getRequestDispatcher("Bandeja/nuevo_mensaje.jsp").forward(request, response);
+<<<<<<< HEAD
         } else if (accion.equals("modificar")) {
+=======
+        } else if (accion.equals("ver_mensaje")) {
+>>>>>>> 7e115a1027bf10552562cde371c28236d4129cc3
             try {
                 Conexion conn = new ConexionPool();
                 conn.conectar();
@@ -145,7 +192,11 @@ public class Bandeja extends HttpServlet {
                     Logger.getLogger(Configuracion.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
+<<<<<<< HEAD
             request.getRequestDispatcher("Bandeja/insertar_modificar.jsp").forward(request, response);
+=======
+            request.getRequestDispatcher("Bandeja/ver_mensaje.jsp").forward(request, response);
+>>>>>>> 7e115a1027bf10552562cde371c28236d4129cc3
         } else if (accion.equals("eliminar")) {
 
             try {
@@ -184,12 +235,16 @@ public class Bandeja extends HttpServlet {
         String usuario = request.getParameter("usuario");
         String asunto = request.getParameter("asunto");
         String tipo = request.getParameter("problema");
+<<<<<<< HEAD
         Date date = null;
         try {
             date = new SimpleDateFormat("yyyy-MM-dd").parse(new Date().toString());
         } catch (ParseException ex) {
             Logger.getLogger(Bandeja.class.getName()).log(Level.SEVERE, null, ex);
         }
+=======
+
+>>>>>>> 7e115a1027bf10552562cde371c28236d4129cc3
         String descripcion = request.getParameter("Descripcion");
         switch (accion) {
             case "Enviar": {
@@ -204,7 +259,12 @@ public class Bandeja extends HttpServlet {
                         t.setTipo(tipo);
                         t.setAsunto(asunto);
                         t.setDescripcion(descripcion);
+<<<<<<< HEAD
                         t.setFecha_emision(new Timestamp(date.getTime()));
+=======
+                        Date fec = new Date();
+                        t.setFecha_emision(new Timestamp(fec.getTime()));
+>>>>>>> 7e115a1027bf10552562cde371c28236d4129cc3
                         t.setU_reporta(usuario);
                         t.setU_encargado("ninguno");
                         t = Operaciones.insertar(t);
@@ -229,7 +289,11 @@ public class Bandeja extends HttpServlet {
                         Logger.getLogger(Bandeja.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
+<<<<<<< HEAD
                 response.sendRedirect("Principal");
+=======
+                response.sendRedirect(request.getContextPath()+"/Bandeja");
+>>>>>>> 7e115a1027bf10552562cde371c28236d4129cc3
                 break;
             }
             case "eliminar": {

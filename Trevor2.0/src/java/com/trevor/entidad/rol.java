@@ -8,14 +8,14 @@ public class rol {
     @NotNull
     private  int idRol; 
     @NotNull
-    private  String nombre; 
+    private  String rol; 
 
     public rol() {
     }
 
-    public rol(int idRol, String nombre) {
+    public rol(int idRol, String rol) {
         this.idRol = idRol;
-        this.nombre = nombre;
+        this.rol = rol;
     }
 
     public int getIdRol() {
@@ -26,12 +26,14 @@ public class rol {
         this.idRol = idRol;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getRol() {
+        return rol;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setRol(String rol) {
+        this.rol = rol;
     }
+
+
     
 }

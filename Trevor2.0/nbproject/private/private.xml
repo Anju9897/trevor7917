@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
@@ -22,3 +23,16 @@
 >>>>>>> Stashed changes
     </open-files>
 </project-private>
+=======
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/Anju9/OneDrive/Documentos/GitHub/trevor7917/Trevor2.0/src/java/com/trevor/control/Configuracion.java</file>
+            <file>file:/C:/Users/Anju9/OneDrive/Documentos/GitHub/trevor7917/Trevor2.0/web/Configuracion/insertar_modificar.jsp</file>
+            <file>file:/C:/Users/Anju9/OneDrive/Documentos/GitHub/trevor7917/Trevor2.0/src/java/com/trevor/entidad/rol.java</file>
+        </group>
+    </open-files>
+</project-private>
+>>>>>>> 7e115a1027bf10552562cde371c28236d4129cc3

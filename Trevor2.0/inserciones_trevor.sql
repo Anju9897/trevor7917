@@ -39,10 +39,10 @@ INSERT INTO USUARIO VALUES(
 
 -- para usuarios
 INSERT INTO USUARIO VALUES(
-	'a.user',
-	'Anju',
+	'g.user',
+	'Lary',
 	'Garcia',
-	'Anju@usonsonate.edu.sv', 
+	'Lary@usonsonate.edu.sv', 
 	'7625-5122', 
 	lower(CONVERT(VARCHAR(64),HashBytes('SHA2_256', 'admin'),2)),
 	-- rol
