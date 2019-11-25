@@ -37,13 +37,6 @@ public class Tickets extends HttpServlet {
             request.setAttribute("PermisosAsignados", PermisosAsignados);
         }
         String accion = request.getParameter("accion");
-        List<String> problema = new ArrayList<>();
-        problema.add("Software");
-        problema.add("Hardware");
-        problema.add("Conexion");
-        problema.add("Accidente");
-        problema.add("Fallo Sistema");
-        s.setAttribute("problema", problema);
         if (accion == null) {
             if (request.getSession().getAttribute("resultado") != null) {
                 request.setAttribute("resultado", request.getSession().getAttribute("resultado"));
@@ -89,11 +82,11 @@ public class Tickets extends HttpServlet {
                 }
                 //columnas seleccionables 
                 //pie de tabla           
-                tab.setPie("Mensajes");
+                tab.setPie("Tickets");
                 //imprime la tabla en pantalla    
                 String tabla01 = tab.getTabla();
                 request.setAttribute("tabla", tabla01);
-                request.getRequestDispatcher("Bandeja/consultar_mensajes.jsp").forward(request, response);
+                request.getRequestDispatcher("Tickets/ver_tickets.jsp").forward(request, response);
             } catch (Exception ex) {
                 try {
                     Operaciones.rollback();
@@ -107,7 +100,7 @@ public class Tickets extends HttpServlet {
                     Logger.getLogger(Configuracion.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-            response.sendRedirect(request.getContextPath() + "/Bandeja");
+            response.sendRedirect(request.getContextPath() + "/Tickets");
         } else if (accion.equals("nuevo")) {
             request.getRequestDispatcher("Bandeja/nuevo_mensaje.jsp").forward(request, response);
         } else if (accion.equals("ver_mensaje")) {
@@ -220,7 +213,4 @@ public class Tickets extends HttpServlet {
             }
         }
     }
-
-
-
 }

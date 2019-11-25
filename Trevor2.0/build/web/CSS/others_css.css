@@ -77,10 +77,11 @@ input[type="submit"]{
     background-color: #bde5ce;
     border-radius: 15px;
     position: absolute; 
-   right: 10%; 
-   bottom: 60%;
+   left: 10%; 
+   bottom: 50%;
    font-size: 25px;
    font-family: initial;
+   
 
 }
 .mov{
@@ -141,3 +142,18 @@ input[type="submit"]{
         color: white;
         transition: 0.5s;
     }
+
+/*el formulario para nuevo mensaje*/
+
+#soli>form{
+    display: flex;
+    background-color: #bde5ce;
+}
+
+.new{
+    color: #274b58;
+    text-align: center;
+}
+textarea{
+    resize: none;
+}

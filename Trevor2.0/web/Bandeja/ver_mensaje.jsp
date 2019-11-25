@@ -2,14 +2,15 @@
 
 
 
-<div class="col-9 info2 fondoK">
+<div class="col-6 info2 fondoK">
+    <center><p class="col-12 "  >Detalle del Mensaje</b></p></center>
     <!--usuario-->
-    <p class="col-12 "  ><b>${mensaje.u_reporta}</b></p>
+    <p class="col-12 "  ><i>Enviado por:</i><br><b>${mensaje.u_reporta}</b></p>
     <br><br>
     <!--asunto-->
-    <i class="col-12 col-t-12" >${mensaje.asunto}</i>
+    <p class="col-12 col-t-12" ><i>Asunto:</i><br>${mensaje.asunto}</p>
     <!--Descripcion-->
-    <p class="col-12"> ${mensaje.descripcion} </p>
+    <p class="col-12"><i>Descripcion:</i><br> ${mensaje.descripcion} </p>
 
 </div>
         <div class="col-12 butones">
