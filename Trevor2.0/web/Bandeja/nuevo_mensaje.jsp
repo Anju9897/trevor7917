@@ -24,7 +24,7 @@
             </tr>
             <tr>
                     <td><label for="Descripcion">Descripcion</label></td>
-                <td><textarea maxlength="2000" cols="50" rows="10" name="Descripcion" placeholder="Descripcion de Solicitud"></textarea></td>
+                <td><textarea maxlength="2000" cols="50" rows="10" name="Descripcion" placeholder="Descripcion de Problema"></textarea></td>
             </tr>
             <tr>
                 <td><input type="submit" value="Enviar" id="send"></td>
