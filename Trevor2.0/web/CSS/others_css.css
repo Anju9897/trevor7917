@@ -113,12 +113,10 @@ input[type="submit"]{
 
 #Actualizar{
     border-radius: 15px;
-    padding: 15px;
     background-color: #274b58;
     color: white;
     border: 3px solid #bde5ce;
     margin-right: 30px;
-    margin-top: 15px;
     
 }
 
@@ -158,6 +156,33 @@ textarea{
     resize: none;
 }
 
+<<<<<<< HEAD
 h2{
     text-align: center;
+=======
+.areaM{
+    border-radius: 35px;
+}
+.botA{
+    text-decoration: none;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    color: #274b58;
+    background-color: #bde5ce;
+    border-radius: 6px;
+    border: 2px solid #274b58; 
+}
+
+.botA:hover{
+    color: #B6D59A;
+    background-color: #274b58;
+  }
+  .fondoK2{
+    position: absolute; 
+   left: 25%; 
+   bottom: 20%;
+   
+
+>>>>>>> refs/remotes/origin/master
 }
