@@ -4,6 +4,12 @@
     <form action="${pageContext.servletContext.contextPath}/Configuracion?accion=insertar_modificar" method="Post" id="formsingup">
         <table>
             <tr>
+                <td colspan="2"><h2>Configuracion e Informacion del Usuario</td>
+            </tr>
+            <tr><br></tr><tr><br></tr><tr><br></tr><tr><br></tr>
+            <tr><br></tr><tr><br></tr><tr><br></tr><tr><br></tr>
+            <tr><br></tr><tr><br></tr><tr><br></tr><tr><br></tr>
+            <tr>
                 <td><label for="txtnewname">Nombre:</td>
                 <td><input type="text" placeholder="Nombre" required  name="txtnewname" value="${usuario.nombres}"></td>
             </tr>
