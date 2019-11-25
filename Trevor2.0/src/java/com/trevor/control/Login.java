@@ -63,6 +63,7 @@ public class Login extends HttpServlet {
                 p.setClave(Hash.generarHash(pass, Hash.SHA256));
                 p.setIdarea(2);
                 p.setIdcargo(4);
+                p.setIdcargo(2);
                 p = Operaciones.insertar(p);
                 if (p.getIdusuario() != null) {
                     request.getSession().setAttribute("resultado", 1);
@@ -117,10 +118,8 @@ public class Login extends HttpServlet {
                         sesion.setAttribute("Rol", u.getIdrol());
                         sesion.setAttribute("DatoUser", u);
                         List<Menu> permisos = getPermisos(u.getIdrol());
-
                         List<Menu> MenuPrincipal = permisos.stream().filter(field -> field.getIdpadre() == 0).collect(Collectors.toList());
                         sesion.setAttribute("MenuPrincipal", MenuPrincipal);
-
                         sesion.setAttribute("Permisos", permisos);
 
                         response.sendRedirect("Principal");

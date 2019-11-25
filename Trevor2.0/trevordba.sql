@@ -80,6 +80,8 @@ create table ticket(
 	fecha_emision datetime not null,
 	idestado int not null,
 	prioridad varchar(20) not null,
+	Tipo varchar(20) not null,	
+	Asunto varchar(20) not null,
 	foreign key (u_encargado) references usuario(idusuario) on delete cascade on update cascade,
 	foreign key (u_reporta) references usuario(idusuario),
 	foreign key (idestado) references estado(idestado)

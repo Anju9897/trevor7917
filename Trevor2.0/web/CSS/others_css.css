@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 
 /* para busqueda en consultar_usuarios*/
@@ -278,3 +279,190 @@ textarea{
     resize: none;
 }
 
+=======
+
+/* para busqueda en consultar_usuarios*/
+.busqueda{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.busqueda h1{
+    color: #274b58;
+    font-size: 35px;
+}
+
+input[type="text"],input[type="email"]{
+    padding: 7px;
+    border-radius: 15px;
+}
+
+input[type="submit"]{
+    background-color: transparent;
+}
+
+.buttons{
+    font-weight: bold;
+    font-size: 20px;
+    color: #bde5ce;
+    border: 3px solid #bde5ce;
+    border-radius: 15px;
+    padding: 7px;
+    text-decoration: none;
+    margin-left: 5px;
+}
+
+.buttons:hover{
+    cursor: pointer;
+    background-color: #bde5ce;
+    border-color: #6fb1b4;
+    color: #6fb1b4;
+    border: 3px solid;
+    transition: 0.5s;
+}
+
+/*para el boton de redactar mensaje en consultar_mensaje*/
+
+.stiki>a{ 
+    position: absolute;
+    border: 5px solid #bde5ce;
+    border-radius: 100%;
+    background-color: #bde5ce;
+    font-size: 40px;
+    list-style: none;
+    text-decoration: none;
+    padding: 10px;
+    right: 15px;
+    color: #274b58;
+    bottom: 20px;
+}
+
+.stiki>a:hover{
+    border: 5px solid #274b58;
+    color: #bde5ce;
+    background-color: #274b58;
+    transition: 0.5s;
+}
+
+#nomessage{
+    text-align: center;
+    font-size: 50px;
+    color: #B6D59A;
+    position: relative;
+}
+
+
+/*  MENSAJE */ 
+
+.fondoK{
+    background-color: #bde5ce;
+    border-radius: 15px;
+    position: absolute; 
+   left: 10%; 
+   bottom: 50%;
+   font-size: 25px;
+   font-family: initial;
+   
+
+}
+.mov{
+    position: absolute;
+    bottom: 1px;
+    right: 90px !important;
+}
+
+/* para ver datos del usuario*/
+
+#usuarioform>form{
+    width: 50%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #bde5ce;
+    padding: 35px;
+    border-radius: 15px;
+    color: #274b58;
+    left: 75%;
+    bottom: 50%;
+}
+
+.select{
+    width: 100%;
+    border-radius: 15px;
+}
+
+#Actualizar{
+    border-radius: 15px;
+    background-color: #274b58;
+    color: white;
+    border: 3px solid #bde5ce;
+    margin-right: 30px;
+    
+}
+
+#Actualizar:hover{
+    background-color: #6fb1b4;
+    cursor: pointer;
+    transition-duration: 0.5s;
+}
+
+.back{
+        cursor: pointer;
+        color: #274b58;
+        width: 50%;
+        font-size: 20px;
+        text-align: left;
+        margin-left: 15px;
+    }
+
+
+    .back:hover{
+        color: white;
+        transition: 0.5s;
+    }
+
+/*el formulario para nuevo mensaje*/
+
+#soli>form{
+    display: flex;
+    background-color: #bde5ce;
+}
+
+.new{
+    color: #274b58;
+    text-align: center;
+}
+textarea{
+    resize: none;
+}
+
+h2{
+    text-align: center;
+}
+.areaM{
+    border-radius: 35px;
+}
+.botA{
+    text-decoration: none;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    color: #274b58;
+    background-color: #bde5ce;
+    border-radius: 6px;
+    border: 2px solid #274b58; 
+}
+
+.botA:hover{
+    color: #B6D59A;
+    background-color: #274b58;
+  }
+  .fondoK2{
+    position: absolute; 
+   left: 25%; 
+   bottom: 20%;
+   
+}
+>>>>>>> bfc55c69b94a3e756bb80d5955545a0ed3c610f4
