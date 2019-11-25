@@ -63,9 +63,58 @@ input[type="submit"]{
     transition: 0.5s;
 }
 /* para la pagina de vision */
-.fondovision{
-    background-color:#3a727f;
+
+.controladoresA{
+    
+    background-color: #3a727f;
+    border: 5px solid #bde5ce;
+    height: 200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 10px;
 }
+
+.controladoresA div{
+    border: 2px solid #bde5ce;
+    text-align: center;
+    color: #bde5ce;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 25px;
+    padding: 25px;
+    border-radius: 15px;
+}
+
+.controladoresA div p{
+    font-size: 50px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.controladoresA div:hover{
+    background-color: #bde5ce;
+    color: #274b58 !important;
+    cursor: pointer;
+    transition: 1s;
+}
+.iniciovision{
+   text-align: center;
+    
+}
+.h2v{
+    margin-top: 40px;
+}
+.segundovision{
+    height: 50px;
+    width: 100px;
+    background-color: #6fb1b4;
+    color:#FFF;
+    border: 3px solid #3a727f;
+    padding: 10px;
+    margin-top: 20px;
+     
+}
+
 
 
 

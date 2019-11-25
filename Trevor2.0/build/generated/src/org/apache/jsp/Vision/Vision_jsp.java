@@ -3,6 +3,8 @@ package org.apache.jsp.Vision;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import com.trevor.entidad.Menu;
+import java.util.List;
 
 public final class Vision_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -12,10 +14,12 @@ public final class Vision_jsp extends org.apache.jasper.runtime.HttpJspBase
   private static java.util.List<String> _jspx_dependants;
 
   static {
-    _jspx_dependants = new java.util.ArrayList<String>(1);
+    _jspx_dependants = new java.util.ArrayList<String>(2);
+    _jspx_dependants.add("/Vision/../_menu.jsp");
     _jspx_dependants.add("/_down.jsp");
   }
 
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_forEach_var_items;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_if_test;
 
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
@@ -25,10 +29,12 @@ public final class Vision_jsp extends org.apache.jasper.runtime.HttpJspBase
   }
 
   public void _jspInit() {
+    _jspx_tagPool_c_forEach_var_items = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_c_if_test = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
   }
 
   public void _jspDestroy() {
+    _jspx_tagPool_c_forEach_var_items.release();
     _jspx_tagPool_c_if_test.release();
   }
 
@@ -57,11 +63,47 @@ public final class Vision_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
       out.write("\r\n");
-      out.write("<head>\r\n");
-      out.write("    <link href=\"../CSS/others_css.css\" rel=\"stylesheet\" type=\"text/css\" />\r\n");
-      out.write("</head>\r\n");
       out.write("\r\n");
-      out.write("<div class=\"fondovision\">\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+ HttpSession sesion = request.getSession();
+      out.write("\r\n");
+      out.write("<!DOCTYPE html>\r\n");
+      out.write("<html>\r\n");
+      out.write("    <head>\r\n");
+      out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n");
+      out.write("        <title>Trevor 7917</title>\r\n");
+      out.write("        <link href=\"CSS/icon.css\" rel=\"stylesheet\" type=\"text/css\">\r\n");
+      out.write("        <link href=\"CSS/icon2.css\" rel=\"stylesheet\" type=\"text/css\">\r\n");
+      out.write("        <link href=\"CSS/menus.css\" rel=\"stylesheet\" type=\"text/css\">\r\n");
+      out.write("        <link href=\"CSS/cols.css\" rel=\"stylesheet\" type=\"text/css\">\r\n");
+      out.write("        <link href=\"CSS/tabla.css\" rel=\"stylesheet\" type=\"text/css\">\r\n");
+      out.write("        <link href=\"CSS/others_css.css\" rel=\"stylesheet\" type=\"text/css\">\r\n");
+      out.write("    </head>\r\n");
+      out.write("\r\n");
+      out.write("    <body>\r\n");
+      out.write("        <div class=\"col-r nav\">\r\n");
+      out.write("            <ul>\r\n");
+      out.write("                ");
+      if (_jspx_meth_c_forEach_0(_jspx_page_context))
+        return;
+      out.write("\r\n");
+      out.write("                    <li>\r\n");
+      out.write("                        <a  href=\"Principal?accion=logout\" title=\"Cerrar Sesion\">\r\n");
+      out.write("                            <span  class=\"icon icon-exit\">\r\n");
+      out.write("                            </span>\r\n");
+      out.write("                        </a>\r\n");
+      out.write("                    </li>\r\n");
+      out.write("            </ul>\r\n");
+      out.write("        </div>\r\n");
+      out.write("<div class=\"col-r2\" id=\"content\">\r\n");
+      out.write("    <div class=\"col-12 info_usuario\">\r\n");
+      out.write("    <h4><strong>[");
+      out.print( sesion.getAttribute("Nombre"));
+      out.write("]</strong> <span class=\"icon icon-user-tie\" title=\"Usuario\"></span></h4>\r\n");
+      out.write("</div>");
+      out.write("\r\n");
+      out.write("\r\n");
       out.write("<div class=\"col-12 controladoresA\">\r\n");
       out.write("    <div class=\"col-2\" id=\"sr\">Sin Resolver<p>1</p></div>\r\n");
       out.write("    <div class=\"col-2\" id=\"ven\">Vencidos<p>5</p></div>\r\n");
@@ -70,7 +112,9 @@ public final class Vision_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <div class=\"col-2\" id=\"wait\">En Espera<p>7</p></div>\r\n");
       out.write("    <div class=\"col-2\" id=\"pen\">Pendientes<p>1</p></div>\r\n");
       out.write("</div>\r\n");
+      out.write("<div class=\"row grafs\">\r\n");
       out.write("</div>\r\n");
+      out.write("<!-- espacio para los graficos -->\r\n");
       out.write("\r\n");
       out.write("\r\n");
       out.write("</div>\r\n");
@@ -93,6 +137,57 @@ public final class Vision_jsp extends org.apache.jasper.runtime.HttpJspBase
     } finally {
       _jspxFactory.releasePageContext(_jspx_page_context);
     }
+  }
+
+  private boolean _jspx_meth_c_forEach_0(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:forEach
+    org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_forEach_0 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _jspx_tagPool_c_forEach_var_items.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
+    _jspx_th_c_forEach_0.setPageContext(_jspx_page_context);
+    _jspx_th_c_forEach_0.setParent(null);
+    _jspx_th_c_forEach_0.setVar("menu");
+    _jspx_th_c_forEach_0.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${MenuPrincipal}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    int[] _jspx_push_body_count_c_forEach_0 = new int[] { 0 };
+    try {
+      int _jspx_eval_c_forEach_0 = _jspx_th_c_forEach_0.doStartTag();
+      if (_jspx_eval_c_forEach_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+        do {
+          out.write("\r\n");
+          out.write("                    <li>\r\n");
+          out.write("                        <a title=\"");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${menu.menu}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\" href=\"");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.servletContext.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${menu.url}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("?op=");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${menu.idmenu}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\">\r\n");
+          out.write("                            <span class=\"");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${menu.descripcion}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\">\r\n");
+          out.write("                            </span>\r\n");
+          out.write("                        </a>\r\n");
+          out.write("                    </li>    \r\n");
+          out.write("                    ");
+          int evalDoAfterBody = _jspx_th_c_forEach_0.doAfterBody();
+          if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+            break;
+        } while (true);
+      }
+      if (_jspx_th_c_forEach_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+        return true;
+      }
+    } catch (Throwable _jspx_exception) {
+      while (_jspx_push_body_count_c_forEach_0[0]-- > 0)
+        out = _jspx_page_context.popBody();
+      _jspx_th_c_forEach_0.doCatch(_jspx_exception);
+    } finally {
+      _jspx_th_c_forEach_0.doFinally();
+      _jspx_tagPool_c_forEach_var_items.reuse(_jspx_th_c_forEach_0);
+    }
+    return false;
   }
 
   private boolean _jspx_meth_c_if_0(PageContext _jspx_page_context)
