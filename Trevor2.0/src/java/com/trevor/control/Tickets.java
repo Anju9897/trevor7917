@@ -1,7 +1,8 @@
-
 package com.trevor.control;
+
 import com.trevor.conexion.Conexion;
 import com.trevor.conexion.ConexionPool;
+import com.trevor.entidad.Estado;
 import com.trevor.entidad.Menu;
 import com.trevor.entidad.Ticket;
 import com.trevor.entidad.Usuario;
@@ -25,6 +26,7 @@ import javax.servlet.http.HttpSession;
 
 @WebServlet(name = "Tickets", urlPatterns = "{/Tickets}")
 public class Tickets extends HttpServlet {
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession s = request.getSession();
@@ -51,41 +53,10 @@ public class Tickets extends HttpServlet {
                 int rol = (int) request.getSession().getAttribute("Rol");
                 String[][] mensaje = null;
                 String[] cabeceras = null;
-                if(rol == 1){
-                    sql = "select idticket,asunto,descripcion,u_reporta,fecha_emision from Ticket where idestado = ? and u_encargado like ? ";
-                    List<Object> params = new ArrayList<>();
-                    params.add(1);
-                    params.add("%"+request.getSession().getAttribute("Usuario")+"%");
-                    mensaje = Operaciones.consultar(sql, params);
-                    cabeceras = new String[]{"id Mensaje", "Asunto", "Descripcion","Usuario","Fecha Envio"};
-                }
-                //variable de tipo Tabla para generar la Tabla HTML        
-                Tabla tab = new Tabla(mensaje, //array que contiene los datos     
-                        "75%", //ancho de la tabla px | %    
-                        Tabla.STYLE.OTRO, //estilo de la tabla        
-                        Tabla.ALIGN.CENTER, // alineacion de la tabla      
-                        cabeceras); //array con las cabeceras de la tabla 
-                //boton eliminar          
-                tab.setEliminable(false);
-                //boton actualizar             
-                tab.setModificable(false);
-                //url del proyecto          
-                tab.setPageContext(request.getContextPath());
-                //pagina encargada de eliminar          
-                //pagina encargada de actualizacion     
-                //pagina encargada de seleccion para operaciones     
-                if((int) request.getSession().getAttribute("Rol") == 1){
-                tab.setPaginaModificable("/Bandeja?accion=ver_mensaje");
-                tab.setPaginaEliminable("/Bandeja?accion=eliminar");
-                tab.setPaginaSeleccionable("/Bandeja?accion=ver_mensaje");       
-                tab.setColumnasSeleccionables(new int[]{1});
-                }
-                //columnas seleccionables 
-                //pie de tabla           
-                tab.setPie("Tickets");
-                //imprime la tabla en pantalla    
-                String tabla01 = tab.getTabla();
-                request.setAttribute("tabla", tabla01);
+                sql = "select idticket,asunto,descripcion,u_reporta,fecha_emision from Ticket where u_encargado like ? ";
+                List<Object> params = new ArrayList<>();
+                params.add("%" + request.getSession().getAttribute("Usuario") + "%");
+                mensaje = Operaciones.consultar(sql, params);
                 request.getRequestDispatcher("Tickets/ver_tickets.jsp").forward(request, response);
             } catch (Exception ex) {
                 try {
@@ -100,17 +71,45 @@ public class Tickets extends HttpServlet {
                     Logger.getLogger(Configuracion.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-            response.sendRedirect(request.getContextPath() + "/Tickets");
-        } else if (accion.equals("nuevo")) {
-            request.getRequestDispatcher("Bandeja/nuevo_mensaje.jsp").forward(request, response);
+        } else if (accion.equals("generar")) {
+            try{
+                Conexion conn = new ConexionPool();
+                conn.conectar();
+                Operaciones.abrirConexion(conn);
+                Operaciones.iniciarTransaccion();
+                List<String> p = new ArrayList<>();
+                p.add("Baja");
+                p.add("Media");
+                p.add("Alta");
+                p.add("Urgente");
+                List<Estado> e = Operaciones.getTodos(new Estado());
+                request.setAttribute("estado", e);
+                request.setAttribute("prioridad", p);
+                Operaciones.commit();
+            } catch (Exception ex) {
+                try {
+                    Operaciones.rollback();
+                } catch (SQLException ex1) {
+                    Logger.getLogger(Tickets.class.getName()).log(Level.SEVERE, null, ex1);
+                }
+                Logger.getLogger(Tickets.class.getName()).log(Level.SEVERE, null, ex);
+            }finally{
+                try {
+                    Operaciones.cerrarConexion();
+                } catch (SQLException ex) {
+                    Logger.getLogger(Tickets.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            
+            request.getRequestDispatcher("Tickets/crear_ticket.jsp").forward(request, response);
         } else if (accion.equals("ver_mensaje")) {
             try {
                 Conexion conn = new ConexionPool();
                 conn.conectar();
                 Operaciones.abrirConexion(conn);
                 Operaciones.iniciarTransaccion();
-                Ticket p = Operaciones.get(request.getParameter("id"), new Ticket());
-                request.setAttribute("mensaje", p);
+//                Ticket p = Operaciones.get(request.getParameter("id"), new Ticket());
+//                request.setAttribute("mensaje", p);
                 Operaciones.commit();
             } catch (Exception ex) {
                 try {
@@ -125,7 +124,7 @@ public class Tickets extends HttpServlet {
                     Logger.getLogger(Configuracion.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-            request.getRequestDispatcher("Bandeja/ver_mensaje.jsp").forward(request, response);
+            request.getRequestDispatcher("Tickets/ver_tickets.jsp").forward(request, response);
         } else if (accion.equals("eliminar")) {
 
             try {
@@ -154,7 +153,7 @@ public class Tickets extends HttpServlet {
                     Logger.getLogger(Bandeja.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-            response.sendRedirect(request.getContextPath() + "/Bandeja");
+            response.sendRedirect(request.getContextPath() + "/Tickets");
         }
     }
 
@@ -164,7 +163,7 @@ public class Tickets extends HttpServlet {
         String usuario = request.getParameter("usuario");
         String asunto = request.getParameter("asunto");
         String tipo = request.getParameter("problema");
-        
+
         String descripcion = request.getParameter("Descripcion");
         switch (accion) {
             case "Enviar": {

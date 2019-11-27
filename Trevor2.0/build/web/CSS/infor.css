@@ -53,11 +53,13 @@ h1{
     animation-duration: 20s;
     animation-iteration-count: infinite;
 }
+
 .slider::after{
     content: '';
     clear: both;
     display: table;
 }
+
 .slider .img:nth-child(even){
     background-image: url('../img/img1.jpg');
 }
@@ -141,6 +143,7 @@ tp{
     margin-bottom: 30px;
     font-size: 32px;
 }
+
 h3{
     text-align: center;
     background-color: #3a727f;

@@ -113,7 +113,6 @@ public class Configuracion extends HttpServlet {
                     Logger.getLogger(Configuracion.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-            //response.sendRedirect(request.getContextPath() + "/Paises");
         } else if (accion.equals("insertar")) {
             request.getRequestDispatcher("Configuracion/insertar_modificar.jsp").forward(request, response);
         } else if (accion.equals("modificar")) {
