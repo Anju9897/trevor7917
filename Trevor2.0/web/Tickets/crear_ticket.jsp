@@ -1,6 +1,6 @@
 <%@include file="/_menu.jsp" %>
 
-<form action="Ticket?accion=asignar_ticket">
+<form action="Tickets?accion=asignar_ticket" method="Post">
     <div class="col-1"></div>
     <div class="col-6 info hide" id="info">
         <div class="col-2">
@@ -10,27 +10,25 @@
         <div class="col-10 info2">
             <table class="col-12">
                 <tr>
-                    <td><input type="text" name="reporta" title="Reportador" class="font totick" readonly="readonly" placeholder="${mensaje.u_reporta}"/></td>
+                    <td><input type="text" name="reporta" title="Reportador" class="font totick" readonly="readonly" value="${mensaje.u_reporta}"/></td>
                 </tr>
                 <tr>
                     <td class="font">Asunto:</td>
                     <td class="font">Tipo de Problema:</td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="asunto" class="totick" placeholder="${mensaje.asunto}"></td>
-                    <td><input type="text" name="tipo" class="totick" placeholder="${mensaje.tipo}"></td>
+                    <td><input type="text" name="asunto" class="totick" value="${mensaje.asunto}"></td>
+                    <td><input type="text" name="tipo" class="totick" value="${mensaje.tipo}"></td>
                 </tr>
                 <tr>
                     <td class="font">Descripcion:</td>
                 </tr>
                 <tr>
-                    <td colspan="4"><textarea cols="25" rows="10" name="descripcion" class="totick" readonly="readonly">${mensaje.descripcion}</textarea></td>
+                    <td colspan="4"><textarea cols="25" rows="10" name="descripcion" class="totick" readonly="readonly" >${mensaje.descripcion}</textarea></td>
                 </tr>
             </table>
         </div>
         </div>
-            
-            
         <div class="col-a"></div>
         <div class="col-3 info">
             <div class="col-6"><label for="estado"/>Estado:</div>
@@ -50,9 +48,11 @@
                 </select>
             </div>
             <div class="col-6"><label for="encargado">Asignado A:</div>
-            <div class="col-6"><input type name="encargado" class="totick" readonly="readonly" placeholder="${Usuario}"></div>
+            <div class="col-6"><input type name="encargado" class="totick" readonly="readonly" value="${Usuario}"></div>
+            <div class="col-6"><input type="submit" value="Aceptar" id="Actualizar"></div>
         </div>
         <div class="col-12 butones">
+            
             <div class="stiki"> <a class="icon icon-cross"  id="bck"  onclick="javascript: window.history.back()" title="Cancelar" > </a> </div>
 
         </div>

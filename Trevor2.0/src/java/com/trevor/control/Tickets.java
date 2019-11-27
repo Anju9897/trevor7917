@@ -72,7 +72,7 @@ public class Tickets extends HttpServlet {
                 }
             }
         } else if (accion.equals("generar")) {
-            try{
+            try {
                 Conexion conn = new ConexionPool();
                 conn.conectar();
                 Operaciones.abrirConexion(conn);
@@ -83,8 +83,8 @@ public class Tickets extends HttpServlet {
                 p.add("Alta");
                 p.add("Urgente");
                 List<Estado> e = Operaciones.getTodos(new Estado());
-                request.setAttribute("estado", e);
-                request.setAttribute("prioridad", p);
+                request.getSession().setAttribute("estado", e);
+                request.getSession().setAttribute("prioridad", p);
                 Operaciones.commit();
             } catch (Exception ex) {
                 try {
@@ -93,14 +93,14 @@ public class Tickets extends HttpServlet {
                     Logger.getLogger(Tickets.class.getName()).log(Level.SEVERE, null, ex1);
                 }
                 Logger.getLogger(Tickets.class.getName()).log(Level.SEVERE, null, ex);
-            }finally{
+            } finally {
                 try {
                     Operaciones.cerrarConexion();
                 } catch (SQLException ex) {
                     Logger.getLogger(Tickets.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-            
+
             request.getRequestDispatcher("Tickets/crear_ticket.jsp").forward(request, response);
         } else if (accion.equals("ver_mensaje")) {
             try {
@@ -108,8 +108,6 @@ public class Tickets extends HttpServlet {
                 conn.conectar();
                 Operaciones.abrirConexion(conn);
                 Operaciones.iniciarTransaccion();
-//                Ticket p = Operaciones.get(request.getParameter("id"), new Ticket());
-//                request.setAttribute("mensaje", p);
                 Operaciones.commit();
             } catch (Exception ex) {
                 try {
@@ -160,35 +158,36 @@ public class Tickets extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String accion = request.getParameter("accion");
-        String usuario = request.getParameter("usuario");
-        String asunto = request.getParameter("asunto");
-        String tipo = request.getParameter("problema");
-
-        String descripcion = request.getParameter("Descripcion");
+        String u_encargado = request.getParameter("encargado");
+        int idestado = Integer.parseInt(request.getParameter("estado"));
+        String prioridad = request.getParameter("prioridad");
         switch (accion) {
-            case "Enviar": {
+            case "asignar_ticket": {
                 try {
                     Conexion conn = new ConexionPool();
                     conn.conectar();
                     Operaciones.abrirConexion(conn);
                     Operaciones.iniciarTransaccion();
-                    if (usuario != null && !usuario.equals("")) {
-                        Ticket t = new Ticket();
-                        t.setIdestado(1);
-                        t.setTipo(tipo);
-                        t.setAsunto(asunto);
-                        t.setDescripcion(descripcion);
-                        Date fec = new Date();
-                        t.setFecha_emision(new Timestamp(fec.getTime()));
-                        t.setU_reporta(usuario);
-                        t.setU_encargado("ninguno");
-                        t = Operaciones.insertar(t);
-                        if (t.getU_reporta() != null) {
+                    Ticket t = (Ticket) request.getSession().getAttribute("mensaje");
+                    t = Operaciones.get(t.getIdticket(), new Ticket());
+                    if (t.getIdticket() != 0) {
+                        Ticket t3 = new Ticket();
+                        t3.setDescripcion(t.getDescripcion());
+                        t3.setU_encargado(u_encargado);
+                        t3.setU_reporta(t.getU_reporta());
+                        t3.setFecha_emision(t.getFecha_emision());
+                        t3.setIdestado(idestado);
+                        t3.setPrioridad(prioridad);
+                        t3.setTipo(t.getTipo());
+                        t3.setAsunto(t.getAsunto());
+                        t3 = Operaciones.actualizar(t.getIdticket(), t3);
+                        if (t3.getIdticket() != 0) {
                             request.getSession().setAttribute("resultado", 1);
                         } else {
                             request.getSession().setAttribute("resultado", 0);
                         }
                     }
+
                     Operaciones.commit();
                 } catch (Exception ex) {
                     try {
@@ -204,7 +203,7 @@ public class Tickets extends HttpServlet {
                         Logger.getLogger(Bandeja.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
-                response.sendRedirect("Principal");
+                response.sendRedirect(request.getContextPath() + "/Tickets");
                 break;
             }
             case "eliminar": {

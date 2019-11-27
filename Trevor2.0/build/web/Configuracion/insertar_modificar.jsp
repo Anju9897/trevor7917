@@ -51,5 +51,11 @@
         
     </form>
 </div>
+            
+    <script>
+        window.onload = function () {
+            document.getElementById("txtnewname").focus();
+        };
+    </script>         
 
 <%@include file="/_down.jsp" %>

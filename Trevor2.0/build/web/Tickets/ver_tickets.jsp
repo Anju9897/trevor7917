@@ -1,6 +1,6 @@
 <%@include file="/_menu.jsp" %>
 
-<div class="col-1"></div>
+<!--<div class="col-1"></div>
 <div class="col-10 fonditito ">
     <div class="col-3 ."> 
         <div class="col-3 alta"></div><b class="dvalta"> ALTA </b>
@@ -28,5 +28,7 @@
     <div class="col-1 "></div>
     <div class="col-1"><div class="col-7"></div><div class="col-5 bolita"></div>
     </div>
-</div>
+</div>-->
+
+${tabla}
 <%@include file="/_down.jsp" %>

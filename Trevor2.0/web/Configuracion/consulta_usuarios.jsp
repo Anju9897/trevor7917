@@ -28,7 +28,7 @@
     </div>          
 
     <br/> 
-    ${tabla} 
+    ${tabla}
     <script>
         window.onload = function () {
             document.getElementById("txtBusqueda").focus();
@@ -75,5 +75,11 @@
         </form>
     </div>
 </c:if>
+    
+    <script>
+        window.onload = function () {
+            document.getElementById("txtnewname").focus();
+        };
+    </script> 
 
 <%@include file="/_down.jsp" %>

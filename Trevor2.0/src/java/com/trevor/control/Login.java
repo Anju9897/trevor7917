@@ -65,10 +65,12 @@ public class Login extends HttpServlet {
                 p.setIdcargo(4);
                 p = Operaciones.insertar(p);
                 if (p.getIdusuario() != null) {
-                    request.getSession().setAttribute("resultado", 1);
+                    request.setAttribute("resultado", 1);
                 } else {
-                    request.getSession().setAttribute("resultado", 0);
+                    request.setAttribute("resultado", 0);
                 }
+            }else{
+                request.setAttribute("registro", 0);
             }
             Operaciones.commit();
         } catch (Exception ex) {
