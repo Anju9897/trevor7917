@@ -17,7 +17,7 @@
         <link href="CSS/others_css.css" rel="stylesheet" type="text/css">
     </head>
 
-    <body>
+    <body style="width:100vw;">
         <div class="col-r nav">
             <ul>
                 <c:forEach var="menu" items="${MenuPrincipal}">

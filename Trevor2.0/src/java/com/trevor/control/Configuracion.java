@@ -57,7 +57,7 @@ public class Configuracion extends HttpServlet {
                 String[][] usuario = null;
                 if (request.getParameter("txtBusqueda") != null) {
                     List<Object> params = new ArrayList<>();
-                    params.add("%" + request.getParameter("txtBusqueda").toString() + "%");
+                    params.add("%" + request.getParameter("txtBusqueda")+ "%");
                     usuario = Operaciones.consultar(sql, params);
                 } else {
                     usuario = Operaciones.consultar(sql, null);

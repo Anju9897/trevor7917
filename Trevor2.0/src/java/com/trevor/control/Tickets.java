@@ -8,12 +8,15 @@ import com.trevor.entidad.Ticket;
 import com.trevor.entidad.Usuario;
 import com.trevor.operaciones.Operaciones;
 import com.trevor.utilerias.Tabla;
+import com.trevor.utilerias.vm_ticket;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
@@ -49,14 +52,41 @@ public class Tickets extends HttpServlet {
                 conn.conectar();
                 Operaciones.abrirConexion(conn);
                 Operaciones.iniciarTransaccion();
-                String sql = "";
-                int rol = (int) request.getSession().getAttribute("Rol");
-                String[][] mensaje = null;
-                String[] cabeceras = null;
-                sql = "select idticket,asunto,descripcion,u_reporta,fecha_emision from Ticket where u_encargado like ? ";
+                List<vm_ticket> vm = new ArrayList<>();
                 List<Object> params = new ArrayList<>();
-                params.add("%" + request.getSession().getAttribute("Usuario") + "%");
-                mensaje = Operaciones.consultar(sql, params);
+                String sql2 = "select u_reporta,fecha_emision,tipo,prioridad from ticket where u_encargado like ?";
+                params.add("%"+request.getSession().getAttribute("Usuario")+"%");
+                String [][] rs = Operaciones.consultar(sql2, params);
+                
+                for(int i=0;i<rs[0].length;i++){
+                    Date f = rs[1][i] == null ? null : new SimpleDateFormat("yyyy-MM-dd").parse(rs[1][i]);
+                    vm_ticket v = new vm_ticket(rs[0][i],rs[1][i] == null ? null : new Timestamp(f.getTime()) ,rs[2][i],rs[3][i]);
+                    vm.add(v);
+                }
+                double n_registros = rs[0].length;
+                double  registros_pagina = 4;
+                int n_paginas =  (n_registros < registros_pagina ? 1 : (int) Math.ceil(n_registros / registros_pagina));
+                
+                request.getSession().removeAttribute("vm");
+                request.getSession().setAttribute("vm", vm);
+                request.getSession().setAttribute("n_paginas_", n_paginas);
+                
+                int li = 1;
+                int ls = (int)registros_pagina;
+                
+                if(request.getParameter("pag")!=null){
+                    ls = Integer.parseInt( request.getParameter("pag")) * (int) registros_pagina;
+                    li = ls - ((int) registros_pagina-1); 
+                }
+                    
+                request.setAttribute("li", li);
+                request.setAttribute("ls", ls);
+
+                if(n_paginas!=0){
+                    request.getSession().setAttribute("resultado",1);
+                }
+                
+                Operaciones.commit();
                 request.getRequestDispatcher("Tickets/ver_tickets.jsp").forward(request, response);
             } catch (Exception ex) {
                 try {
@@ -100,7 +130,6 @@ public class Tickets extends HttpServlet {
                     Logger.getLogger(Tickets.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-
             request.getRequestDispatcher("Tickets/crear_ticket.jsp").forward(request, response);
         } else if (accion.equals("ver_mensaje")) {
             try {
@@ -123,35 +152,6 @@ public class Tickets extends HttpServlet {
                 }
             }
             request.getRequestDispatcher("Tickets/ver_tickets.jsp").forward(request, response);
-        } else if (accion.equals("eliminar")) {
-
-            try {
-                Conexion conn = new ConexionPool();
-                conn.conectar();
-                Operaciones.abrirConexion(conn);
-                Operaciones.iniciarTransaccion();
-                Usuario p = Operaciones.eliminar(request.getParameter("id"), new Usuario());
-                if (p.getIdusuario() != null) {
-                    request.getSession().setAttribute("resultado", 1);
-                } else {
-                    request.getSession().setAttribute("resultado", 0);
-                }
-                Operaciones.commit();
-            } catch (Exception ex) {
-                try {
-                    Operaciones.rollback();
-                } catch (SQLException ex1) {
-                    Logger.getLogger(Bandeja.class.getName()).log(Level.SEVERE, null, ex1);
-                }
-                request.getSession().setAttribute("resultado", 0);
-            } finally {
-                try {
-                    Operaciones.cerrarConexion();
-                } catch (SQLException ex) {
-                    Logger.getLogger(Bandeja.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-            response.sendRedirect(request.getContextPath() + "/Tickets");
         }
     }
 
@@ -186,8 +186,8 @@ public class Tickets extends HttpServlet {
                         } else {
                             request.getSession().setAttribute("resultado", 0);
                         }
-                    }
 
+                    }
                     Operaciones.commit();
                 } catch (Exception ex) {
                     try {

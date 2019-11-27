@@ -276,7 +276,7 @@ h2{
     -webkit-transform: scale(1.2);
     -o-transform: scale(1.2);
     -ms-transform: scale(1.2);
-    transform:translate(0px, 25px) scale(1.2);
+    transform:scale(1.2);
     transition: 0.5s;
 }
 
@@ -318,12 +318,27 @@ h2{
     cursor: pointer;
 }
 .bolita{
-    height:35px;
-    margin-top:4px;
-    width: 80px;
+    height:auto;
+    padding: 50%;
+    width: 100%;
     border-radius: 100%;
-    background-color:#C39BD3;
 
+}
+
+.bolita-Baja{
+    background-color:#C39BD3 !important;
+}
+
+.bolita-Media{
+    background-color: #F5B041 !important;
+}
+
+.bolita-Alta{
+    background-color: #27AE60 !important;
+}
+
+.bolita-Urgente{
+     background-color: #EC7063 !important;
 }
 
 .alta{
@@ -356,6 +371,6 @@ h2{
 .fonditito{
     padding-left: 40px;
     border-radius: 35px;
-    
     background-color: black;
+    margin: auto;
 }
