@@ -24,21 +24,13 @@
         <servlet-name>Vision</servlet-name>
         <servlet-class>com.trevor.control.Vision</servlet-class>
     </servlet>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> bfc55c69b94a3e756bb80d5955545a0ed3c610f4
+
     <servlet>
         <servlet-name>Tickets</servlet-name>
         <servlet-class>com.trevor.control.Tickets</servlet-class>
     </servlet>
-<<<<<<< HEAD
->>>>>>> 7e115a1027bf10552562cde371c28236d4129cc3
-=======
-=======
->>>>>>> Kla
->>>>>>> bfc55c69b94a3e756bb80d5955545a0ed3c610f4
+
+
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -63,21 +55,12 @@
         <servlet-name>Vision</servlet-name>
         <url-pattern>/Vision</url-pattern>
     </servlet-mapping>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> bfc55c69b94a3e756bb80d5955545a0ed3c610f4
+
     <servlet-mapping>
         <servlet-name>Tickets</servlet-name>
         <url-pattern>/Tickets</url-pattern>
     </servlet-mapping>
-<<<<<<< HEAD
->>>>>>> 7e115a1027bf10552562cde371c28236d4129cc3
-=======
-=======
->>>>>>> Kla
->>>>>>> bfc55c69b94a3e756bb80d5955545a0ed3c610f4
+
     <session-config>
         <session-timeout>
             30

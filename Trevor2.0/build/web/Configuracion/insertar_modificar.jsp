@@ -1,7 +1,6 @@
 <%@include file="/_menu.jsp" %>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 <div class="col-6 col-t-12 usrDiv" id="registroDiv">
     <form action="${pageContext.servletContext.contextPath}/Configuracion?accion=insertar_modificar" method="Post" id="formsingup">
         <div class="col-12 names">
@@ -14,9 +13,7 @@
         <input type="password" placeholder="Contraseña" required id="nwpass" name="txtPass" value="${usuario.clave}"><br>
         <input type="submit" value="Aceptar" id="regis">
         <p class="back" onclick="javascript: return window.history.back()">Regresar</p>
-=======
-=======
->>>>>>> bfc55c69b94a3e756bb80d5955545a0ed3c610f4
+
 <div class="col-5" id="usuarioform">
     <form action="${pageContext.servletContext.contextPath}/Configuracion?accion=insertar_modificar" method="Post" id="formsingup">
         <table>
@@ -60,10 +57,7 @@
 
         
         
-<<<<<<< HEAD
->>>>>>> 7e115a1027bf10552562cde371c28236d4129cc3
-=======
->>>>>>> bfc55c69b94a3e756bb80d5955545a0ed3c610f4
+
     </form>
 </div>
 

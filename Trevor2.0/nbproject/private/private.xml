@@ -1,55 +1,12 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-<<<<<<< Updated upstream
-        <group/>
-=======
         <group>
-            <file>file:/C:/Users/Georgina/Documents/GitHub/trevor7917/Trevor2.0/web/Tickets/ver_tickets.jsp</file>
-            <file>file:/C:/Users/Georgina/Documents/GitHub/trevor7917/Trevor2.0/web/_menu.jsp</file>
             <file>file:/C:/Users/Georgina/Documents/GitHub/trevor7917/Trevor2.0/web/Vision/Vision.jsp</file>
-            <file>file:/C:/Users/Georgina/Documents/GitHub/trevor7917/Trevor2.0/web/principal.jsp</file>
-            <file>file:/C:/Users/Georgina/Documents/GitHub/trevor7917/Trevor2.0/src/java/com/trevor/control/Tickets.java</file>
-            <file>file:/C:/Users/Georgina/Documents/GitHub/trevor7917/Trevor2.0/web/_down.jsp</file>
-            <file>file:/C:/Users/Georgina/Documents/GitHub/trevor7917/Trevor2.0/web/Bandeja/consultar_mensajes.jsp</file>
-            <file>file:/C:/Users/Georgina/Documents/GitHub/trevor7917/Trevor2.0/web/About/infor.jsp</file>
+            <file>file:/C:/Users/Georgina/Documents/GitHub/trevor7917/Trevor2.0/web/CSS/others_css.css</file>
             <file>file:/C:/Users/Georgina/Documents/GitHub/trevor7917/Trevor2.0/src/java/com/trevor/control/Vision.java</file>
-            <file>file:/C:/Users/Georgina/Documents/GitHub/trevor7917/Trevor2.0/web/Configuracion/consulta_usuarios.jsp</file>
-            <file>file:/C:/Users/Georgina/Documents/GitHub/trevor7917/Trevor2.0/web/index.jsp</file>
-            <file>file:/C:/Users/Georgina/Documents/GitHub/trevor7917/Trevor2.0/src/java/com/trevor/control/About.java</file>
-        </group>
->>>>>>> Stashed changes
-    </open-files>
-</project-private>
-=======
-<?xml version="1.0" encoding="UTF-8"?>
-<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
-    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/Anju9/OneDrive/Documentos/GitHub/trevor7917/Trevor2.0/src/java/com/trevor/control/Configuracion.java</file>
-            <file>file:/C:/Users/Anju9/OneDrive/Documentos/GitHub/trevor7917/Trevor2.0/web/Configuracion/insertar_modificar.jsp</file>
-            <file>file:/C:/Users/Anju9/OneDrive/Documentos/GitHub/trevor7917/Trevor2.0/src/java/com/trevor/entidad/rol.java</file>
+            <file>file:/C:/Users/Georgina/Documents/GitHub/trevor7917/Trevor2.0/src/java/com/trevor/operaciones/Operaciones.java</file>
         </group>
     </open-files>
 </project-private>
->>>>>>> 7e115a1027bf10552562cde371c28236d4129cc3
-=======
-<?xml version="1.0" encoding="UTF-8"?>
-<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
-    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/Anju9/OneDrive/Documentos/GitHub/trevor7917/Trevor2.0/web/CSS/menus.css</file>
-            <file>file:/C:/Users/Anju9/OneDrive/Documentos/GitHub/trevor7917/Trevor2.0/web/CSS/tabla.css</file>
-            <file>file:/C:/Users/Anju9/OneDrive/Documentos/GitHub/trevor7917/Trevor2.0/web/Bandeja/nuevo_mensaje.jsp</file>
-            <file>file:/C:/Users/Anju9/OneDrive/Documentos/GitHub/trevor7917/Trevor2.0/web/CSS/index.css</file>
-            <file>file:/C:/Users/Anju9/OneDrive/Documentos/GitHub/trevor7917/Trevor2.0/web/_menu.jsp</file>
-            <file>file:/C:/Users/Anju9/OneDrive/Documentos/GitHub/trevor7917/Trevor2.0/web/CSS/others_css.css</file>
-        </group>
-    </open-files>
-</project-private>
->>>>>>> bfc55c69b94a3e756bb80d5955545a0ed3c610f4

@@ -1,8 +1,8 @@
-<<<<<<< HEAD
+
 <%@include file="/_menu.jsp" %>
 
 <div class="col-12" id="soli">
-<<<<<<< HEAD
+
     <form action="Bandeja?accion=Enviar" method="Post">
         <h3 class="col-12">Nuevo Mensaje</h3>
         <div class="infoA">
@@ -23,7 +23,7 @@
             <input type="button" value="Regresar" onclick="javascript: window.history.back()" id="null">
             <input type="submit" value="Enviar" id="send">
         </div>
-=======
+
     <form class="col-6" action="Bandeja?accion=Enviar" method="Post">
         <table class="col-12"> 
             
@@ -54,11 +54,11 @@
                 <td><input type="button" value="Regresar" onclick="javascript: window.history.back()" id="null"></td>
             </tr>
         </table>
->>>>>>> 7e115a1027bf10552562cde371c28236d4129cc3
+
     </form>
 </div>
 
-=======
+
 <%@include file="/_menu.jsp" %>
 
 <div class="col-12" id="soli">
@@ -99,5 +99,5 @@
     </form>
 </div>
 
->>>>>>> bfc55c69b94a3e756bb80d5955545a0ed3c610f4
+
 <%@include file="/_down.jsp" %>
