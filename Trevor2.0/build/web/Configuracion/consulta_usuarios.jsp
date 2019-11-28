@@ -28,7 +28,7 @@
     </div>          
 
     <br/> 
-    ${tabla} 
+    ${tabla}
     <script>
         window.onload = function () {
             document.getElementById("txtBusqueda").focus();
@@ -41,8 +41,11 @@
         <form action="${pageContext.servletContext.contextPath}/Configuracion?accion=insertar_modificar" method="Post" id="formsingup">
             <table>
                 <tr>
-                    <td colspan="2"><h2>Informacion del Usuario</hd></td>
-                </tr>
+                <td colspan="2"><h2>Configuracion e Informacion del Usuario</td>
+            </tr>
+            <tr><br></tr><tr><br></tr><tr><br></tr><tr><br></tr>
+            <tr><br></tr><tr><br></tr><tr><br></tr><tr><br></tr>
+            <tr><br></tr><tr><br></tr><tr><br></tr><tr><br></tr>
                 <tr>
                     <td><label for="txtnewname">Nombre:</td>
                     <td><input type="text" placeholder="Nombre" required  name="txtnewname" value="${DatoUser.nombres}"></td>
@@ -73,5 +76,11 @@
         </form>
     </div>
 </c:if>
+    
+    <script>
+        window.onload = function () {
+            document.getElementById("txtnewname").focus();
+        };
+    </script> 
 
 <%@include file="/_down.jsp" %>

@@ -28,7 +28,7 @@
                                                 text: "Usuario y/o Contraseña Incorrecto\nPorfavor, Intente Nuevamente",
                                                 icon: "error",
                                                 buttons: false,
-                                                timer: 2000,
+                                                timer: 3000,
                                             });
                                         </script>
                                     </c:if>
@@ -62,5 +62,10 @@
                 </header>
             </div>
         </div>
+
+        <script>
+                document.getElementById("usr").focus();
+                document.getElementById("name").focus();
+        </script> 
     </body>
 </html>

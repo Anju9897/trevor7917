@@ -89,7 +89,7 @@
 
             </div>
         </div>
-<div id="footer">  
+        <div>  
             <strong>&copy; Copyright 2019 | Developed by: Wakandianos y una Blanca</strong>
         </div>
 

@@ -77,11 +77,11 @@ input[type="submit"]{
     background-color: #bde5ce;
     border-radius: 15px;
     position: absolute; 
-   left: 10%; 
-   bottom: 50%;
-   font-size: 25px;
-   font-family: initial;
-   
+    left: 10%; 
+    bottom: 50%;
+    font-size: 25px;
+    font-family: initial;
+
 
 }
 .mov{
@@ -117,7 +117,8 @@ input[type="submit"]{
     color: white;
     border: 3px solid #bde5ce;
     margin-right: 30px;
-    
+    margin-top: 15px;
+    font-size: 19px;
 }
 
 #Actualizar:hover{
@@ -127,19 +128,19 @@ input[type="submit"]{
 }
 
 .back{
-        cursor: pointer;
-        color: #274b58;
-        width: 50%;
-        font-size: 20px;
-        text-align: left;
-        margin-left: 15px;
-    }
+    cursor: pointer;
+    color: #274b58;
+    width: 50%;
+    font-size: 20px;
+    text-align: left;
+    margin-left: 15px;
+}
 
 
-    .back:hover{
-        color: white;
-        transition: 0.5s;
-    }
+.back:hover{
+    color: white;
+    transition: 0.5s;
+}
 
 /*el formulario para nuevo mensaje*/
 
@@ -159,6 +160,7 @@ textarea{
 h2{
     text-align: center;
 }
+
 .areaM{
     border-radius: 35px;
 }
@@ -176,10 +178,199 @@ h2{
 .botA:hover{
     color: #B6D59A;
     background-color: #274b58;
-  }
-  .fondoK2{
+}
+.fondoK2{
     position: absolute; 
-   left: 25%; 
-   bottom: 20%;
-   
+    left: 25%; 
+    bottom: 10%;
+}
+
+
+/*mensaje*/
+
+.info2{
+    text-align: justify;
+}
+
+.butones{
+    display: flex;
+}
+
+.informacion > div{
+    background-color: #68a2af;
+    color: white;
+    padding: 40px;
+    width: 50%;
+    margin-left: 50%;
+    margin-top: 10%;
+    font-size: 20px;
+
+    border-radius: 15px;
+}
+
+.informacion div p{
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+[type*="number"]{
+    width: 15%;
+}
+
+.informacion > div {
+    display: flex;
+    justify-content: center;
+}
+
+.graficos > div{
+    margin-left: 50px;
+}
+
+.graficos > div > canvas{
+    margin-top: 60px;
+}
+
+.opcion2{
+    background-color: #f9ECD1;
+    margin-top: 10px;
+    border-radius: 10px;
+    color: #274b58;
+}
+
+.opcion2:hover{
+    background-color: #f2d58f;
+    cursor: pointer;
+}
+
+.round{
+    width: 50px; 
+    height: 50px; 
+    border-radius: 50px; 
+    border:5px solid white; 
+    margin: auto;
+    background-color: #fff;
+}
+
+.info{
+    background-color: #bde5ce;
+    border-radius: 15px;
+    margin-top: 10%;
+}
+
+
+.inicial{
+    -moz-transform:none;
+    -webkit-transform:none;
+    -o-transform:none;
+    -ms-transform:none;
+    transform: translate(0px, 50px);
+    transition: 0.5s;
+    
+}
+
+
+.inicial:hover{
+    moz-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform:scale(1.2);
+    transition: 0.5s;
+}
+
+.font{
+    font-size: 18px;
+}
+
+
+.round p{
+    text-align: center;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.info2{
+    text-align: justify;
+}
+
+.totick{
+    background-color: transparent;
+    border: none;
+}
+
+/*vista de tickets*/
+
+.fondoMs{
+    background-color: #bde5ce;
+    border-radius: 20px;
+    
+    margin-bottom: -12px !important;
+}
+.opcion3{
+    border-radius: 10px;
+    color: #274b58;
+}
+
+.fondoMs:hover{
+    background-color: #a9ceb9;
+    cursor: pointer;
+}
+.bolita{
+    margin-top: 10 px;
+    height:5px;
+    width: auto;
+    padding: 20%;
+    border-radius: 100%;
+
+}
+
+.bolita-Baja{
+    background-color:#C39BD3 !important;
+}
+
+.bolita-Media{
+    background-color: #F5B041 !important;
+}
+
+.bolita-Alta{
+    background-color: #27AE60 !important;
+}
+
+.bolita-Urgente{
+     background-color: #EC7063 !important;
+}
+
+.alta{
+    background-color: #27AE60;
+}
+.dvalta{
+    color: #27AE60;
+}
+
+.media{
+    background-color: #F5B041;
+}
+.dvmedia{
+    color: #F5B041;
+}
+
+.baja{
+    background-color: #C39BD3;
+}
+.dvbaja{
+    color: #C39BD3;
+}
+
+.urg{
+    background-color: #EC7063;
+}
+.dvurg{
+    color: #EC7063;
+}
+.fonditito{
+    padding-left: 40px;
+    border-radius: 35px;
+    background-color: black;
+    margin: auto;
 }
