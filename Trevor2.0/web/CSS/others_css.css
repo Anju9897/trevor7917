@@ -305,10 +305,10 @@ h2{
 .fondoMs{
     background-color: #bde5ce;
     border-radius: 20px;
-    margin-bottom: 2px;
+    
+    margin-bottom: -12px !important;
 }
 .opcion3{
-    margin-top: 10px;
     border-radius: 10px;
     color: #274b58;
 }
@@ -318,9 +318,10 @@ h2{
     cursor: pointer;
 }
 .bolita{
-    height:auto;
-    padding: 50%;
-    width: 100%;
+    margin-top: 10 px;
+    height:5px;
+    width: auto;
+    padding: 20%;
     border-radius: 100%;
 
 }

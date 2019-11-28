@@ -24,10 +24,13 @@
         <servlet-name>Vision</servlet-name>
         <servlet-class>com.trevor.control.Vision</servlet-class>
     </servlet>
+<<<<<<< HEAD
     <servlet>
         <servlet-name>Tickets</servlet-name>
         <servlet-class>com.trevor.control.Tickets</servlet-class>
     </servlet>
+=======
+>>>>>>> Kla
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -52,10 +55,13 @@
         <servlet-name>Vision</servlet-name>
         <url-pattern>/Vision</url-pattern>
     </servlet-mapping>
+<<<<<<< HEAD
     <servlet-mapping>
         <servlet-name>Tickets</servlet-name>
         <url-pattern>/Tickets</url-pattern>
     </servlet-mapping>
+=======
+>>>>>>> Kla
     <session-config>
         <session-timeout>
             30

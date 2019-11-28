@@ -60,13 +60,13 @@ public class Bandeja extends HttpServlet {
                 String[][] mensaje = null;
                 String[] cabeceras = null;
                 if (rol == 1) {
-                    sql = "select idticket,asunto,descripcion,u_reporta,isnull(Tipo,'sin clasificacion'),fecha_emision from Ticket where idestado = ?";
+                    sql = "select idticket,asunto,descripcion,u_reporta,isnull(Tipo,'sin clasificacion'),convert(varchar(10),fecha_emision,103) from Ticket where idestado = ?";
                     List<Object> params = new ArrayList<>();
                     params.add(1);
                     mensaje = Operaciones.consultar(sql, params);
                     cabeceras = new String[]{"id Mensaje", "Asunto", "Descripcion", "Usuario","Tipo de Problema", "Fecha Envio"};
                 } else {
-                    sql = "select asunto,descripcion,isnull(Tipo,'sin clasificacion'),fecha_emision from Ticket where u_reporta like ? and idestado = ?";
+                    sql = "select asunto,descripcion,isnull(Tipo,'sin clasificacion'),convert(varchar(10),fecha_emision,103) from Ticket where u_reporta like ? and idestado = ?";
                     List<Object> params = new ArrayList<>();
                     params.add("%" + request.getSession().getAttribute("Usuario").toString() + "%");
                     params.add(1);
@@ -175,10 +175,7 @@ public class Bandeja extends HttpServlet {
             response.sendRedirect(request.getContextPath() + "/Bandeja");
         }
         else if(accion.equals("ticket")){
-//            Ticket t = (Ticket) request.getSession().getAttribute("mensaje");
-//            request.setAttribute("ticket", t);
             response.sendRedirect(request.getContextPath()+ "/Tickets?accion=generar");
-//            request.getSession().removeAttribute("mensaje");
         }
     }
 

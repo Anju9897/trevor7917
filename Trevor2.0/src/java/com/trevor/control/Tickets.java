@@ -54,17 +54,17 @@ public class Tickets extends HttpServlet {
                 Operaciones.iniciarTransaccion();
                 List<vm_ticket> vm = new ArrayList<>();
                 List<Object> params = new ArrayList<>();
-                String sql2 = "select u_reporta,fecha_emision,tipo,prioridad from ticket where u_encargado like ?";
+                String sql2 = "select t.idticket,t.u_reporta,t.fecha_emision,t.tipo,t.prioridad,e.estado from ticket t inner join estado e on (t.idestado = e.idestado) where u_encargado like ? order by t.fecha_emision desc";
                 params.add("%"+request.getSession().getAttribute("Usuario")+"%");
                 String [][] rs = Operaciones.consultar(sql2, params);
                 
                 for(int i=0;i<rs[0].length;i++){
-                    Date f = rs[1][i] == null ? null : new SimpleDateFormat("yyyy-MM-dd").parse(rs[1][i]);
-                    vm_ticket v = new vm_ticket(rs[0][i],rs[1][i] == null ? null : new Timestamp(f.getTime()) ,rs[2][i],rs[3][i]);
+                    Date f = (rs[2][i] == null) ? null : new SimpleDateFormat("yyyy-MM-dd").parse(rs[2][i]);
+                    vm_ticket v = new vm_ticket((Integer.parseInt(rs[0][i])),(rs[1][i]),((f == null) ? null : new Timestamp(f.getTime())),rs[3][i],rs[4][i],rs[5][i]);
                     vm.add(v);
                 }
                 double n_registros = rs[0].length;
-                double  registros_pagina = 4;
+                double  registros_pagina = 6;
                 int n_paginas =  (n_registros < registros_pagina ? 1 : (int) Math.ceil(n_registros / registros_pagina));
                 
                 request.getSession().removeAttribute("vm");
@@ -131,12 +131,17 @@ public class Tickets extends HttpServlet {
                 }
             }
             request.getRequestDispatcher("Tickets/crear_ticket.jsp").forward(request, response);
-        } else if (accion.equals("ver_mensaje")) {
+        } else if (accion.equals("detalle")) {
             try {
                 Conexion conn = new ConexionPool();
                 conn.conectar();
                 Operaciones.abrirConexion(conn);
                 Operaciones.iniciarTransaccion();
+                
+                Ticket t = Operaciones.get(request.getParameter("id"), new Ticket());
+                request.getSession().setAttribute("mensaje", t);
+                request.getSession().setAttribute("inicial", t.getU_reporta().charAt(0));
+                
                 Operaciones.commit();
             } catch (Exception ex) {
                 try {
@@ -151,7 +156,7 @@ public class Tickets extends HttpServlet {
                     Logger.getLogger(Configuracion.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-            request.getRequestDispatcher("Tickets/ver_tickets.jsp").forward(request, response);
+            request.getRequestDispatcher("Tickets/detalle_ticket.jsp").forward(request, response);
         }
     }
 
