@@ -4,13 +4,13 @@
     <div class="col-1"></div>
     <div class="col-10 fonditito">
         <div class="col-3 ."> 
-            <div class="col-3 alta"></div><b class="dvalta"> ALTA </b>
+            <div class="col-3 baja"></div><b class="dvbaja"> BAJA </b>
         </div>
         <div class="col-3 ."> 
             <div class="col-3 media"></div><b class="dvmedia"> MEDIA </b>
         </div>
         <div class="col-3 ."> 
-            <div class="col-3 baja"></div><b class="dvbaja"> BAJA </b>
+            <div class="col-3 alta"></div><b class="dvalta"> ALTA </b>
         </div>
         <div class="col-3 ."> 
             <div class="col-3 urg"></div><b class="dvurg"> URGENTE </b>

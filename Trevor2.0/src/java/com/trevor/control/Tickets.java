@@ -157,6 +157,8 @@ public class Tickets extends HttpServlet {
                 }
             }
             request.getRequestDispatcher("Tickets/detalle_ticket.jsp").forward(request, response);
+        } else if(accion.equals("responder")){
+            request.getRequestDispatcher("Tickets/accion_historial.jsp").forward(request, response);
         }
     }
 

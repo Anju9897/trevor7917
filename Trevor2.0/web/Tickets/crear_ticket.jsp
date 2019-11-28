@@ -34,7 +34,7 @@
             <div class="col-6"><label for="estado"/>Estado:</div>
             <div class="col-6">
                 <select name="estado">
-                    <c:forEach items="${estado}" var="e">
+                    <c:forEach items="${estado}" begin="1" end="3" var="e">
                         <option value="${e.idestado}">${e.estado}</option>
                     </c:forEach>
                 </select>

@@ -28,6 +28,10 @@
         <servlet-name>Tickets</servlet-name>
         <servlet-class>com.trevor.control.Tickets</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Notificacion</servlet-name>
+        <servlet-class>com.trevor.control.Notificacion</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -55,6 +59,10 @@
     <servlet-mapping>
         <servlet-name>Tickets</servlet-name>
         <url-pattern>/Tickets</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Notificacion</servlet-name>
+        <url-pattern>/Notificacion</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

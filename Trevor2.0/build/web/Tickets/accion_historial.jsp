@@ -1,5 +1,7 @@
 <%@include file="/_menu.jsp" %>
 
-${tabla}
+<form>
+    
+</form>
 
 <%@include file="/_down.jsp" %>
