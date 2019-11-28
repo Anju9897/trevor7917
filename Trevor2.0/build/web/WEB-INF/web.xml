@@ -1,3 +1,4 @@
+
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
@@ -24,6 +25,14 @@
         <servlet-name>Vision</servlet-name>
         <servlet-class>com.trevor.control.Vision</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Tickets</servlet-name>
+        <servlet-class>com.trevor.control.Tickets</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Notificacion</servlet-name>
+        <servlet-class>com.trevor.control.Notificacion</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -47,6 +56,14 @@
     <servlet-mapping>
         <servlet-name>Vision</servlet-name>
         <url-pattern>/Vision</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Tickets</servlet-name>
+        <url-pattern>/Tickets</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Notificacion</servlet-name>
+        <url-pattern>/Notificacion</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

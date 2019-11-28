@@ -2,7 +2,8 @@
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8" session="true"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<% HttpSession sesion = request.getSession();%>
+<% HttpSession sesion = request.getSession();
+%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,12 +17,12 @@
         <link href="CSS/others_css.css" rel="stylesheet" type="text/css">
     </head>
 
-    <body>
+    <body style="width:100vw;">
         <div class="col-r nav">
             <ul>
                 <c:forEach var="menu" items="${MenuPrincipal}">
                     <li>
-                        <a title="${menu.menu}" href="${pageContext.servletContext.contextPath}${menu.url}?op=${menu.idmenu}">
+                        <a title="${menu.menu}" href="${pageContext.servletContext.contextPath}${menu.url}">
                             <span class="${menu.descripcion}">
                             </span>
                         </a>

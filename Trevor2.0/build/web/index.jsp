@@ -28,7 +28,7 @@
                                                 text: "Usuario y/o Contraseña Incorrecto\nPorfavor, Intente Nuevamente",
                                                 icon: "error",
                                                 buttons: false,
-                                                timer: 2000,
+                                                timer: 3000,
                                             });
                                         </script>
                                     </c:if>
@@ -41,7 +41,7 @@
                         </form>
                     </div>
                     <div class="col-6 col-t-12 usrDiv" id="registroDiv">
-                        <form action="${pageContext.servletContext.contextPath}/Configuracion?accion=insertar_modificar" method="Post" id="formsingup">
+                        <form action="${pageContext.servletContext.contextPath}/Login?accion=registrar" method="Post" id="formsingup">
                             <div class="col-12 names">
                                 <input type="text" placeholder="Nombre" required id="name" name="txtnewname">
                                 <input type="text" placeholder="Apellido" required id="lstName" name="txtnewLast">
@@ -62,5 +62,10 @@
                 </header>
             </div>
         </div>
+
+        <script>
+                document.getElementById("usr").focus();
+                document.getElementById("name").focus();
+        </script> 
     </body>
 </html>
