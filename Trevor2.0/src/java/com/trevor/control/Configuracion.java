@@ -57,12 +57,9 @@ public class Configuracion extends HttpServlet {
                 String[][] usuario = null;
                 if (request.getParameter("txtBusqueda") != null) {
                     List<Object> params = new ArrayList<>();
-                    params.add("%" + request.getParameter("txtBusqueda") + "%");
+                    params.add("%" + request.getParameter("txtBusqueda")+ "%");
                     usuario = Operaciones.consultar(sql, params);
                 } else {
-                    Usuario u = (Usuario) request.getSession().getAttribute("DatoUser");
-                    List<Object> params = new ArrayList();
-                    params.add(u.getIdusuario());
                     usuario = Operaciones.consultar(sql, null);
                 }
                 List<rol> r = Operaciones.getTodos(new rol());
@@ -116,7 +113,6 @@ public class Configuracion extends HttpServlet {
                     Logger.getLogger(Configuracion.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-            //response.sendRedirect(request.getContextPath() + "/Paises");
         } else if (accion.equals("insertar")) {
             request.getRequestDispatcher("Configuracion/insertar_modificar.jsp").forward(request, response);
         } else if (accion.equals("modificar")) {

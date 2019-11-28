@@ -2,6 +2,8 @@
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8" session="true"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<% HttpSession sesion = request.getSession();
+%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,18 +15,14 @@
         <link href="CSS/cols.css" rel="stylesheet" type="text/css">
         <link href="CSS/tabla.css" rel="stylesheet" type="text/css">
         <link href="CSS/others_css.css" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" type="text/css" href="CSS/datetimepicker.css"/>
-        <script type="text/javascript" src="JS/jquery-3.4.1.js"></script>
-        <script type="text/javascript" src="JS/datetimepicker.js"></script>
-        <script type="text/javascript" src="JS/funciones.js"></script>
     </head>
 
-    <body>
+    <body style="width:100vw;">
         <div class="col-r nav">
             <ul>
                 <c:forEach var="menu" items="${MenuPrincipal}">
                     <li>
-                        <a title="${menu.menu}" href="${pageContext.servletContext.contextPath}${menu.url}?op=${menu.idmenu}">
+                        <a title="${menu.menu}" href="${pageContext.servletContext.contextPath}${menu.url}">
                             <span class="${menu.descripcion}">
                             </span>
                         </a>
@@ -40,5 +38,5 @@
         </div>
 <div class="col-r2" id="content">
     <div class="col-12 info_usuario">
-    <h4><strong>[${DatoUser.nombres}]</strong> <span class="icon icon-user-tie" title="Usuario"></span></h4>
+    <h4><strong>[<%= sesion.getAttribute("Nombre")%>]</strong> <span class="icon icon-user-tie" title="Usuario"></span></h4>
 </div>

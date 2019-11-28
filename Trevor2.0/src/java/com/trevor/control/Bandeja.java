@@ -60,14 +60,13 @@ public class Bandeja extends HttpServlet {
                 String[][] mensaje = null;
                 String[] cabeceras = null;
                 if (rol == 1) {
-                    sql = "select idticket,asunto,descripcion,u_reporta,Tipo,fecha_emision from Ticket where idestado = ? and u_encargado like ?";
+                    sql = "select idticket,asunto,descripcion,u_reporta,isnull(Tipo,'sin clasificacion'),convert(varchar(10),fecha_emision,103) from Ticket where idestado = ?";
                     List<Object> params = new ArrayList<>();
                     params.add(1);
-                    params.add("%ninguno%");
                     mensaje = Operaciones.consultar(sql, params);
                     cabeceras = new String[]{"id Mensaje", "Asunto", "Descripcion", "Usuario","Tipo de Problema", "Fecha Envio"};
                 } else {
-                    sql = "select asunto,descripcion,Tipo,fecha_emision from Ticket where u_reporta like ? and idestado = ?";
+                    sql = "select asunto,descripcion,isnull(Tipo,'sin clasificacion'),convert(varchar(10),fecha_emision,103) from Ticket where u_reporta like ? and idestado = ?";
                     List<Object> params = new ArrayList<>();
                     params.add("%" + request.getSession().getAttribute("Usuario").toString() + "%");
                     params.add(1);
@@ -126,7 +125,10 @@ public class Bandeja extends HttpServlet {
                 Operaciones.abrirConexion(conn);
                 Operaciones.iniciarTransaccion();
                 Ticket p = Operaciones.get(request.getParameter("id"), new Ticket());
-                request.setAttribute("mensaje", p);
+                request.getSession().removeAttribute("mensaje");
+                request.getSession().setAttribute("mensaje", p);
+                request.getSession().removeAttribute("inicial");
+                request.getSession().setAttribute("inicial", p.getU_reporta().charAt(0));
                 Operaciones.commit();
             } catch (Exception ex) {
                 try {
@@ -172,6 +174,9 @@ public class Bandeja extends HttpServlet {
             }
             response.sendRedirect(request.getContextPath() + "/Bandeja");
         }
+        else if(accion.equals("ticket")){
+            response.sendRedirect(request.getContextPath()+ "/Tickets?accion=generar");
+        }
     }
 
     @Override
@@ -198,8 +203,8 @@ public class Bandeja extends HttpServlet {
                         Date fec = new Date();
                         t.setFecha_emision(new Timestamp(fec.getTime()));
                         t.setU_reporta(usuario);
-                        t.setU_encargado("ninguno");
                         t = Operaciones.insertar(t);
+                        request.setAttribute("ticket", t);
                         if (t.getU_reporta() != null) {
                             request.getSession().setAttribute("resultado", 1);
                         } else {

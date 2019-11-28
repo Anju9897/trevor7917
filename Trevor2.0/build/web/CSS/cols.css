@@ -30,6 +30,7 @@
 @media only screen and (min-width: 768px){ /* ESCRITORIO */
     .col-r{width: 6%;}
     .col-r2{width: 94%;}
+    .col-a{width: 4%}
     .col-1{width: 8.33%;}
     .col-2{width: 16.66%;}
     .col-3{width: 25%;}
