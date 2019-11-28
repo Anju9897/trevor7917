@@ -16,7 +16,6 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "Notificacion", urlPatterns = {"/Notificacion"})
 public class Notificacion extends HttpServlet {
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -32,6 +31,7 @@ public class Notificacion extends HttpServlet {
                 Operaciones.abrirConexion(conn);
                 Operaciones.iniciarTransaccion();
 
+                String sql = "select idticket from HistoriaTicket group by idticket";
                 
                 Operaciones.commit();
                 request.getRequestDispatcher("Notificaciones/list_notificacion.jsp").forward(request, response);
@@ -48,6 +48,8 @@ public class Notificacion extends HttpServlet {
                     Logger.getLogger(Notificacion.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
+        } else if(accion.equals("")){
+            
         }
     }
 
