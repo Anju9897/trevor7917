@@ -120,6 +120,7 @@ public class Login extends HttpServlet {
                         List<Menu> MenuPrincipal = permisos.stream().filter(field -> field.getIdpadre() == 0).collect(Collectors.toList());
                         sesion.setAttribute("MenuPrincipal", MenuPrincipal);
                         sesion.setAttribute("Permisos", permisos);
+
                         response.sendRedirect("Principal");
                     } else {
                         request.setAttribute("error", 2);
