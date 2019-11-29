@@ -374,3 +374,119 @@ h2{
     background-color: black;
     margin: auto;
 }
+
+
+
+
+/* para la pagina de vision */
+.inivision{
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.controladoresA{
+
+
+
+    height: 200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.controladoresA div{
+    border: 4px solid #bde5ce;
+    text-align: center;
+    color: #bde5ce;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 25px;
+    padding: 25px;
+    border-radius: 15px;
+}
+
+.controladoresA div p{
+    font-size: 50px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.controladoresA div:hover{
+    background-color: #bde5ce;
+    color: #274b58 !important;
+    cursor: pointer;
+    transition: 1s;
+}
+.iniciovision{
+    text-align: center;
+
+}
+.h2v{
+    margin-top: 40px;
+}
+.segundovision{
+    height: 50px;
+    width: 100px;
+    background-color: #6fb1b4;
+    color:#FFF;
+
+    padding: 10px;
+    margin-top: 20px;
+
+}
+.listadere{
+    margin-left: 10px;
+
+}
+.listadere div{
+    list-style: none;
+
+    padding: 5px;
+
+}
+.listadere div p{
+    background-color: #3a727f;
+    height: 40px;
+    color: #bde5ce;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 25px;
+    padding: 3px;
+}
+.listadere div p:hover{
+    boder: 2px solid ;
+    background-color: #bde5ce;
+    color: #3a727f;
+}
+.cuadrore {
+    background-color: #bde5ce;
+    padding: 10px;
+    border-radius: 20px;
+    margin-left: 90px;
+
+}
+.cuadrore select{
+    height: 35px;
+    border-radius: 25px;
+    width: 190px;
+}
+.generarreportelista{
+    background-color: #3a727f;
+    color:#bde5ce;
+    width: 150px;
+    height: 50px;
+    float: right;
+    margin-top: 8px;
+    margin-right: 150px;
+    font-size: 16px;
+    border-radius: 20px;
+    border: 0;
+    
+    
+}
+.generarreportelista:hover{
+    color: #3a727f;
+    background-color: #6fb1b4;
+    border: 3px solid  #3a727f;
+    
+}
