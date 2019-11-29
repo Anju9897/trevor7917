@@ -12,13 +12,11 @@ public class Usuario {
    private String telefono;
    private String clave;
    private int idrol;
-   private int idcargo;
-   private int idarea;
 
     public Usuario() {
     }
 
-    public Usuario(String idusuario, String nombres, String apellidos, String email, String telefono, String clave, int idrol, int idcargo, int idarea) {
+    public Usuario(String idusuario, String nombres, String apellidos, String email, String telefono, String clave, int idrol) {
         this.idusuario = idusuario;
         this.nombres = nombres;
         this.apellidos = apellidos;
@@ -26,8 +24,6 @@ public class Usuario {
         this.telefono = telefono;
         this.clave = clave;
         this.idrol = idrol;
-        this.idcargo = idcargo;
-        this.idarea = idarea;
     }
 
     public String getIdusuario() {
@@ -85,23 +81,6 @@ public class Usuario {
     public void setIdrol(int idrol) {
         this.idrol = idrol;
     }
-
-    public int getIdcargo() {
-        return idcargo;
-    }
-
-    public void setIdcargo(int idcargo) {
-        this.idcargo = idcargo;
-    }
-
-    public int getIdarea() {
-        return idarea;
-    }
-
-    public void setIdarea(int idarea) {
-        this.idarea = idarea;
-    }
-   
    
     
 }

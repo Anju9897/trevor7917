@@ -205,8 +205,6 @@ public class Configuracion extends HttpServlet {
                         p.setTelefono(Telefono);
                         p.setIdrol(Integer.parseInt(rol));
                         p.setClave(u.getClave());
-                        p.setIdarea(u.getIdarea());
-                        p.setIdcargo(u.getIdcargo());
                         p = Operaciones.actualizar(p.getIdusuario(), p);
                         if (p.getIdusuario() != null) {
                             request.getSession().setAttribute("resultado", 1);
@@ -223,9 +221,6 @@ public class Configuracion extends HttpServlet {
                             p.setEmail(email);
                             p.setTelefono(Telefono);
                             p.setIdrol(2);
-                            p.setClave(Hash.generarHash(pass, Hash.SHA256));
-                            p.setIdarea(2);
-                            p.setIdcargo(4);
                             p = Operaciones.insertar(p);
                             if (p.getIdusuario() != null) {
                                 request.getSession().setAttribute("resultado", 1);

@@ -3,32 +3,19 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Anju9/OneDrive/Documentos/GitHub/trevor7917/Trevor2.0/src/java/com/trevor/control/Principal.java</file>
-            <file>file:/C:/Users/Anju9/OneDrive/Documentos/GitHub/trevor7917/Trevor2.0/web/CSS/index.css</file>
-            <file>file:/C:/Users/Anju9/OneDrive/Documentos/GitHub/trevor7917/Trevor2.0/web/Bandeja/nuevo_mensaje.jsp</file>
-            <file>file:/C:/Users/Anju9/OneDrive/Documentos/GitHub/trevor7917/Trevor2.0/src/java/com/trevor/utilerias/vm_ticket.java</file>
+            <file>file:/C:/Users/Anju9/OneDrive/Documentos/GitHub/trevor7917/Trevor2.0/src/java/com/trevor/entidad/Usuario.java</file>
             <file>file:/C:/Users/Anju9/OneDrive/Documentos/GitHub/trevor7917/Trevor2.0/web/Tickets/detalle_ticket.jsp</file>
-            <file>file:/C:/Users/Anju9/OneDrive/Documentos/GitHub/trevor7917/Trevor2.0/src/java/com/trevor/control/Bandeja.java</file>
+            <file>file:/C:/Users/Anju9/OneDrive/Documentos/GitHub/trevor7917/Trevor2.0/src/java/com/trevor/utilerias/vm_ticket.java</file>
             <file>file:/C:/Users/Anju9/OneDrive/Documentos/GitHub/trevor7917/Trevor2.0/web/Tickets/crear_ticket.jsp</file>
-            <file>file:/C:/Users/Anju9/OneDrive/Documentos/GitHub/trevor7917/Trevor2.0/web/WEB-INF/web.xml</file>
-            <file>file:/C:/Users/Anju9/OneDrive/Documentos/GitHub/trevor7917/Trevor2.0/web/JS/funciones.js</file>
-            <file>file:/C:/Users/Anju9/OneDrive/Documentos/GitHub/trevor7917/Trevor2.0/web/CSS/infor.css</file>
+            <file>file:/C:/Users/Anju9/OneDrive/Documentos/GitHub/trevor7917/Trevor2.0/src/java/com/trevor/control/Login.java</file>
+            <file>file:/C:/Users/Anju9/OneDrive/Documentos/GitHub/trevor7917/Trevor2.0/web/CSS/others_css.css</file>
             <file>file:/C:/Users/Anju9/OneDrive/Documentos/GitHub/trevor7917/Trevor2.0/web/Notificaciones/list_notificacion.jsp</file>
-            <file>file:/C:/Users/Anju9/OneDrive/Documentos/GitHub/trevor7917/Trevor2.0/src/java/com/trevor/control/Tickets.java</file>
+            <file>file:/C:/Users/Anju9/OneDrive/Documentos/GitHub/trevor7917/Trevor2.0/web/Tickets/ver_tickets.jsp</file>
+            <file>file:/C:/Users/Anju9/OneDrive/Documentos/GitHub/trevor7917/Trevor2.0/src/java/com/trevor/utilerias/vm_noti.java</file>
             <file>file:/C:/Users/Anju9/OneDrive/Documentos/GitHub/trevor7917/Trevor2.0/src/java/com/trevor/control/Configuracion.java</file>
-            <file>file:/C:/Users/Anju9/OneDrive/Documentos/GitHub/trevor7917/Trevor2.0/src/java/com/trevor/operaciones/Operaciones.java</file>
-            <file>file:/C:/Users/Anju9/OneDrive/Documentos/GitHub/trevor7917/Trevor2.0/web/Bandeja/ver_mensaje.jsp</file>
-            <file>file:/C:/Users/Anju9/OneDrive/Documentos/GitHub/trevor7917/Trevor2.0/src/java/com/trevor/control/About.java</file>
+            <file>file:/C:/Users/Anju9/OneDrive/Documentos/GitHub/trevor7917/Trevor2.0/src/java/com/trevor/control/Tickets.java</file>
             <file>file:/C:/Users/Anju9/OneDrive/Documentos/GitHub/trevor7917/Trevor2.0/web/Tickets/accion_historial.jsp</file>
-            <file>file:/C:/Users/Anju9/OneDrive/Documentos/GitHub/trevor7917/Trevor2.0/src/java/com/trevor/entidad/Ticket.java</file>
             <file>file:/C:/Users/Anju9/OneDrive/Documentos/GitHub/trevor7917/Trevor2.0/src/java/com/trevor/control/Notificacion.java</file>
-            <file>file:/C:/Users/Anju9/OneDrive/Documentos/GitHub/trevor7917/Trevor2.0/web/Bandeja/consultar_mensajes.jsp</file>
-            <file>file:/C:/Users/Anju9/OneDrive/Documentos/NetBeansProjects/trevor7917/Trevor2.0/trevor7917/Trevor2.0/web/principal.jsp</file>
-            <file>file:/C:/Users/Anju9/OneDrive/Documentos/NetBeansProjects/trevor7917/Trevor2.0/trevor7917/Trevor2.0/src/java/com/trevor/control/Configuracion.java</file>
-            <file>file:/C:/Users/Anju9/OneDrive/Documentos/NetBeansProjects/trevor7917/Trevor2.0/trevor7917/Trevor2.0/web/index.jsp</file>
-            <file>file:/C:/Users/Anju9/OneDrive/Documentos/NetBeansProjects/trevor7917/Trevor2.0/trevor7917/Trevor2.0/web/Configuracion/insertar_modificar.jsp</file>
-            <file>file:/C:/Users/Anju9/OneDrive/Documentos/NetBeansProjects/trevor7917/Trevor2.0/trevor7917/Trevor2.0/src/java/com/trevor/entidad/permiso.java</file>
-            <file>file:/C:/Users/Anju9/OneDrive/Documentos/NetBeansProjects/trevor7917/Trevor2.0/trevor7917/Trevor2.0/src/java/com/trevor/entidad/rol.java</file>
         </group>
     </open-files>
 </project-private>

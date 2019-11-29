@@ -15,6 +15,11 @@
         <link href="CSS/cols.css" rel="stylesheet" type="text/css">
         <link href="CSS/tabla.css" rel="stylesheet" type="text/css">
         <link href="CSS/others_css.css" rel="stylesheet" type="text/css">
+        <link href="CSS/vision_css.css" rel="stylesheet" type="text/css">
+        
+        <script type="text/javascript" src="JS/jquery-3.4.1.js"></script>
+        <script type="text/javascript" src="JS/datetimepicker.js"></script>
+        <script type="text/javascript" src="JS/funciones.js"></script>
     </head>
 
     <body style="width:100vw;">

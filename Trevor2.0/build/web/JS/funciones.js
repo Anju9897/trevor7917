@@ -19,7 +19,10 @@ $(document).ready(function(){
     });
 
     // mostrar tabla 1
-    $("#sr").on("click",function(){
+    $(".cuadro").hide();
+    
+    $('#sr p').on("click",function(){
+        $(".cuadro").show();
         $("#sinResolver").fadeIn();
         $("#vencidos").hide();
         $("#Vence_hoy").hide();
@@ -29,7 +32,9 @@ $(document).ready(function(){
     });
 
     // mostrar tabla 2
-    $("#ven").on("click",function(){
+    $("#ven p").on("click",function(){
+        
+        $(".cuadro").show();
         $("#vencidos").fadeIn();
         $("#sinResolver").hide();
         $("#Vence_hoy").hide();
@@ -39,7 +44,8 @@ $(document).ready(function(){
     });
 
     // mostrar tabla 3
-    $("#venhoy").on("click",function(){
+    $("#venhoy p").on("click",function(){
+        $(".cuadro").show();
         $("#Vence_hoy").fadeIn();
         $("#sinResolver").hide();
         $("#vencidos").hide();
@@ -49,7 +55,8 @@ $(document).ready(function(){
     });
 
     // mostrar tabla 4
-    $("#open").on("click",function(){
+    $("#open p").on("click",function(){
+        $(".cuadro").show();
         $("#abiertos").fadeIn();
         $("#sinResolver").hide();
         $("#vencidos").hide();
@@ -59,7 +66,8 @@ $(document).ready(function(){
     });
 
     // mostrar tabla 5
-    $("#wait").on("click",function(){
+    $("#wait p").on("click",function(){
+        $(".cuadro").show();
         $("#Espera").fadeIn();
         $("#sinResolver").hide();
         $("#vencidos").hide();
@@ -69,7 +77,7 @@ $(document).ready(function(){
     });
 
     // mostrar tabla 6
-    $("#pen").on("click",function(){
+    $("#pen p").on("click",function(){
         $("#pendientes").fadeIn();
         $("#sinResolver").hide();
         $("#vencidos").hide();
