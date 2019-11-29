@@ -3,12 +3,12 @@
 .busqueda{
     width: 100%;
     text-align: center;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .busqueda h1{
     color: #274b58;
-    font-size: 35px;
+    font-size: 25px;
 }
 
 input[type="text"],input[type="email"]{
@@ -373,4 +373,9 @@ h2{
     border-radius: 35px;
     background-color: black;
     margin: auto;
+}
+
+.hover{
+    color: #fff;
+    transition: 0.5s;
 }

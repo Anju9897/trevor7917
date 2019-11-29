@@ -47,35 +47,25 @@ public class Vision extends HttpServlet {
                 conn.conectar();
                 Operaciones.abrirConexion(conn);
                 Operaciones.iniciarTransaccion();
-                List<String> pr = new ArrayList<>();
-                pr.add("Baja");
-                pr.add("Media");
-                pr.add("Alta");
-                pr.add("Urgente");
-                List<String> tp = new ArrayList<>();
-                tp.add("Preguntas");
-                tp.add("Incidentes");
-                tp.add("Problemas");
-                tp.add("solicitud de funcion");
-                List<Estado> es = Operaciones.getTodos(new Estado());
-                request.getSession().setAttribute("estado", es);
-                request.getSession().setAttribute("Prioridad", pr);
-                request.getSession().setAttribute("tipo", tp);
-                
+
+                listasquemadas(request, response);
+
                 // la lista de la sentencia sql
                 String sql_cont = "select count(t.idestado) ,e.estado,t.idestado from ticket t inner join estado e on (t.idestado = e.idestado) group by t.idestado,e.estado";
-                String [][] rs = Operaciones.consultar(sql_cont, null);
+                String[][] rs = Operaciones.consultar(sql_cont, null);
                 vm_repo vm = new vm_repo();
-                
                 List<vm_repo> lst = new ArrayList<>();
-                for(int i=0;i<rs[0].length;i++){
-                    vm = new vm_repo(Integer.parseInt(rs[0][i]),rs[1][i],Integer.parseInt(rs[2][i]));
-                    lst.add(vm);
+
+                if (rs != null) {
+                    for (int i = 0; i < rs[0].length; i++) {
+                        vm = new vm_repo(Integer.parseInt(rs[0][i]), rs[1][i], Integer.parseInt(rs[2][i]));
+                        lst.add(vm);
+                    }
+
+                    request.getSession().removeAttribute("conteo");
+                    request.getSession().setAttribute("conteo", lst);
+
                 }
-                
-                request.getSession().removeAttribute("conteo");
-                request.getSession().setAttribute("conteo", lst);
-                
                 Operaciones.commit();
                 request.getRequestDispatcher("Vision/Vision.jsp").forward(request, response);
 
@@ -97,7 +87,51 @@ public class Vision extends HttpServlet {
         }
 
     }
-    //llevar datos de la base de datos  a  la pagina vision
+
+    protected void listasquemadas(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        /*Listas de parametros*/
+        List<String> pr = new ArrayList<>();
+        pr.add("Baja");
+        pr.add("Media");
+        pr.add("Alta");
+        pr.add("Urgente");
+        
+        List<String> tp = new ArrayList<>();
+        tp.add("Software");
+        tp.add("Hardware");
+        tp.add("Conexion");
+        tp.add("Accidente");
+        tp.add("Fallo Sistema");
+        
+        List<Estado> es = Operaciones.getTodos(new Estado());
+        
+        List<String> mes = new ArrayList<>();
+        mes.add("Enero");
+        mes.add("Febrero");
+        mes.add("Marzo");
+        mes.add("Abril");
+        mes.add("Mayo");
+        mes.add("Junio");
+        mes.add("Julio");
+        mes.add("Agosto");
+        mes.add("Septiembre");
+        mes.add("Octubre");
+        mes.add("Noviembre");
+        mes.add("Diciembre");
+        
+        List<String> ao = new ArrayList<>();
+        ao.add("2015");
+        ao.add("2016");
+        ao.add("2017");
+        ao.add("2018");
+        ao.add("2019");
+        
+        request.getSession().setAttribute("ao", ao);
+        request.getSession().setAttribute("mes", mes);
+        request.getSession().setAttribute("estado", es);
+        request.getSession().setAttribute("Prioridad", pr);
+        request.getSession().setAttribute("tipo", tp);
+    }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)

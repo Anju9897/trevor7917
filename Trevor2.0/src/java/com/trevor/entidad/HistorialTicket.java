@@ -1,6 +1,7 @@
 package com.trevor.entidad;
 
 import com.trevor.anotaciones.*;
+import java.util.Date;
 
 @Entity(table = "historialTicket")
 public class HistorialTicket {
@@ -16,12 +17,12 @@ public class HistorialTicket {
     @NotNull
     private String observaciones;
     @NotNull
-    private String fecha_final;
+    private Date fecha_final;
 
     public HistorialTicket() {
     }
 
-    public HistorialTicket(int idhistorial, int idticket, String u_reporta, String observaciones, String fecha_final) {
+    public HistorialTicket(int idhistorial, int idticket, String u_reporta, String observaciones, Date fecha_final) {
         this.idhistorial = idhistorial;
         this.idticket = idticket;
         this.u_reporta = u_reporta;
@@ -61,11 +62,11 @@ public class HistorialTicket {
         this.observaciones = observaciones;
     }
 
-    public String getFecha_final() {
+    public Date getFecha_final() {
         return fecha_final;
     }
 
-    public void setFecha_final(String fecha_final) {
+    public void setFecha_final(Date fecha_final) {
         this.fecha_final = fecha_final;
     }
 
