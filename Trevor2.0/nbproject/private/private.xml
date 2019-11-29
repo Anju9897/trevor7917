@@ -3,19 +3,20 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Anju9/OneDrive/Documentos/GitHub/trevor7917/Trevor2.0/src/java/com/trevor/entidad/Usuario.java</file>
-            <file>file:/C:/Users/Anju9/OneDrive/Documentos/GitHub/trevor7917/Trevor2.0/web/Tickets/detalle_ticket.jsp</file>
-            <file>file:/C:/Users/Anju9/OneDrive/Documentos/GitHub/trevor7917/Trevor2.0/src/java/com/trevor/utilerias/vm_ticket.java</file>
-            <file>file:/C:/Users/Anju9/OneDrive/Documentos/GitHub/trevor7917/Trevor2.0/web/Tickets/crear_ticket.jsp</file>
-            <file>file:/C:/Users/Anju9/OneDrive/Documentos/GitHub/trevor7917/Trevor2.0/src/java/com/trevor/control/Login.java</file>
+            <file>file:/C:/Users/Anju9/OneDrive/Documentos/GitHub/trevor7917/Trevor2.0/src/java/com/trevor/control/Vision.java</file>
+            <file>file:/C:/Users/Anju9/OneDrive/Documentos/GitHub/trevor7917/Trevor2.0/web/CSS/index.css</file>
+            <file>file:/C:/Users/Anju9/OneDrive/Documentos/GitHub/trevor7917/Trevor2.0/src/java/com/trevor/control/Bandeja.java</file>
+            <file>file:/C:/Users/Anju9/OneDrive/Documentos/GitHub/trevor7917/Trevor2.0/web/_menu.jsp</file>
             <file>file:/C:/Users/Anju9/OneDrive/Documentos/GitHub/trevor7917/Trevor2.0/web/CSS/others_css.css</file>
             <file>file:/C:/Users/Anju9/OneDrive/Documentos/GitHub/trevor7917/Trevor2.0/web/Notificaciones/list_notificacion.jsp</file>
-            <file>file:/C:/Users/Anju9/OneDrive/Documentos/GitHub/trevor7917/Trevor2.0/web/Tickets/ver_tickets.jsp</file>
-            <file>file:/C:/Users/Anju9/OneDrive/Documentos/GitHub/trevor7917/Trevor2.0/src/java/com/trevor/utilerias/vm_noti.java</file>
-            <file>file:/C:/Users/Anju9/OneDrive/Documentos/GitHub/trevor7917/Trevor2.0/src/java/com/trevor/control/Configuracion.java</file>
+            <file>file:/C:/Users/Anju9/OneDrive/Documentos/GitHub/trevor7917/Trevor2.0/web/CSS/menus.css</file>
+            <file>file:/C:/Users/Anju9/OneDrive/Documentos/GitHub/trevor7917/Trevor2.0/src/java/com/trevor/entidad/HistorialTicket.java</file>
+            <file>file:/C:/Users/Anju9/OneDrive/Documentos/GitHub/trevor7917/Trevor2.0/web/Configuracion/consulta_usuarios.jsp</file>
             <file>file:/C:/Users/Anju9/OneDrive/Documentos/GitHub/trevor7917/Trevor2.0/src/java/com/trevor/control/Tickets.java</file>
-            <file>file:/C:/Users/Anju9/OneDrive/Documentos/GitHub/trevor7917/Trevor2.0/web/Tickets/accion_historial.jsp</file>
-            <file>file:/C:/Users/Anju9/OneDrive/Documentos/GitHub/trevor7917/Trevor2.0/src/java/com/trevor/control/Notificacion.java</file>
+            <file>file:/C:/Users/Anju9/OneDrive/Documentos/GitHub/trevor7917/Trevor2.0/web/CSS/vision_css.css</file>
+            <file>file:/C:/Users/Anju9/OneDrive/Documentos/GitHub/trevor7917/Trevor2.0/web/index.jsp</file>
+            <file>file:/C:/Users/Anju9/OneDrive/Documentos/GitHub/trevor7917/Trevor2.0/web/Vision/Vision.jsp</file>
+            <file>file:/C:/Users/Anju9/OneDrive/Documentos/GitHub/trevor7917/Trevor2.0/web/Bandeja/consultar_mensajes.jsp</file>
         </group>
     </open-files>
 </project-private>

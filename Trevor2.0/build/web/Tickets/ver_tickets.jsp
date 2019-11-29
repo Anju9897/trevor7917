@@ -18,28 +18,32 @@
     </div>
 </div>
 
-<c:forEach var="vm" begin="${li-1}" end="${ls-1}" items="${vm}">
-    <div class="col-12 ">
-    <div class="col-1"></div>
-    <a class="col-10 fondoMs" href="Tickets?accion=detalle&id=${vm.idticket}">
-        <div class="col-11 opcion3">
-            <p class="col-3" ><b>Usuario:</b></br><i>${vm.usuario}</i></p>
-            <p class="col-3" ><b>Fecha:</b></br><i>${vm.fecha}</i></p>
-            <p class="col-3" ><b>Tipo:</b></br><i>${vm.tipo}</i></p>
-            <p class="col-3" ><b>Estado:</b></br><i>${vm.estado}</i></p>
+<c:if test="${vm!=null}">
+    <c:forEach var="vm" begin="${li-1}" end="${ls-1}" items="${vm}">
+        <div class="col-12 ">
+            <div class="col-1"></div>
+            <a class="col-10 fondoMs" href="Tickets?accion=detalle&id=${vm.idticket}">
+                <div class="col-11 opcion3">
+                    <p class="col-3" ><b>Usuario:</b></br><i>${vm.usuario}</i></p>
+                    <p class="col-3" ><b>Fecha:</b></br><i>${vm.fecha}</i></p>
+                    <p class="col-3" ><b>Tipo:</b></br><i>${vm.tipo}</i></p>
+                    <p class="col-3" ><b>Estado:</b></br><i>${vm.estado}</i></p>
+                </div>
+                <div class="col-1">
+                    <div class=" col-2 bolita bolita-${vm.prioridad}"></div>
+                </div>
+            </a>
         </div>
-        <div class="col-1">
-            <div class=" col-2 bolita bolita-${vm.prioridad}"></div>
-        </div>
-    </a>
-</div>
-</c:forEach>
+    </c:forEach>
+</c:if>
+
+
 
 <div class="col-12">
     <div class="footer2">
-    <c:forEach begin="1" end="${n_paginas_}" varStatus="i">
-        <a href="${pageContext.servletContext.contextPath}/Tickets?pag=${i.index}">${i.index}</a>
-    </c:forEach> </div>
+        <c:forEach begin="1" end="${n_paginas_}" varStatus="i">
+            <a href="${pageContext.servletContext.contextPath}/Tickets?pag=${i.index}">${i.index}</a>
+        </c:forEach> </div>
 </div>
 
 <%@include file="/_down.jsp" %>

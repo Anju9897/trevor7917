@@ -1,7 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 </div>
 <div class="footer" style="height: max-content;">  
-            <strong>&copy; Copyright 2019 | Developed by: Wakandianos y una Blanca</strong>
+            <strong>&copy; Copyright 2019 | Developed by : Wakandianos y una Blanca</strong>
 </div>
 <c:if test="${Rol==2}">
     <div class="col-1 stiki" id="btnredactar">

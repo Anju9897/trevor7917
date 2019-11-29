@@ -60,19 +60,19 @@ public class Bandeja extends HttpServlet {
                 String[][] mensaje = null;
                 String[] cabeceras = null;
                 if (rol == 1) {
-                    sql = "select idticket,asunto,descripcion,u_reporta,isnull(Tipo,'sin clasificacion'),convert(varchar(10),fecha_emision,103) from Ticket where idestado = ?";
+                    sql = "select idticket,asunto,substring(descripcion,0,25),u_reporta,isnull(Tipo,'sin clasificacion'),convert(varchar(10),fecha_emision,103) from Ticket where idestado = ?";
                     List<Object> params = new ArrayList<>();
                     params.add(1);
                     mensaje = Operaciones.consultar(sql, params);
-                    cabeceras = new String[]{"id Mensaje", "Asunto", "Descripcion", "Usuario","Tipo de Problema", "Fecha Envio"};
+                    cabeceras = new String[]{"id Mensaje", "Asunto", "Descripcion", "Usuario", "Tipo de Problema", "Fecha Envio"};
                 } else {
-                    sql = "select asunto,descripcion,isnull(Tipo,'sin clasificacion'),convert(varchar(10),fecha_emision,103) from Ticket where u_reporta like ? and idestado = ?";
+                    sql = "select asunto,substring(descripcion,0,25),isnull(Tipo,'sin clasificacion'),convert(varchar(10),fecha_emision,103) from Ticket where u_reporta like ? and idestado = ?";
                     List<Object> params = new ArrayList<>();
                     params.add("%" + request.getSession().getAttribute("Usuario").toString() + "%");
                     params.add(1);
                     mensaje = Operaciones.consultar(sql, params);
                     //declaracion de cabeceras a usar en la tabla HTML   
-                    cabeceras = new String[]{"Asunto", "Descripcion","Tipo de Problema", "Fecha Envio"};
+                    cabeceras = new String[]{"Asunto", "Descripcion", "Tipo de Problema", "Fecha Envio"};
                 }
                 //variable de tipo Tabla para generar la Tabla HTML        
                 Tabla tab = new Tabla(mensaje, //array que contiene los datos     
@@ -99,8 +99,12 @@ public class Bandeja extends HttpServlet {
                 //pie de tabla           
                 tab.setPie("Mensajes");
                 //imprime la tabla en pantalla    
-                String tabla01 = mensaje != null ? tab.getTabla() : "<center><Strong id='nomessage'>No Tienes Mensajes</Strong></center>" ;
+                String tabla01 = mensaje != null ? tab.getTabla() : "<center><Strong id='nomessage'>No Tienes Mensajes</Strong></center>";
                 request.setAttribute("tabla", tabla01);
+                
+                request.getSession().removeAttribute("resultado");
+                request.getSession().setAttribute("resultado",2);
+
                 request.getRequestDispatcher("Bandeja/consultar_mensajes.jsp").forward(request, response);
             } catch (Exception ex) {
                 try {
@@ -173,9 +177,8 @@ public class Bandeja extends HttpServlet {
                 }
             }
             response.sendRedirect(request.getContextPath() + "/Bandeja");
-        }
-        else if(accion.equals("ticket")){
-            response.sendRedirect(request.getContextPath()+ "/Tickets?accion=generar");
+        } else if (accion.equals("ticket")) {
+            response.sendRedirect(request.getContextPath() + "/Tickets?accion=generar");
         }
     }
 
@@ -226,7 +229,7 @@ public class Bandeja extends HttpServlet {
                         Logger.getLogger(Bandeja.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
-                response.sendRedirect(request.getContextPath()+"/Bandeja");
+                response.sendRedirect(request.getContextPath() + "/Bandeja");
                 break;
             }
             case "eliminar": {

@@ -155,3 +155,10 @@ input[type="submit"]{
     border: 3px solid;
     transition: 0.5s;
 }
+
+.nuevafecha{
+    width: 185px;
+    height: 30px;
+    border-radius: 20px;
+    
+}

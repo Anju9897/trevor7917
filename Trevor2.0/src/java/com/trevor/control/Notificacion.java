@@ -40,35 +40,37 @@ public class Notificacion extends HttpServlet {
                 String[][] rs = Operaciones.consultar(sql, params);
 
                 vm_noti t = new vm_noti();
-                
+
                 List<vm_noti> v = new ArrayList<>();
 
-                for (int j = 0; j < rs[0].length; j++) {
-                    t = new vm_noti(rs[0][j], Integer.parseInt(rs[1][j]), rs[2][j]);
-                    v.add(t);
-                }
+                if (rs != null) {
+                    for (int j = 0; j < rs[0].length; j++) {
+                        t = new vm_noti(rs[0][j], Integer.parseInt(rs[1][j]), rs[2][j]);
+                        v.add(t);
+                    }
 
-                double n_registros = rs[0].length;
-                double registros_pagina = 10;
-                int n_paginas = (n_registros < registros_pagina ? 1 : (int) Math.ceil(n_registros / registros_pagina));
+                    double n_registros = rs[0].length;
+                    double registros_pagina = v.size() < 10 ? v.size() : 10;
+                    int n_paginas = (n_registros < registros_pagina ? 1 : (int) Math.ceil(n_registros / registros_pagina));
 
-                request.getSession().removeAttribute("historial");
-                request.getSession().setAttribute("historial", v);
-                request.getSession().setAttribute("n_paginas_", n_paginas);
+                    request.getSession().removeAttribute("historial");
+                    request.getSession().setAttribute("historial", v);
+                    request.getSession().setAttribute("n_paginas_", n_paginas);
 
-                int li = 1;
-                int ls = (int) registros_pagina;
+                    int li = 1;
+                    int ls = (int) registros_pagina;
 
-                if (request.getParameter("pag") != null) {
-                    ls = Integer.parseInt(request.getParameter("pag")) * (int) registros_pagina;
-                    li = ls - ((int) registros_pagina - 1);
-                }
+                    if (request.getParameter("pag") != null) {
+                        ls = Integer.parseInt(request.getParameter("pag")) * (int) registros_pagina;
+                        li = ls - ((int) registros_pagina - 1);
+                    }
 
-                request.setAttribute("li", li);
-                request.setAttribute("ls", ls);
+                    request.setAttribute("li", li);
+                    request.setAttribute("ls", ls);
 
-                if (n_paginas != 0) {
-                    request.getSession().setAttribute("resultado", 1);
+                    if (n_paginas != 0) {
+                        request.getSession().setAttribute("resultado", 1);
+                    }
                 }
 
                 Operaciones.commit();
