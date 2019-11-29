@@ -5,7 +5,9 @@ import com.trevor.conexion.ConexionPool;
 import com.trevor.entidad.Estado;
 import com.trevor.entidad.Menu;
 import com.trevor.operaciones.Operaciones;
+import com.trevor.utilerias.vm_repo;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,12 +25,6 @@ import javax.servlet.http.HttpSession;
 
 public class Vision extends HttpServlet {
 
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-
-    }
-
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -37,12 +33,13 @@ public class Vision extends HttpServlet {
         List<Menu> MenuPrincipal = per.stream().filter(field -> field.getIdpadre() == 0).collect(Collectors.toList());
         request.setAttribute("MenuPrincipal", MenuPrincipal);
         String op = request.getParameter("op");
-
-        String accion = request.getParameter("accion");
         if (op != null) {
             List<Menu> PermisosAsignados = per.stream().filter(field -> field.getIdpadre() == Integer.parseInt(op)).collect(Collectors.toList());
             request.setAttribute("PermisosAsignados", PermisosAsignados);
+            PrintWriter io = response.getWriter();
         }
+
+        String accion = request.getParameter("accion");
         if (accion == null) {
 
             try {
@@ -64,7 +61,21 @@ public class Vision extends HttpServlet {
                 request.getSession().setAttribute("estado", es);
                 request.getSession().setAttribute("Prioridad", pr);
                 request.getSession().setAttribute("tipo", tp);
-
+                
+                // la lista de la sentencia sql
+                String sql_cont = "select count(t.idestado) ,e.estado,t.idestado from ticket t inner join estado e on (t.idestado = e.idestado) group by t.idestado,e.estado";
+                String [][] rs = Operaciones.consultar(sql_cont, null);
+                vm_repo vm = new vm_repo();
+                
+                List<vm_repo> lst = new ArrayList<>();
+                for(int i=0;i<rs[0].length;i++){
+                    vm = new vm_repo(Integer.parseInt(rs[0][i]),rs[1][i],Integer.parseInt(rs[2][i]));
+                    lst.add(vm);
+                }
+                
+                request.getSession().removeAttribute("conteo");
+                request.getSession().setAttribute("conteo", lst);
+                
                 Operaciones.commit();
                 request.getRequestDispatcher("Vision/Vision.jsp").forward(request, response);
 
@@ -83,7 +94,6 @@ public class Vision extends HttpServlet {
                     Logger.getLogger(Vision.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-
         }
 
     }
@@ -99,11 +109,5 @@ public class Vision extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
-    private static class adm_reporte {
-
-        public adm_reporte() {
-        }
-    }
 
 }

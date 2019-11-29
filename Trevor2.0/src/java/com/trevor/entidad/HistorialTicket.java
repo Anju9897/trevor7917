@@ -17,19 +17,16 @@ public class HistorialTicket {
     private String observaciones;
     @NotNull
     private String fecha_final;
-    @NotNull
-    private int idaccion;
 
     public HistorialTicket() {
     }
 
-    public HistorialTicket(int idhistorial, int idticket, String u_reporta, String observaciones, String fecha_final, int idaccion) {
+    public HistorialTicket(int idhistorial, int idticket, String u_reporta, String observaciones, String fecha_final) {
         this.idhistorial = idhistorial;
         this.idticket = idticket;
         this.u_reporta = u_reporta;
         this.observaciones = observaciones;
         this.fecha_final = fecha_final;
-        this.idaccion = idaccion;
     }
 
     public int getIdhistorial() {
@@ -70,14 +67,6 @@ public class HistorialTicket {
 
     public void setFecha_final(String fecha_final) {
         this.fecha_final = fecha_final;
-    }
-
-    public int getIdaccion() {
-        return idaccion;
-    }
-
-    public void setIdaccion(int idaccion) {
-        this.idaccion = idaccion;
     }
 
 }

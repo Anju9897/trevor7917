@@ -4,13 +4,9 @@
     <img src="imagen/logo.png" style="width: 50px; height: 50px;" >
 </div>
 <div class="controladoresA">
-
-    <div class="col-2" id="">Sin Resolver<p>1</p></div>
-    <div class="col-2" id="">Vencidos<p>5</p></div>
-    <div class="col-2" id="">Vence Hoy<p>3</p></div>
-    <div class="col-2" id="">Abiertos<p>5</p></div>
-    <div class="col-2" id="">En Espera<p>7</p></div>
-    <div class="col-2" id="">Realizar<p>Reporte</p></div>  
+    <c:forEach items="${conteo}" var="c">
+        <div class="col-2">${c.estado}<p>${c.cEstado}</p></div>
+    </c:forEach>  
 </div>
 <div class="row">
     <div class="col-12">
@@ -71,9 +67,6 @@
 
                     </select>
                     <br>
-
-
-
                 </form> 
 
             </div>
@@ -181,7 +174,7 @@
             <div class="col-6 cuadrore" id="abiertos">
                 <form action="Vision?accion=generar_reportes" method="Post">
                     <h3 style="text-align: center">Detalle de reporte por prioridad </h3>
-                    <div class=""><label for="prioridad"/>Prioridades:</div>
+                    <div class=""><label for="Prioridad"/>Prioridad: </div>
                     <select name="Prioridad">
                         <c:forEach items="${Prioridad}" var="pr">
                             <option value="${pr}">${pr}</option>
@@ -234,12 +227,6 @@
             <div class="col-6 cuadrore" id="pendientes">
                 <form action="Vision?accion=generar_reportes" method="Post">
                     <h3 style="text-align: center">Detalle de reporte por Administradores </h3>
-                    <div class=""><label for="adm"/>Administradores:</div>
-                    <select name="admi">
-                        <c:forEach items="${admi}" var="admi">
-                            <option value="${admi}">${admi}</option>
-                        </c:forEach>
-                    </select>
                     <h4>Dia : </h4>
 
                     <input class="datepicker" type="text" name="txtFecha" size="25">
@@ -284,10 +271,7 @@
             </div>
             <button class=" col-4 generarreportelista">Generar Reporte</button>
         </div>
-
     </div>
-
-
 </div>
 
 <script>
@@ -295,5 +279,4 @@
         var dtp = new DateTimePicker('.datepicker', {timePicker: true, format: 'd/m/y:i'});
     };
 </script>
-<script src="JS/funciones.js"></script>
 <%@include file="/_down.jsp" %>
