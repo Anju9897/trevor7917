@@ -119,6 +119,9 @@ input[type="submit"]{
     margin-right: 30px;
     margin-top: 15px;
     font-size: 19px;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
 }
 
 #Actualizar:hover{
@@ -266,7 +269,7 @@ h2{
     -ms-transform:none;
     transform: translate(0px, 50px);
     transition: 0.5s;
-    
+
 }
 
 
@@ -304,7 +307,7 @@ h2{
 .fondoMs{
     background-color: #bde5ce;
     border-radius: 20px;
-    
+
     margin-bottom: -12px !important;
 }
 .opcion3{
@@ -338,7 +341,7 @@ h2{
 }
 
 .bolita-Urgente{
-     background-color: #EC7063 !important;
+    background-color: #EC7063 !important;
 }
 
 .alta{

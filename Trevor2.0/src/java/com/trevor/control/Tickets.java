@@ -55,12 +55,12 @@ public class Tickets extends HttpServlet {
                 Operaciones.iniciarTransaccion();
                 List<vm_ticket> vm = new ArrayList<>();
                 List<Object> params = new ArrayList<>();
-                String sql2 = "select t.idticket,t.u_reporta,t.fecha_emision,t.tipo,t.prioridad,e.estado from ticket t inner join estado e on (t.idestado = e.idestado) where u_encargado like ? order by t.fecha_emision desc";
+                String sql2 = "select t.idticket,t.u_reporta,convert(varchar(11),t.fecha_emision,105),t.tipo,t.prioridad,e.estado from ticket t inner join estado e on (t.idestado = e.idestado) where u_encargado like ? order by t.fecha_emision desc";
                 params.add("%" + request.getSession().getAttribute("Usuario") + "%");
                 String[][] rs = Operaciones.consultar(sql2, params);
                 if (rs != null) {
                     for (int i = 0; i < rs[0].length; i++) {
-                        Date f = (rs[2][i] == null) ? null : new SimpleDateFormat("yyyy-MM-dd").parse(rs[2][i]);
+                        Date f = (rs[2][i] == null) ? null : new SimpleDateFormat("dd-MM-yyyy").parse(rs[2][i]);
                         vm_ticket v = new vm_ticket((Integer.parseInt(rs[0][i])), (rs[1][i]), ((f == null) ? null : new Timestamp(f.getTime())), rs[3][i], rs[4][i], rs[5][i]);
                         vm.add(v);
                     }
@@ -198,7 +198,7 @@ public class Tickets extends HttpServlet {
                                
                                ht.setIdticket(t3.getIdticket());
                                ht.setU_reporta(t3.getU_reporta());
-                               ht.setFecha_final(null);
+                               ht.setFecha_final(new Timestamp(new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("fechafin")).getTime()));
                                if(t3.getIdestado()==3){
                                    ht.setFecha_final(new Timestamp(new Date().getTime()));
                                    ht.setObservaciones(request.getParameter("Observacion"));

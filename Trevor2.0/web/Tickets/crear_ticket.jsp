@@ -31,24 +31,27 @@
         </div>
         <div class="col-a"></div>
         <div class="col-3 info">
-            <div class="col-6"><label for="estado"/>Estado:</div>
-            <div class="col-6">
+            <div class="col-12"><label for="estado"/>Estado:</div>
+            <div class="col-6 cuadrore">
                 <select name="estado">
                     <c:forEach items="${estado}" begin="1" end="3" var="e">
                         <option value="${e.idestado}">${e.estado}</option>
                     </c:forEach>
                 </select>
             </div>
-            <div class="col-6"><label for="prioridad"/>Prioridades:</div>
-            <div class="col-6">
+            <div class="col-12"><label for="prioridad"/>Prioridades:</div>
+            <div class="col-6 cuadrore">
                 <select name="prioridad">
                     <c:forEach items="${prioridad}" var="p">
                         <option value="${p}">${p}</option>
                     </c:forEach>
                 </select>
             </div>
-            <div class="col-6"><label for="encargado">Asignado A:</div>
-            <div class="col-6"><input type name="encargado" class="totick" readonly="readonly" value="${Usuario}"></div>
+            <div class="col-12"><label for="encargado">Asignado A:</div>
+            <div class="col-12"><input type="text" name="encargado" class="totick" readonly="readonly" value="${Usuario}"></div>
+            <div class="col-12"><label for="fechafin">Fecha Esperada a finalizar:</div>
+            <input type="date" size="25" class="nuevafecha" name="fechafin">
+            
             <div class="col-6"><input type="submit" value="Aceptar" id="Actualizar"></div>
         </div>
         <div class="col-12 butones">
