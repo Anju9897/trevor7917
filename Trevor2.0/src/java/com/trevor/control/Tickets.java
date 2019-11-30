@@ -181,37 +181,47 @@ public class Tickets extends HttpServlet {
                     Ticket t = (Ticket) request.getSession().getAttribute("mensaje");
                     t = Operaciones.get(t.getIdticket(), new Ticket());
                     if (t.getIdticket() != 0) {
-                        if (t.getU_encargado() == null) {
+                        if (t.getU_encargado() == null || t.getU_encargado() != null) {
                             HistorialTicket ht = new HistorialTicket();
                             Ticket t3 = new Ticket();
                             t3.setDescripcion(t.getDescripcion());
                             t3.setU_encargado(u_encargado);
                             t3.setU_reporta(t.getU_reporta());
-                            t3.setFecha_emision(t.getFecha_emision());
+                            t3.setFecha_emision(new Timestamp(new Date().getTime()));
                             t3.setIdestado(idestado);
                             t3.setPrioridad(prioridad);
                             t3.setTipo(t.getTipo());
                             t3.setAsunto(t.getAsunto());
                             t3 = Operaciones.actualizar(t.getIdticket(), t3);
-
-                            ht.setIdticket(t3.getIdticket());
-                            ht.setU_reporta(t3.getU_reporta());
-                            ht = Operaciones.insertar(ht);
                             if (t3.getIdticket() != 0) {
                                 request.getSession().setAttribute("resultado", 1);
+                               
+                               ht.setIdticket(t3.getIdticket());
+                               ht.setU_reporta(t3.getU_reporta());
+                               ht.setFecha_final(null);
+                               if(t3.getIdestado()==3){
+                                   ht.setFecha_final(new Timestamp(new Date().getTime()));
+                                   ht.setObservaciones(request.getParameter("Observacion"));
+                               }
+                               
+                               List<Object> params = new ArrayList<>();
+                               String sql = "select idhistorial from HistorialTicket where idticket = ?";
+                               params.add(t3.getIdticket());
+                               
+                               String [][] rs = Operaciones.consultar(sql, params);
+                               
+                               if(rs!=null){
+                                   ht.setIdhistorial( Integer.parseInt( rs[0][0]));
+                                   ht = Operaciones.actualizar(ht.getIdhistorial(), ht);
+                               }else{
+                                   ht = Operaciones.insertar(ht);
+                               }
+                               
                             } else {
                                 request.getSession().setAttribute("resultado", 0);
                             }
 
-                            /*si el administrador puso el estado a cerrado*/
-                            if (t3.getIdestado() == 3) {
-                                ht.setIdticket(t3.getIdticket());
-                                ht.setU_reporta(t3.getU_reporta());
-                                Date ff = new Date();
-                                ht.setFecha_final(new Timestamp(ff.getTime()));
-//                                ht.setObservaciones(request.getParameter("Observacion"));
-                                ht = Operaciones.actualizar(ht.getIdhistorial(), ht);
-                            }
+                            
                         }
 
                     }
