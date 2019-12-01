@@ -1,12 +1,22 @@
 <%@include file="/_menu.jsp" %>
-<div class="inivision">
-    <h1>Reportes Trevor-7917</h1>
-    <img src="imagen/logo.png" style="width: 50px; height: 50px;" >
+<div class="inivision">    
+    <div class="busqueda">    
+        <h1 class="col-6">Reportes Trevor7917</h1>
+        <img src="imagen/logo.png" style="width: 75px; height: auto;" >
+    </div>
 </div>
 <div class="controladoresA">
-    <c:forEach items="${conteo}" var="c">
-        <div class="col-2">${c.estado}<p>${c.cEstado}</p></div>
-    </c:forEach>  
+    <c:if test="${conteo!=null}">
+        <c:forEach items="${conteo}" var="c">
+            <div class="col-2">${c.estado}<p>${c.cEstado}</p></div>
+                </c:forEach>  
+            </c:if>
+            <c:if test="${conteo==null}">
+        <div class="col-2">mensaje<p>0</p></div>
+        <div class="col-2">abierto<p>0</p></div>
+        <div class="col-2">cerrado<p>0</p></div>
+        <div class="col-2">en espera<p>0</p></div>
+    </c:if>
 </div>
 <div class="row">
     <div class="col-12">
@@ -30,25 +40,15 @@
                         </select>
                     </div>
                     <h4>Dia : </h4>
-                    <input class="datepicker" type="text" name="txtFecha" size="25">
+                    <input class="nuevafecha" type="date" name="txtFecha" size="25">
                     <br>
                     <br>
                     <h4>Mes: </h4>
 
                     <select name="mesreporte">
-                        <option value="1">Enero</option>
-                        <option value="2">Febrero</option>
-                        <option value="3">Marzo</option>
-                        <option value="4">Abrir</option>
-                        <option value="5">Mayo</option>
-                        <option value="6">Junio</option>
-                        <option value="7">Julio</option>
-                        <option value="8">Agosto</option>
-                        <option value="9">Septiembre</option>
-                        <option value="10">Octubre</option>
-                        <option value="11">Noviembre</option>
-                        <option value="12">Diciembre</option>
-
+                        <c:forEach begin="0" end="${mes.size()-1}" varStatus="m">
+                            <option value="${mes.get(m.index)}">${mes.get(m.index)}</option>
+                        </c:forEach>
                     </select>
                     <br>
                     <br>
@@ -56,17 +56,12 @@
                     <h4>Año: </h4>
 
                     <select name="añoreporte">
-                        <option value="1">2019</option>
-                        <option value="2">2018</option>
-                        <option value="3">2017</option>
-                        <option value="4">2016</option>
-                        <option value="5">2015</option>
-                        <option value="6">2014</option>
-                        <option value="7">2013</option>
-                        <option value="">2012</option>
-
+                        <c:forEach items="${ao}" var="a">
+                            <option value="${a}">${a}</option>
+                        </c:forEach>
                     </select>
                     <br>
+                    <input type="submit" class=" col-4 generarreportelista" value="Generar Reporte"/>
                 </form> 
 
             </div>
@@ -279,4 +274,4 @@
         var dtp = new DateTimePicker('.datepicker', {timePicker: true, format: 'd/m/y:i'});
     };
 </script>
-
+<%@include file="/_down.jsp" %>

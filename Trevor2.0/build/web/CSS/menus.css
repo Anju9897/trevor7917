@@ -10,13 +10,25 @@ body{
 .nav{
     background-color: #3a727f;
     height: 100vh;
+    position: fixed; 
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: visible;
+    align-content: center;
+}
+/*.nav{
+    background-color: #3a727f;
+    height: 100vh;
     position: sticky;
+    position: -webkit-sticky;
     left: 0;
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     align-content: center;
-}
+}*/
 .nav ul{
     width: 100%;
     list-style: none;
@@ -64,8 +76,9 @@ body{
     text-align: center;
     color: #3a727f;
     cursor: default;
-    position: absolute;
+    position: fixed;
     bottom: 0;
+    height: 2.5rem; 
 }
 
 .footer2{

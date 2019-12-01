@@ -4,16 +4,27 @@
 <c:if test="${Rol==1}">
     <c:if test="${resultado!=null}">   
         <c:if test="${resultado==1}">        
-            <p style="color:darkgreen">
-                <strong>Operación realizada correctamente.</strong>
-            </p>   
+            <script>
+                swal({
+                    text: "Usuario Actualizado con éxito",
+                    icon: "success",
+                    buttons: false,
+                    timer: 3000
+                });
+            </script>
         </c:if> 
         <c:if test="${resultado==0}">       
-            <p style="color:darkred">
-                <strong>La operación no se realizó.</strong>
-            </p>    
+            <script>
+                swal({
+                    text: "Error, No se pudo actualizar",
+                    icon: "error",
+                    buttons: false,
+                    timer: 3000
+                });
+            </script>  
         </c:if>
-    </c:if> 
+    </c:if>
+
     <div class="busqueda">    
         <h1>Listado Usuarios</h1>
         <br>
@@ -41,11 +52,11 @@
         <form action="${pageContext.servletContext.contextPath}/Configuracion?accion=insertar_modificar" method="Post" id="formsingup">
             <table>
                 <tr>
-                <td colspan="2"><h2>Configuracion e Informacion del Usuario</td>
-            </tr>
-            <tr><br></tr><tr><br></tr><tr><br></tr><tr><br></tr>
-            <tr><br></tr><tr><br></tr><tr><br></tr><tr><br></tr>
-            <tr><br></tr><tr><br></tr><tr><br></tr><tr><br></tr>
+                    <td colspan="2"><h2>Configuracion e Informacion del Usuario</td>
+                </tr>
+                <tr><br></tr><tr><br></tr><tr><br></tr><tr><br></tr>
+                <tr><br></tr><tr><br></tr><tr><br></tr><tr><br></tr>
+                <tr><br></tr><tr><br></tr><tr><br></tr><tr><br></tr>
                 <tr>
                     <td><label for="txtnewname">Nombre:</td>
                     <td><input type="text" placeholder="Nombre" required  name="txtnewname" value="${DatoUser.nombres}"></td>
@@ -67,20 +78,20 @@
                     <td><input type="text" placeholder="Telefono" name="txtTelefono" value="${DatoUser.telefono}"></td>
                 </tr>
                 <tr><br></tr><tr><br></tr><tr><br></tr><tr><br></tr><tr><br></tr><tr><br></tr><tr><br></tr><tr><br></tr><tr><br></tr><tr><br></tr><tr><br></tr><tr><br></tr>
-             <tr>
-                 <td><input class="botA icon icon-undo2 " type="submit" value="Aceptar" id="Actualizar"></td>
-                <td><a class=" icon icon-undo2 botA"type="button" value="Regresar" onclick="javascript: window.history.back()" id="null"> </a> </td>
-            </tr>
+                <tr>
+                    <td><input class="botA icon icon-undo2 " type="submit" value="Aceptar" id="Actualizar"></td>
+                    <td><a class=" icon icon-undo2 botA"type="button" value="Regresar" onclick="javascript: window.history.back()" id="null"> </a> </td>
+                </tr>
 
             </table>
         </form>
     </div>
 </c:if>
-    
-    <script>
-        window.onload = function () {
-            document.getElementById("txtnewname").focus();
-        };
-    </script> 
+
+<script>
+    window.onload = function () {
+        document.getElementById("txtnewname").focus();
+    };
+</script> 
 
 <%@include file="/_down.jsp" %>

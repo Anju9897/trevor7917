@@ -1,6 +1,6 @@
 <%@page import="com.trevor.entidad.Menu"%>
 <%@page import="java.util.List"%>
-<%@page contentType="text/html" pageEncoding="UTF-8" session="true"%>
+<%@page language="java"  contentType="text/html charset=UTF-8" pageEncoding="UTF-8" session="true"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <% HttpSession sesion = request.getSession();
 %>
@@ -15,15 +15,15 @@
         <link href="CSS/cols.css" rel="stylesheet" type="text/css">
         <link href="CSS/tabla.css" rel="stylesheet" type="text/css">
         <link href="CSS/others_css.css" rel="stylesheet" type="text/css">
-
         <link href="CSS/vision_css.css" rel="stylesheet" type="text/css">
-        
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         <script type="text/javascript" src="JS/jquery-3.4.1.js"></script>
         <script type="text/javascript" src="JS/datetimepicker.js"></script>
         <script type="text/javascript" src="JS/funciones.js"></script>
     </head>
 
-    <body style="width:100vw;">
+    <body  style="width:100vw;">
+       
         <div class="col-r nav">
             <ul>
                 <c:forEach var="menu" items="${MenuPrincipal}">
@@ -42,6 +42,8 @@
                     </li>
             </ul>
         </div>
+        
+        <div class="col-r"></div>
 <div class="col-r2" id="content">
     <div class="col-12 info_usuario">
     <h4><strong>[<%= sesion.getAttribute("Nombre")%>]</strong> <span class="icon icon-user-tie" title="Usuario"></span></h4>
