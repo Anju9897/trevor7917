@@ -68,7 +68,7 @@
         <div class="row">
             <div class="col-12 "id="xe">
                 <img src="imagen/nosotros.png" class="col-6">
-                <p class="col-6 adminis" style="color:#6fb1b4">Administradores:<br><br>
+                <p class="col-6 adminis" style="color:#ffffff">Administradores:<br><br>
                     Marina Claribel Guardado Monge<br>
                     Juan Jose Ramos Garcia<br>
                     Georgina Larissa Granados Garcia<br>
@@ -78,7 +78,7 @@
             </div>
             <div class="col-12" id="xe">
 
-                <p class=" col-6 adminis"style="color:#6fb1b4; margin-left: 80px; text-align: justify">Beneficios de Trevor 7917:<br><br>
+                <p class=" col-6 adminis"style="color:#ffffff; margin-left: 80px; text-align: justify">Beneficios de Trevor 7917:<br><br>
                     1. Tu servicio de atención al cliente será más rápido y eficaz.<br>
                     2. Ofrecemos una plataforma help desk para tu negocio.<br> 
                     3. Mejora la distribución del trabajo.<br>
@@ -89,7 +89,7 @@
 
             </div>
         </div>
-            <div class="col-12 footerfondo">  
+        <div>  
             <strong>&copy; Copyright 2019 | Developed by: Wakandianos y una Blanca</strong>
         </div>
 

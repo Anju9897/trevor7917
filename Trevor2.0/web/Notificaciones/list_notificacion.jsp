@@ -1,7 +1,7 @@
 <%@include file="/_menu.jsp" %>
 <c:if test="${historial!=null}">
     <div class="col-12 busqueda">    
-        <h1>Notificaciones</h1>
+        <h1>Notificaciones de Tickets</h1>
     </div>
     <c:forEach  begin="${li-1}" end="${ls-1}" varStatus="i">
         <div class="col-12 ">
@@ -26,7 +26,7 @@
 
 <c:if test="${historial==null}">
     <div class="col-12 busqueda">    
-        <h1>Nofiticaciones</h1>
+        <h1>No tienes notifiaciones aun</h1>
     </div>
 </c:if>
 

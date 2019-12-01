@@ -32,10 +32,6 @@
         <servlet-name>Notificacion</servlet-name>
         <servlet-class>com.trevor.control.Notificacion</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>Reportes</servlet-name>
-        <servlet-class>com.trevor.control.Reportes</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -67,18 +63,6 @@
     <servlet-mapping>
         <servlet-name>Notificacion</servlet-name>
         <url-pattern>/Notificacion</url-pattern>
-    </servlet-mapping>
-    <error-page>
-        <error-code>404</error-code>
-        <location>/Error</location>
-    </error-page>
-    <error-page>
-        <exception-type>java.lang.Throwable</exception-type>
-        <location>/Error</location>
-    </error-page>
-    <servlet-mapping>
-        <servlet-name>Reportes</servlet-name>
-        <url-pattern>/Reportes</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
