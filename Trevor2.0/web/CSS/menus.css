@@ -1,6 +1,7 @@
 *{
     padding: 0;
     margin: 0;
+    font-family: helvetica !important;
 }
 body{
     background-color: #6fb1b4;
@@ -18,17 +19,6 @@ body{
     overflow: visible;
     align-content: center;
 }
-/*.nav{
-    background-color: #3a727f;
-    height: 100vh;
-    position: sticky;
-    position: -webkit-sticky;
-    left: 0;
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    align-content: center;
-}*/
 .nav ul{
     width: 100%;
     list-style: none;
@@ -70,13 +60,21 @@ body{
     font-size: 25px;
 }
 
+.realtive{
+    position: relative;
+  min-height: 100vh;
+}
+
+#content{
+     padding-bottom: 2.5rem; 
+}
 /*footer*/
 .footer {
+    position: fixed;
     width: 100%;
     text-align: center;
     color: #3a727f;
     cursor: default;
-    position: fixed;
     bottom: 0;
     height: 2.5rem; 
 }
@@ -85,19 +83,20 @@ body{
     width: 100%;
     text-align: center;
     position: fixed;
-    bottom: 30px;
+    bottom: 35px;
 }
 
 .footer2>a{
     border: 2px solid #3a727f;
     font-size: 20px;
     padding: 10px;
-    color:#3a727f;
+    color: #3a727f;
     text-decoration: none;
+    border-radius: 10px;
 }
 
 .footer2>:hover{
     background-color: #3a727f;
     color: #6fb1b4;
-    transition: 0.5s;
+    transition: 1s;
 }

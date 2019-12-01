@@ -29,144 +29,76 @@
         </div>
         <div class="cuadro">
             <div class="col-6 cuadrore" id="sinResolver">
-                <form action="Vision?accion=generar_reportes" method="Post">
-                    <h3 style="text-align: center">Detalle de reporte por estado </h3>
-                    <div><label for="estado"/>Estado: </div>
-                    <div>
-                        <select name="estado">
-                            <c:forEach items="${estado}" var="es">
-                                <option value="${es.idestado}">${es.estado}</option>
-                            </c:forEach>
-                        </select>
-                    </div>
-                    <h4>Dia : </h4>
-                    <input class="nuevafecha" type="date" name="txtFecha" size="25">
-                    <br>
-                    <br>
-                    <h4>Mes: </h4>
-
-                    <select name="mesreporte">
-                        <c:forEach begin="0" end="${mes.size()-1}" varStatus="m">
-                            <option value="${mes.get(m.index)}">${mes.get(m.index)}</option>
-                        </c:forEach>
-                    </select>
-                    <br>
-                    <br>
-
-                    <h4>Año: </h4>
-
-                    <select name="añoreporte">
-                        <c:forEach items="${ao}" var="a">
-                            <option value="${a}">${a}</option>
-                        </c:forEach>
-                    </select>
-                    <br>
+                <form action="Reportes?accion=reporte_estado" method="Post">
+                    <table class="col-12">
+                        <tr> <h3 style="text-align: center; color: #3a727f;">Detalle de reporte de Administradores</h3></tr>
+                        <tr><p style="text-align: center; color: #3a727f;"> Digite el rango de fecha en el que desea realizar el reporte</p></tr>
+                        <tr >
+                            <td colspan="3"><h4 style="color:#3a727f">Desde:</h4></td>
+                            <td colspan="3"><h4  style="color:#3a727f">Hasta:</h4></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3"><input class="nuevafecha" type="date" name="fechaini" size="25"></td>
+                            <td colspan="3"><input class="nuevafecha" type="date" name="fechafin" size="25"></td>
+                        </tr>
+                    </table>
                     <input type="submit" class=" col-4 generarreportelista" value="Generar Reporte"/>
                 </form> 
 
             </div>
 
             <div class="col-6 cuadrore" id="vencidos">
-                <form action="Vision?accion=generar_reportes" method="Post">
-                    <h3 style="text-align: center">Detalle de reporte por tipo </h3>
-                    <div><label for="tipo"/>Tipo </div>
-                    <div>
-                        <select name="tipo">
-                            <c:forEach items="${tipo}" var="tp">
-                                <option value="${tp}">${tp}</option>
-                            </c:forEach>
-                        </select>
-                    </div>
-                    <h4>Dia : </h4>
-                    <input class="nuevafecha" type="date" name="txtFecha" size="25">
-                    <br>
-                    <br>
-                    <h4>Mes: </h4>
-
-                    <select name="mesreporte">
-                        <c:forEach begin="0" end="${mes.size()-1}" varStatus="m">
-                            <option value="${mes.get(m.index)}">${mes.get(m.index)}</option>
-                        </c:forEach>
-                    </select>
-                    <br>
-                    <br>
-
-                    <h4>Año: </h4>
-
-                    <select name="añoreporte">
-                        <c:forEach items="${ao}" var="a">
-                            <option value="${a}">${a}</option>
-                        </c:forEach>
-                    </select>
-                    <br>
+                <form action="Reportes?accion=reporte_problema" method="Post">
+                    <table class="col-12">
+                        <tr> <h3 style="text-align: center; color: #3a727f;">Detalle de reporte de Administradores</h3></tr>
+                        <tr><p style="text-align: center; color: #3a727f;"> Digite el rango de fecha en el que desea realizar el reporte</p></tr>
+                        <tr >
+                            <td colspan="3"><h4 style="color:#3a727f">Desde:</h4></td>
+                            <td colspan="3"><h4  style="color:#3a727f">Hasta:</h4></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3"><input class="nuevafecha" type="date" name="fechaini" size="25"></td>
+                            <td colspan="3"><input class="nuevafecha" type="date" name="fechafin" size="25"></td>
+                        </tr>
+                    </table>
                     <input type="submit" class=" col-4 generarreportelista" value="Generar Reporte"/>
                 </form>
 
             </div>
 
             <div class="col-6 cuadrore" id="Vence_hoy">
-                <form action="Vision?accion=generar_reportes" method="Post">
-                    <h3 style="text-align: center">Detalle de reporte por Historial </h3>
-                
-
-                    <h4>Dia : </h4>
-                    <input class="nuevafecha" type="date" name="txtFecha" size="25">
-                    <br>
-                    <br>
-                    <h4>Mes: </h4>
-
-                    <select name="mesreporte">
-                        <c:forEach begin="0" end="${mes.size()-1}" varStatus="m">
-                            <option value="${mes.get(m.index)}">${mes.get(m.index)}</option>
-                        </c:forEach>
-                    </select>
-                    <br>
-                    <br>
-
-                    <h4>Año: </h4>
-
-                    <select name="añoreporte">
-                        <c:forEach items="${ao}" var="a">
-                            <option value="${a}">${a}</option>
-                        </c:forEach>
-                    </select>
-                    <br>
+                <form action="Reporte?accion=reporte_historial" method="Post">
+                    <table class="col-12">
+                        <tr> <h3 style="text-align: center; color: #3a727f;">Detalle de reporte de Administradores</h3></tr>
+                        <tr><p style="text-align: center; color: #3a727f;"> Digite el rango de fecha en el que desea realizar el reporte</p></tr>
+                        <tr >
+                            <td colspan="3"><h4 style="color:#3a727f">Desde:</h4></td>
+                            <td colspan="3"><h4  style="color:#3a727f">Hasta:</h4></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3"><input class="nuevafecha" type="date" name="fechaini" size="25"></td>
+                            <td colspan="3"><input class="nuevafecha" type="date" name="fechafin" size="25"></td>
+                        </tr>
+                    </table>
                     <input type="submit" class=" col-4 generarreportelista" value="Generar Reporte"/>
                 </form>
 
             </div>
 
             <div class="col-6 cuadrore" id="abiertos">
-                <form action="Vision?accion=generar_reportes" method="Post">
-                    <h3 style="text-align: center">Detalle de reporte por prioridad </h3>
-                    <div class=""><label for="Prioridad"/>Prioridad: </div>
-                    <select name="Prioridad">
-                        <c:forEach items="${Prioridad}" var="pr">
-                            <option value="${pr}">${pr}</option>
-                        </c:forEach>
-                    </select>
-                    <h4>Dia : </h4>
-                    <input class="nuevafecha" type="date" name="txtFecha" size="25">
-                    <br>
-                    <br>
-                    <h4>Mes: </h4>
-
-                    <select name="mesreporte">
-                        <c:forEach begin="0" end="${mes.size()-1}" varStatus="m">
-                            <option value="${mes.get(m.index)}">${mes.get(m.index)}</option>
-                        </c:forEach>
-                    </select>
-                    <br>
-                    <br>
-
-                    <h4>Año: </h4>
-
-                    <select name="añoreporte">
-                        <c:forEach items="${ao}" var="a">
-                            <option value="${a}">${a}</option>
-                        </c:forEach>
-                    </select>
-                    <br>
+                <form action="Reportes?accion=reporte_prioridad" method="Post">
+                    <table class="col-12">
+                        <tr> <h3 style="text-align: center; color: #3a727f;">Detalle de reporte de Administradores</h3></tr>
+                        <tr><p style="text-align: center; color: #3a727f;"> Digite el rango de fecha en el que desea realizar el reporte</p></tr>
+                        <tr >
+                            <td colspan="3"><h4 style="color:#3a727f">Desde:</h4></td>
+                            <td colspan="3"><h4  style="color:#3a727f">Hasta:</h4></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3"><input class="nuevafecha" type="date" name="fechaini" size="25"></td>
+                            <td colspan="3"><input class="nuevafecha" type="date" name="fechafin" size="25"></td>
+                        </tr>
+                    </table>
                     <input type="submit" class=" col-4 generarreportelista" value="Generar Reporte"/>
                 </form>
 
@@ -174,30 +106,19 @@
             </div>
 
             <div class="col-6 cuadrore" id="pendientes">
-                <form action="Vision?accion=generar_reportes" method="Post">
-                    <h3 style="text-align: center">Detalle de reporte por Administradores </h3>
-                    <h4>Dia : </h4>
-                    <input class="nuevafecha" type="date" name="txtFecha" size="25">
-                    <br>
-                    <br>
-                    <h4>Mes: </h4>
-
-                    <select name="mesreporte">
-                        <c:forEach begin="0" end="${mes.size()-1}" varStatus="m">
-                            <option value="${mes.get(m.index)}">${mes.get(m.index)}</option>
-                        </c:forEach>
-                    </select>
-                    <br>
-                    <br>
-
-                    <h4>Año: </h4>
-
-                    <select name="añoreporte">
-                        <c:forEach items="${ao}" var="a">
-                            <option value="${a}">${a}</option>
-                        </c:forEach>
-                    </select>
-                    <br>
+                <form action="Reportes?accion=generar_reportes" method="Post">
+                    <table class="col-12">
+                        <tr> <h3 style="text-align: center; color: #3a727f;">Detalle de reporte de Administradores</h3></tr>
+                        <tr><p style="text-align: center; color: #3a727f;"> Digite el rango de fecha en el que desea realizar el reporte</p></tr>
+                        <tr >
+                            <td colspan="3"><h4 style="color:#3a727f">Desde:</h4></td>
+                            <td colspan="3"><h4  style="color:#3a727f">Hasta:</h4></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3"><input class="nuevafecha" type="date" name="fechaini" size="25"></td>
+                            <td colspan="3"><input class="nuevafecha" type="date" name="fechafin" size="25"></td>
+                        </tr>
+                    </table>
                     <input type="submit" class=" col-4 generarreportelista" value="Generar Reporte"/>
                 </form>
 

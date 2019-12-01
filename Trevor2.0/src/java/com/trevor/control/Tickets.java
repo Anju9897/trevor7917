@@ -65,7 +65,7 @@ public class Tickets extends HttpServlet {
                         vm.add(v);
                     }
                     double n_registros = rs[0].length;
-                    double registros_pagina = vm.size() < 6 ? vm.size() : 6;
+                    double registros_pagina = vm.size() < 5 ? vm.size() : 5;
                     int n_paginas = (n_registros < registros_pagina ? 1 : (int) Math.ceil(n_registros / registros_pagina));
 
                     request.getSession().removeAttribute("vm");
@@ -198,10 +198,11 @@ public class Tickets extends HttpServlet {
                                
                                ht.setIdticket(t3.getIdticket());
                                ht.setU_reporta(t3.getU_reporta());
-                               ht.setFecha_final(new Timestamp(new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("fechafin")).getTime()));
                                if(t3.getIdestado()==3){
                                    ht.setFecha_final(new Timestamp(new Date().getTime()));
-                                   ht.setObservaciones(request.getParameter("Observacion"));
+                                   ht.setObservaciones(request.getParameter("observacion"));
+                               }else{
+                                   ht.setFecha_final(new Timestamp(new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("fechafin")).getTime()));
                                }
                                
                                List<Object> params = new ArrayList<>();

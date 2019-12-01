@@ -1,5 +1,9 @@
-<%@page import="java.text.SimpleDateFormat"%>
+
 <%@include file="/_menu.jsp" %>
+
+<div class="col-12 busqueda">    
+    <h1>Tickets Asignados</h1>
+</div>
 
 <div class="col-12">
     <div class="col-1"></div>
@@ -25,9 +29,9 @@
             <div class="col-1"></div>
             <a class="col-10 fondoMs" href="Tickets?accion=detalle&id=${vm.idticket}">
                 <div class="col-11 opcion3">
-                    <p class="col-3" ><b>Usuario:</b></br><i>${vm.usuario}</i></p>
-                    <p class="col-3" ><b>Fecha:</b></br><i>${vm.fecha}</i></p>
-                    <p class="col-3" ><b>Tipo:</b></br><i>${vm.tipo}</i></p>
+                    <p class="col-3" ><b>Reporta:</b></br><i>${vm.usuario}</i></p>
+                    <p class="col-3" ><b>Fecha Asignado:</b></br><i> <fmt:formatDate type="date" dateStyle = "short" value="${vm.fecha}"/> </i></p>
+                    <p class="col-3" ><b>Problema:</b></br><i>${vm.tipo}</i></p>
                     <p class="col-3" ><b>Estado:</b></br><i>${vm.estado}</i></p>
                 </div>
                 <div class="col-1">

@@ -3,7 +3,7 @@
 }
 header{
     height: 55px;
-    background-color: black;
+    background-color: #3a727f;
 }
 .conte{
      background-color: #6fb1b4;
@@ -20,6 +20,7 @@ header{
     font-size: 30px;
     text-align: center;
     padding: 10px;
+    color: #274b58;
 }
 .irlog{
     display: flex;
@@ -32,8 +33,7 @@ h1{
     margin-top: -8px;
     font-size: 80px;
     width: 100%;
-    background-color: #3a727f;
-    color: #ffffff;
+    color: #274b58;
 }
 #log{
     text-decoration: none;
@@ -151,7 +151,13 @@ h3{
 .info{
     text-align: justify;
     color: #274b58;
-    font-family: fantasy;
+    font-family: Helvetica;
 }
 
+.footerfondo{
+    width: 100%;
+    text-align: center;
+    color: #6fb1b4;
+    background-color: #274b58;
+}
 

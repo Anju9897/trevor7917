@@ -105,4 +105,15 @@ $(document).ready(function(){
         $("#principal").fadeIn();
         $("#btnredactar").fadeIn();
     });
+    
+    $("#obv").fadeOut();
+    
+    $('#statu').change(function() {
+        if($(this).val()== "3"){
+            $("#obv").fadeIn();
+        }else{
+            $("#obv").fadeOut();
+        }
+    });
+    
 });
